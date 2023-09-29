@@ -14,7 +14,7 @@
     margin-bottom: 60px;
 }
 body {
-    background-image: url(../img/Rectangle\ 512.png);
+    background-image: url(https://revistacampoenegocios.com.br/wp-content/uploads/2020/08/Foto-02-1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
@@ -28,9 +28,8 @@ input {
     display: block;
     margin: 0 20px 20px 20px;
     font-size: 18px;
-    padding: 10px 10px;
-    width: 400px;
-    border: 1px solid #38703D;
+    padding: 5px 5px;
+    border: 1px solid #696969;
 }
 input::placeholder {
     font-size: 18px;
@@ -39,30 +38,31 @@ input::placeholder {
 }
 .sep {
     width: 1px;
-    height: 360px;
+    height: 300px;
     background-color: #afafaf;
 }
-.boxAB {
+.lados {
     display: flex;
     gap: 20px;
 }
 .box {
+    border-radius: 10px;
     text-align: center;
-    padding: 50px;
+    padding: 20px;
     background-color: #fff;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-shadow: rgba(0, 0, 0, 0.281) 0px 7px 29px 0px;
 }
 button {
     cursor: pointer;
     width:  100%;
-    padding: 15px;
+    padding: 10px;
     font-size: 20px;
     background: #38703D;
     border: none;
     border-radius: 40px;
     color: #fff;
     font-weight: bold;
-    margin-top: 60px;
+    margin-top: 20px;
     transition: 0.5s;
 }
 button:hover {
