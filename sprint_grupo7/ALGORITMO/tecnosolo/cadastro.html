@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="./img/logo_tecnosolo.png">
+    <link rel="stylesheet" href="./css/cadastro.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecnosolo - cadastro</title>
+</head>
+<body>
+    <div class="box">
+        <img class="logo" src="./img/logo_tecnosolo.png" alt="">
+        <h2 class="titulo">Criar conta</h2>
+        <form class="cadastro">
+            <div class="boxAB">
+                <div class="boxA">
+                    <input type="email" id="iptEmail" placeholder="informe o e-mail" required>
+                    <input type="password" id="iptSenha" placeholder="senha" required>
+                    <input type="text" id="iptNome" placeholder="informe o seu nome" required>
+                    <input type="text" id="iptCnpj" placeholder="informe o CNPJ da empresa" required>
+                    <input type="text" id="iptTelefone" placeholder="informe o telefone" required>
+                    <input type="text" id="iptRazaoSocial" placeholder="informe o nome da empresa" required>
+                </div>
+                <div class="sep"></div>
+                <div class="boxB">
+                    <input type="text" id="iptCep" placeholder="informe o CEP" required>
+                    <input type="text" id="iptUF" placeholder="informe o UF" required>
+                    <input type="text" id="iptCidade" placeholder="informe a cidade" required>
+                    <input type="text" id="iptBairro" placeholder="informe o bairro" required>
+                    <input type="text" id="iptRua" placeholder="informe a rua" required>
+                    <input type="text" id="iptComplemento" placeholder="informe o complemento">
+                </div>
+            </div>
+            <button onclick="cadastrar()">Cadastrar</button>
+        </form>
+        <p id="mensagemErro"></p>
+    </div>
+</body>
+</html>
+<script>
+    function cadastrar() {
+        var email = iptEmail.value
+        var senha = iptSenha.value
+        var nome = iptNome.value
+        var cnpj = iptCnpj.value
+        var telefone = iptTelefone.value
+        var razaoSocial = iptRazaoSocial.value
+        var cep = iptCep.value
+        var UF = iptUF.value
+        var cidade = iptCidade.value
+        var bairro = iptBairro.value
+        var rua = iptRua.value
+        var complemento = iptComplemento.value
+        
+        if (email.indexOf('@')) {
+
+        } else {
+            mensagemErro.innerHTML = 'E-mail inválido'
+        }
+
+    }
+</script>
