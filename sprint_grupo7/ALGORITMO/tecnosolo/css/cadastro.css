@@ -68,3 +68,11 @@ button {
 button:hover {
     background: #102512;
 }
+
+#mensagemErro {
+    color: red;
+    margin-top: 16px;
+    font-size: 20px;
+    font-weight: 700;
+
+}

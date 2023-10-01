@@ -15,10 +15,10 @@
             <div class="boxAB">
                 <div class="boxA">
                     <input type="email" id="iptEmail" placeholder="informe o e-mail" required>
-                    <input type="password" id="iptSenha" placeholder="senha" required>
+                    <input type="text" id="iptSenha" placeholder="senha" required>
                     <input type="text" id="iptNome" placeholder="informe o seu nome" required>
-                    <input type="text" id="iptCnpj" placeholder="informe o CNPJ da empresa" required>
-                    <input type="text" id="iptTelefone" placeholder="informe o telefone" required>
+                    <input type="number" id="iptCnpj" placeholder="informe o CNPJ da empresa" required>
+                    <input type="number" id="iptTelefone" placeholder="informe o telefone" required>
                     <input type="text" id="iptRazaoSocial" placeholder="informe o nome da empresa" required>
                 </div>
                 <div class="sep"></div>
@@ -52,11 +52,46 @@
         var rua = iptRua.value
         var complemento = iptComplemento.value
         
-        if (email.indexOf('@')) {
+        mensagemErro.innerHTML = ``
+        
+        
 
-        } else {
-            mensagemErro.innerHTML = 'E-mail inválido'
-        }
+        if (email.indexOf('@') >= 0) {} 
+            else mensagemErro.innerHTML = 'E-mail inválido'
+        
+        if (email.endsWith('.com') || email.endsWith('.br') || email.endsWith('.school')){}
+            else mensagemErro.innerHTML += '<br>Terminação do email é inválida'
 
-    }
+       
+            var possui_especial = 
+            senha.indexOf('#') >= 0 || 
+            senha.indexOf('@') >= 0 || 
+            senha.indexOf('!') >= 0 || 
+            senha.indexOf('%') >= 0 ||
+            senha.indexOf('?') >= 0 ||
+            senha.indexOf('-') >= 0 ||
+            senha.indexOf('+') >= 0 ||
+            senha.indexOf('_') >= 0;
+    
+            if (senha.length >= 8) {}
+                else mensagemErro.innerHTML += '<br>Insira uma senha com pelo menos 8 dígitos'
+                
+            if (possui_especial) {}
+                else mensagemErro.innerHTML += '<br>A senha deve ter pelo menos 1 caractere especial'
+    
+            if (senha != senha.toUpperCase() && senha != senha.toLowerCase()){}
+                else mensagemErro.innerHTML += `
+                    <br>A senha deve ter pelo menos uma letra maiúscula
+                    <br>A senha deve ter pelo menos uma letra minúscula`
+            
+            //if senha tiver número//
+            
+
+            if (cnpj.length == 14){}
+                else mensagemErro.innerHTML += `<br>CNPJ inválido`
+
+            if (cep == 8){}
+                else mensagemErro += `<br> CEP inválido`
+            
+            }
 </script>
