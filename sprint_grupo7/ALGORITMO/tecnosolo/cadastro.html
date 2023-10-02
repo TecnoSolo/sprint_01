@@ -34,15 +34,14 @@
                     <input type="text" id="iptComplemento" placeholder="Complemento">
                 </div>
             </div>
-            <button onclick="cadastrar(event)">Cadastrar</button>
+            <button onclick="cadastrar()">Cadastrar</button>
         </form>
         <p style="font-family: Arial, Helvetica, sans-serif; font-weight: 100;" id="mensagemErro"></p>
     </div>
 </body>
 </html>
 <script>
-    function cadastrar(event) {
-        event.preventDefault()
+    function cadastrar() {
         var email = iptEmail.value
         var senha = iptSenha.value
         var nome = iptNome.value
