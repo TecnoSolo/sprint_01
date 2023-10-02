@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <link rel="icon" href="./img/logo_tecnosolo.png">
@@ -7,38 +8,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tecnosolo - cadastro</title>
 </head>
+
 <body>
     <div class="box">
         <img class="logo" src="./img/logo_tecnosolo.png" alt="">
         <h2 class="titulo">Criar conta</h2>
-        <form class="cadastro">
+        <div class="cadastro">
 
-            <div class="boxAB"> 
-            <div class="lados">
-                <div class="lado-direito">
-                    <input type="email" id="iptEmail" placeholder="E-mail" required>
-                    <input type="password" id="iptSenha" placeholder="Senha" required>
-                    <input type="text" id="iptNome" placeholder="Nome" required>
-                    <input type="text" id="iptCnpj" placeholder="CNPJ" required>
-                    <input type="text" id="iptTelefone" placeholder="Telefone" required>
-                    <input type="text" id="iptRazaoSocial" placeholder="Nome da Empresa" required>
+            <div class="boxAB">
+                <div class="lados">
+                    <div class="lado-direito">
+                        <input type="email" id="iptEmail" placeholder="E-mail" required>
+                        <input type="password" id="iptSenha" placeholder="Senha" required>
+                        <input type="text" id="iptNome" placeholder="Nome" required>
+                        <input type="text" id="iptCnpj" placeholder="CNPJ" required>
+                        <input type="text" id="iptTelefone" placeholder="Telefone" required>
+                        <input type="text" id="iptRazaoSocial" placeholder="Nome da Empresa" required>
 
+                    </div>
+                    <div class="sep"></div>
+                    <div class="lado-esquerdo">
+                        <input type="text" id="iptCep" placeholder="CEP" required>
+                        <input type="text" id="iptUF" placeholder="UF" required>
+                        <input type="text" id="iptCidade" placeholder="Cidade" required>
+                        <input type="text" id="iptBairro" placeholder="Bairro" required>
+                        <input type="text" id="iptRua" placeholder="Rua" required>
+                        <input type="text" id="iptComplemento" placeholder="Complemento">
+                    </div>
                 </div>
-                <div class="sep"></div>
-                <div class="lado-esquerdo">
-                    <input type="text" id="iptCep" placeholder="CEP" required>
-                    <input type="text" id="iptUF" placeholder="UF" required>
-                    <input type="text" id="iptCidade" placeholder="Cidade" required>
-                    <input type="text" id="iptBairro" placeholder="Bairro" required>
-                    <input type="text" id="iptRua" placeholder="Rua" required>
-                    <input type="text" id="iptComplemento" placeholder="Complemento">
-                </div>
+                <button onclick="cadastrar()">Cadastrar</button>
             </div>
-            <button onclick="cadastrar()">Cadastrar</button>
-        </form>
-        <p style="font-family: Arial, Helvetica, sans-serif; font-weight: 100;" id="mensagemErro"></p>
-    </div>
+            <p style="font-family: Arial, Helvetica, sans-serif; font-weight: 100;" id="mensagemErro"></p>
+        </div>
 </body>
+
 </html>
 <script>
     function cadastrar() {
@@ -54,47 +57,47 @@
         var bairro = iptBairro.value
         var rua = iptRua.value
         var complemento = iptComplemento.value
-        
+
         mensagemErro.innerHTML = ``
-        
-        
 
-        if (email.indexOf('@') >= 0) {} 
-            else mensagemErro.innerHTML = 'E-mail inválido'
-        
-        if (email.endsWith('.com') || email.endsWith('.br') || email.endsWith('.school')){}
-            else mensagemErro.innerHTML += '<br>Terminação do email é inválida'
 
-       
-            var possui_especial = 
-            senha.indexOf('#') >= 0 || 
-            senha.indexOf('@') >= 0 || 
-            senha.indexOf('!') >= 0 || 
+
+        if (email.indexOf('@') >= 0) { }
+        else mensagemErro.innerHTML = 'E-mail inválido'
+
+        if (email.endsWith('.com') || email.endsWith('.br') || email.endsWith('.school')) { }
+        else mensagemErro.innerHTML += '<br>Terminação do email é inválida'
+
+
+        var possui_especial =
+            senha.indexOf('#') >= 0 ||
+            senha.indexOf('@') >= 0 ||
+            senha.indexOf('!') >= 0 ||
             senha.indexOf('%') >= 0 ||
             senha.indexOf('?') >= 0 ||
             senha.indexOf('-') >= 0 ||
             senha.indexOf('+') >= 0 ||
             senha.indexOf('_') >= 0;
-    
-            if (senha.length >= 8) {}
-                else mensagemErro.innerHTML += '<br>Insira uma senha com pelo menos 8 dígitos'
-                
-            if (possui_especial) {}
-                else mensagemErro.innerHTML += '<br>A senha deve ter pelo menos 1 caractere especial'
-    
-            if (senha != senha.toUpperCase() && senha != senha.toLowerCase()){}
-                else mensagemErro.innerHTML += `
+
+        if (senha.length >= 8) { }
+        else mensagemErro.innerHTML += '<br>Insira uma senha com pelo menos 8 dígitos'
+
+        if (possui_especial) { }
+        else mensagemErro.innerHTML += '<br>A senha deve ter pelo menos 1 caractere especial'
+
+        if (senha != senha.toUpperCase() && senha != senha.toLowerCase()) { }
+        else mensagemErro.innerHTML += `
                     <br>A senha deve ter pelo menos uma letra maiúscula
                     <br>A senha deve ter pelo menos uma letra minúscula`
-            
-            //if senha tiver número//
-            
 
-            if (cnpj.length == 14){}
-                else mensagemErro.innerHTML += `<br>CNPJ inválido`
+        //if senha tiver número//
 
-            if (cep == 8){}
-                else mensagemErro += `<br> CEP inválido`
-            
-            }
+
+        if (cnpj.length == 14) { }
+        else mensagemErro.innerHTML += `<br>CNPJ inválido`
+
+        if (cep == 8) { }
+        else mensagemErro.innerHTML += `<br> CEP inválido`
+
+    }
 </script>

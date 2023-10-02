@@ -38,6 +38,9 @@ input::placeholder {
     color: #afafaf;
     padding: 10px;
 }
+input:focus {
+    outline-color: #38703D;
+}
 .sep {
     width: 1px;
     height: 300px;
