@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <p>Tamanho em m² da plantação de tomate: </p>
+      <input type="text" id="qtd_m2">
+    <p>Quantidade de litros de água utilizado na safra: </p>
+      <input type="text" id="qtd_agua">
+    <p>Está usando nosso produto: </p>
+      <input type="text" id="val_prod">
+
+    <button onclick="analisar()">Simular</button>
+  
+      <div id="mensagem"></div>
+
+</body>
+</html>
+
+
+<script>
+  
+      function analisar(){
+
+        var quantidade_m2 = Number(qtd_m2.value);
+        var quantidade_agua = Number(qtd_agua.value);
+        var quantidade_produzida;
+        var plantas;
+        var validacao_produto = val_prod.value;
+        var valor_producao;
+        
+        // Quantidade produzida por cada planta 7kg
+        var prod_planta = 7000;
+
+        if((quantidade_m2 <= 10000 || quantidade_m2 >= 10000) && (validacao_produto == "Sim" || validacao_produto == "sim")){
+
+        // cada hectare possui em média 13.500 plantas de tomate
+          
+          plantas = (13500 * quantidade_m2) / 10000
+
+
+          quantidade_produzida = parseFloat((plantas * prod_planta) / 1000000);
+
+          
+          valor_producao = 2.72 * quantidade_produzida;
+        
+
+          quantidade_agua = (quantidade_agua/1000) * 4.09;
+
+
+          mensagem.innerHTML = `Utilizando nosso sistema a produção da sua plantação irá aumentar em 10%, passando de 
+
+          ${quantidade_produzida}t para ${quantidade_produzida = quantidade_produzida + (quantidade_produzida * 0.10)}t <br> E irá aumentar o seu faturamento de R$${valor_producao.toFixed(1)}mil para R$${valor_producao = (valor_producao + (valor_producao * 0.10)).toFixed(1)}mil <br>
+          Com o nosso produto você irá economizar R$${quantidade_agua - (quantidade_agua - (quantidade_agua * 0.15))}mil portanto sua conta de água será de R$${quantidade_agua = quantidade_agua - (quantidade_agua * 0.15)}mil;
+          
+          
+          
+          `
+
+
+        }else if((quantidade_m2 >= 10000 || quantidade_m2 <= 10000 ) && (validacao_produto == "Não" || validacao_produto == "nao" || validacao_produto == "não")){
+
+          plantas = (13500 * quantidade_m2) / 10000;
+
+
+  
+
+          quantidade_produzida = parseFloat((plantas * prod_planta) / 1000000);
+          valor_producao = 2.72 * quantidade_produzida;
+
+
+          quantidade_agua = (quantidade_agua/1000) * 4.09;
+
+    
+
+          mensagem.innerHTML = `Caso tivesse utilizado nosso sistema a produção da sua plantação iria aumentar em 10%, passando de ${quantidade_produzida.toFixed(2)}t para ${quantidade_produzida + (quantidade_produzida * 0.10)}t <br> E iria aumentar o seu faturamento de R$${valor_producao.toFixed(1)}mil para R$${((quantidade_produzida + (quantidade_produzida * 0.10)) * 2.72).toFixed(1)}mil.<br>
+          E o valor da conta da água reduziria de R$${quantidade_agua}mil para R$${quantidade_agua = quantidade_agua - (quantidade_agua * 0.15)}`
+
+
+
+
+        }
+
+
+      }
+      
+
+
+      
+
+    
+
+
+
+
+</script>
