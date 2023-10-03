@@ -1,0 +1,81 @@
+
+body {
+    background-color: #F1F1F1;
+}
+.calculadora {
+    text-align: center;
+    margin-top: 50px;
+    
+}
+.titulo {
+    padding: 20px;
+    font-size: 50px;
+    color: #38703D;
+}
+.titulo-tec {
+    font-size: 25px;
+    padding-bottom: 20px;
+}
+.box {
+    display: flex;
+    justify-content: center;
+
+}
+.inputs {
+    width: 500px;
+    background-color: #fff;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding: 50px;
+}
+.inputs p {
+   font-size: 20px;
+   text-align: center;
+}
+.inputs input {
+    width: 90%;
+    margin: 0 3%;
+    background-color: #F1F1F1;
+    margin-bottom: 30px;
+    padding: 15px 10px;
+    border: none;
+}
+.inputs button {
+    display: block;
+    margin-top: 20px;
+    padding: 10px 0;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #2F3723;
+    border-radius: 30px;
+    color: white;
+    width: 100%;
+}
+.resultado {
+    background-color: #fff;
+    width: 500px;
+    padding: 20px;
+}
+.calculadora ul {
+    text-align: left;
+    margin-bottom: 30px;
+    line-height: 25px;
+}
+.desc{
+    margin-bottom: 30px;
+}
+#mensagem {
+    background-color: #F1F1F1;
+    padding: 10px;
+    border-radius: 10px;
+    display: none;
+    line-height: 25px;
+}
+.green {
+    color: #38703D;
+}
+.vermelho {
+    color: red;
+}

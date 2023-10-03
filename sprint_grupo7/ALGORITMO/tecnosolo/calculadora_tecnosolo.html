@@ -2,22 +2,66 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="./css/header.css">
+  <link rel="icon" href="./img/logo_tecnosolo.png">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="./css/calculadora.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Tecnosolo - Calculadora financeira</title>
 </head>
 <body>
+  <header class="cabecalho">
+    <div class="container">
+        <div class="div-logo">
+            <img width="52px" src="./img/logo_tecnosolo.png" alt="logo da empresa tecnosolo" class="logo">
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Sobre nós</a></li>
+            </ul>
+        </nav>
+        <div class="idioma"><button>pt-Br<i class='bx bx-globe'></i></button></div>
+        <div class="col-1">
+            <ul>
+                <li class="sup"><a href="">Suporte</a></li>
+                <li class="conta"><a href="">Conta</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
 
-  <p>Tamanho em m² da plantação de tomate: </p>
-      <input type="text" id="qtd_m2">
-    <p>Quantidade de litros de água utilizado na safra: </p>
-      <input type="text" id="qtd_agua">
-    <p>Está usando nosso produto: </p>
-      <input type="text" id="val_prod">
+  <div class="calculadora">
+    <h2 class="titulo">Simulador Financeiro</h2>
+          <div class="box">
+            <div class="inputs">
+              <p>Tamanho em m² da plantação de tomate: </p>
+            <input type="text" id="qtd_m2">
+          <p>Quantidade de litros de água utilizado na safra: </p>
+            <input type="text" id="qtd_agua">
+          <p>Está usando nosso produto: </p>
+            <input type="text" id="val_prod">
 
-    <button onclick="analisar()">Simular</button>
-  
-      <div id="mensagem"></div>
-
+          <button onclick="analisar()">Simular</button>
+        
+        </div>
+        <div class="resultado">
+          <h3 class="titulo-tec">Tecnosolo</h3>
+          <ul class="ideal">
+            <li>Umidade ideal para solos arenosos é entre 60% e 80%.</li>
+            <li>Umidade ideal para solos argilosos é entre 60% e 70%.</li>
+            <li>um tomate maduro possui cerca de 93% a 94% de água.</li>
+          </ul>
+          <p class="desc">A partir de fontes de pesquisas <strong>EMBRAPA</strong> uma planção de tomate precisa de 2 a 7 milhões de litros de água por hectare por safra de alta produtividade.</p>
+          <ul>
+            <li>10.00m² de plantação possui cerca de 13.500 plantas sendo:</li>
+            <li>Cada <strong>KG</strong> tomate custa R$2,72.</li>
+            <li>Cada m³ de agua custa R$4,09.</li>
+          </ul>
+          <p id="mensagem"></p>
+        </div>
+        </div>
+  </div>
 </body>
 </html>
 
@@ -25,7 +69,7 @@
 <script>
   
       function analisar(){
-
+        mensagem.style.display = 'block'
         var quantidade_m2 = Number(qtd_m2.value);
         var quantidade_agua = Number(qtd_agua.value);
         var quantidade_produzida;
@@ -52,10 +96,10 @@
           quantidade_agua = (quantidade_agua/1000) * 4.09;
 
 
-          mensagem.innerHTML = `Utilizando nosso sistema a produção da sua plantação irá aumentar em 10%, passando de 
+          mensagem.innerHTML = `Utilizando nosso sistema a produção da sua plantação irá aumentar em <strong>10%</strong>, passando de 
 
-          ${quantidade_produzida}t para ${quantidade_produzida = quantidade_produzida + (quantidade_produzida * 0.10)}t <br> E irá aumentar o seu faturamento de R$${valor_producao.toFixed(1)}mil para R$${valor_producao = (valor_producao + (valor_producao * 0.10)).toFixed(1)}mil <br>
-          Com o nosso produto você irá economizar R$${quantidade_agua - (quantidade_agua - (quantidade_agua * 0.15))}mil portanto sua conta de água será de R$${quantidade_agua = quantidade_agua - (quantidade_agua * 0.15)}mil;
+          <b class='vermelho'>${quantidade_produzida}</b>t para <b class='green'>${quantidade_produzida = quantidade_produzida + (quantidade_produzida * 0.10)}t </b><br> E irá aumentar o seu faturamento de <b class='vermelho'>R$${valor_producao.toFixed(1)}mil </b> para <b class='green'>R$${valor_producao = (valor_producao + (valor_producao * 0.10)).toFixed(1)}mil </b><br>
+          Com o nosso produto você irá economizar <strong>R$${quantidade_agua - (quantidade_agua - (quantidade_agua * 0.15))}mil</strong> portanto sua conta de água será de <strong>R$${quantidade_agua = quantidade_agua - (quantidade_agua * 0.15)}mil</strong>;
           
           
           
