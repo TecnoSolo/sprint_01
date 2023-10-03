@@ -35,14 +35,13 @@
     <h2 class="titulo">Simulador Financeiro</h2>
           <div class="box">
             <div class="inputs">
+              <div class="valores">
               <p>Tamanho em m² da plantação de tomate: </p>
             <input type="text" id="qtd_m2">
           <p>Quantidade de litros de água utilizado na safra: </p>
             <input type="text" id="qtd_agua">
-          <p>Está usando nosso produto: </p>
-            <input type="text" id="val_prod">
-
           <button onclick="analisar()">Simular</button>
+                </div>
         
         </div>
         <div class="resultado">
@@ -52,11 +51,11 @@
             <li>Umidade ideal para solos argilosos é entre 60% e 70%.</li>
             <li>um tomate maduro possui cerca de 93% a 94% de água.</li>
           </ul>
-          <p class="desc">A partir de fontes de pesquisas <strong>EMBRAPA</strong> uma planção de tomate precisa de 2 a 7 milhões de litros de água por hectare por safra de alta produtividade.</p>
+          <p class="desc">A partir de fontes de pesquisas <strong>EMBRAPA</strong> uma planção de tomate precisa de 2 a 7 milhões de litros de água por hectare de safra de alta produtividade.</p>
           <ul>
-            <li>10.00m² de plantação possui cerca de 13.500 plantas sendo:</li>
+            <li>10.000m² de plantação possui cerca de 13.500 plantas sendo:</li>
             <li>Cada <strong>KG</strong> tomate custa R$2,72.</li>
-            <li>Cada m³ de agua custa R$4,09.</li>
+            <li>Cada <b>m³ </b> de agua custa R$4,09.</li>
           </ul>
           <p id="mensagem"></p>
         </div>
@@ -67,78 +66,64 @@
 
 
 <script>
+
   
       function analisar(){
-        mensagem.style.display = 'block'
+        mensagem.style.display = 'block';
         var quantidade_m2 = Number(qtd_m2.value);
         var quantidade_agua = Number(qtd_agua.value);
         var quantidade_produzida;
         var plantas;
-        var validacao_produto = val_prod.value;
         var valor_producao;
-        
-        // Quantidade produzida por cada planta 7kg
+
+
+        // Pega o valor da água em litro e divide por 1000 para descobrir o valor em m³ e multiplica por 4.09 que é o valor do lt/m³
+        quantidade_agua = (quantidade_agua/1000) * 4.09;
+
+
+      
+        // Está dando um desconto de 15% em cima do valor da água;
+        var quantidade_agua_prod = quantidade_agua - (quantidade_agua - (quantidade_agua * 0.15));
+         
+
+        // Quantidade produzida por cada planta que é 7kg
         var prod_planta = 7000;
 
-        if((quantidade_m2 <= 10000 || quantidade_m2 >= 10000) && (validacao_produto == "Sim" || validacao_produto == "sim")){
-
         // cada hectare possui em média 13.500 plantas de tomate
-          
+        // Então você pega 13.500 multiplica pelo tamanho da plantação e divide por 10.000 para descobrir QUANTAS PLANTAS TEM
           plantas = (13500 * quantidade_m2) / 10000
 
+        // Pega a quantidade de plantas que tem na plantação e multriplica pela produção média de cada planta que é 7kg (7000)
+        // Transformando o valor em KILOGRAMAS 
+        quantidade_produzida = parseFloat((plantas * prod_planta));
 
-          quantidade_produzida = parseFloat((plantas * prod_planta) / 1000000);
-
-          
-          valor_producao = 2.72 * quantidade_produzida;
-        
-
-          quantidade_agua = (quantidade_agua/1000) * 4.09;
+        // Transformando o valor em TONELADAS;
+        quantidade_produzida /= 1000000;
 
 
-          mensagem.innerHTML = `Utilizando nosso sistema a produção da sua plantação irá aumentar em <strong>10%</strong>, passando de 
+        // Está aumentando a quantidade produzida em 10%
+        var quantidade_produzida_prod = (quantidade_produzida + (quantidade_produzida * 0.10));
 
-          <b class='vermelho'>${quantidade_produzida}</b>t para <b class='green'>${quantidade_produzida = quantidade_produzida + (quantidade_produzida * 0.10)}t </b><br> E irá aumentar o seu faturamento de <b class='vermelho'>R$${valor_producao.toFixed(1)}mil </b> para <b class='green'>R$${valor_producao = (valor_producao + (valor_producao * 0.10)).toFixed(1)}mil </b><br>
-          Com o nosso produto você irá economizar <strong>R$${quantidade_agua - (quantidade_agua - (quantidade_agua * 0.15))}mil</strong> portanto sua conta de água será de <strong>R$${quantidade_agua = quantidade_agua - (quantidade_agua * 0.15)}mil</strong>;
-          
-          
-          
-          `
+        // Aqui está multiplicando a quantidade produzida por 2.72 (Valor do kg do tomate) e multiplicando por 1000 para KILOGRAMAS
+        valor_producao = parseFloat((2.72 * quantidade_produzida)*1000);
 
-
-        }else if((quantidade_m2 >= 10000 || quantidade_m2 <= 10000 ) && (validacao_produto == "Não" || validacao_produto == "nao" || validacao_produto == "não")){
-
-          plantas = (13500 * quantidade_m2) / 10000;
-
-
-  
-
-          quantidade_produzida = parseFloat((plantas * prod_planta) / 1000000);
-          valor_producao = 2.72 * quantidade_produzida;
-
-
-          quantidade_agua = (quantidade_agua/1000) * 4.09;
-
-    
-
-          mensagem.innerHTML = `Caso tivesse utilizado nosso sistema a produção da sua plantação iria aumentar em 10%, passando de ${quantidade_produzida.toFixed(2)}t para ${quantidade_produzida + (quantidade_produzida * 0.10)}t <br> E iria aumentar o seu faturamento de R$${valor_producao.toFixed(1)}mil para R$${((quantidade_produzida + (quantidade_produzida * 0.10)) * 2.72).toFixed(1)}mil.<br>
-          E o valor da conta da água reduziria de R$${quantidade_agua}mil para R$${quantidade_agua = quantidade_agua - (quantidade_agua * 0.15)}`
+        // Acrescentando 10% no valor da produção
+        var valor_producao_prod = (valor_producao + (valor_producao * 0.10));
 
 
 
+        // toLocaleString serve para formatar em valor MONETÁRIO é uma função do JS
 
+          mensagem.innerHTML = ` Utilizando nosso sistema a produção da sua plantação irá aumentar em <strong>10%</strong>, passando de <b class='vermelho'>
+            ${quantidade_produzida.toLocaleString({style: "7kg"})}T
+          </b> para <b class='green'>
+            ${quantidade_produzida_prod.toLocaleString({style: "7kg"})}T </b><br> E irá aumentar o seu faturamento de <b class='vermelho'>         
+          ${valor_producao.toLocaleString("pt-BR", { style: "currency", currency: "BRL", maximumFractionDigits: 2})}</b> para <b class='green'>${valor_producao_prod.toLocaleString("pt-BR", { style: "currency", currency: "BRL", maximumFractionDigits: 2})}. </b><br>
+       
+
+                    
+          E sua conta de água que era <strong class='vermelho'>${quantidade_agua.toLocaleString("pt-BR", {style: "currency" , currency: "BRL", maximumSignificantDigits: 3})}</strong> passa a ser <strong class='green'>${(quantidade_agua - quantidade_agua_prod).toLocaleString("pt-BR", {style: "currency" , currency: "BRL", maximumSignificantDigits: 3})}</strong> tendo uma economia de.<strong class='green'>
+          ${quantidade_agua_prod.toLocaleString("pt-BR", {style: "currency" , currency: "BRL", maximumSignificantDigits: 3})}</strong>`
         }
-
-
-      }
-      
-
-
-      
-
-    
-
-
-
 
 </script>
