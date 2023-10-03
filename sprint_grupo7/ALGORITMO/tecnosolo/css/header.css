@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.cabecalho {
+    padding: 10px;
+
+}
+.container {
+    margin: 0 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.div-logo {
+    width: 30%;
+}
+.navbar ul li {
+    display: inline;
+    margin-left: 20px;
+}
+.navbar ul li a{
+    color: #555555;
+    text-decoration: none;
+}
+.idioma button{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    color: #555555;
+    padding: 10px;
+}
+.bx-globe {
+    padding-left: 10px;
+    font-size: 30px;
+}
+.col-1 ul li {
+    display: inline;
+    margin-left: 20px;
+}
+.col-1 ul li a {
+    text-decoration: none;
+}
+.conta a {
+    padding: 10px 30px;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+}
+.sup a {
+    color: #555555;
+}

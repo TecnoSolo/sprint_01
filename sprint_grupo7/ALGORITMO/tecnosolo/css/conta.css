@@ -1,0 +1,62 @@
+body {
+    background: #F1F1F1;
+}
+main {
+    height: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main .barra {
+    padding: 10px;
+    width: 200px;
+    margin-left: 20px;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #fff;
+}
+
+button {
+    width: 200px;
+    text-align: left;
+    display: block;
+    border: none;
+    padding: 10px;
+    color: #555555;
+    background-color: transparent;
+    font-size: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+button:last-child {
+    margin: 0;
+}
+.perfil-info {
+    height: 70%;
+    padding: 10px;
+}
+.perfil-info .banner {
+    display: flex;
+    flex-direction: column;
+}
+.perfil-info .banner .img-banner {
+    width: 900px;
+    height: 150px;
+}
+.perfil-info .usuario .img-usuario {
+    width: 70px;
+    margin-top: 20px;
+    padding: 5px;
+    background-color: #fff;
+    border-radius: 100px;
+}
+.usuario {
+    display: flex;
+    align-items: center;
+}
+.nome-usuario {
+    margin-left: 20px;
+    color: #555555;
+}
