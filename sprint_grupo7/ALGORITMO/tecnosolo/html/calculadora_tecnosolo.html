@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="icon" href="../img/logo_tecnosolo.png">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="../css/calculadora.css">
+  <script src="../js/scriptCalculadora.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tecnosolo - Calculadora financeira</title>
+</head>
+<body>
+  <header class="cabecalho">
+    <div class="container">
+        <div class="div-logo">
+            <img width="52px" src="../img/logo_tecnosolo.png" alt="logo da empresa tecnosolo" class="logo">
+        </div>
+        <nav class="navbar">
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Sobre nós</a></li>
+              <li><a href="#">Recursos</a></li>
+              <li><a href="../html/calculadora_tecnosolo.html">Simulador</a></li>
+            </ul>
+        </nav>
+        <div class="col-1">
+            <ul>
+                <li class="sup"><a href="">Suporte</a></li>
+                <li class="conta"><a href="">Conta</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+  <div class="calculadora">
+    <h2 class="titulo">Simulador Financeiro</h2>
+          <div class="box">
+            <div class="inputs">
+              <div class="valores">
+              <p>Tamanho em m² da plantação de tomate: </p>
+            <input type="text" id="qtd_m2">
+          <p>Quantidade de litros de água utilizado na safra: </p>
+            <input type="text" id="qtd_agua">
+          <button onclick="analisar()">Simular</button>
+                </div>
+        
+        </div>
+        <div class="resultado">
+          <h3 class="titulo-tec">Tecnosolo</h3>
+          <ul class="ideal">
+            <li>Umidade ideal para solos arenosos é entre 60% e 80%.</li>
+            <li>Umidade ideal para solos argilosos é entre 60% e 70%.</li>
+            <li>um tomate maduro possui cerca de 93% a 94% de água.</li>
+          </ul>
+          <p class="desc">A partir de fontes de pesquisas <strong>EMBRAPA</strong> uma planção de tomate precisa de 2 a 7 milhões de litros de água por hectare de safra de alta produtividade.</p>
+          <ul>
+            <li>10.000m² de plantação possui cerca de 13.500 plantas sendo:</li>
+            <li>Cada <strong>KG</strong> tomate custa R$2,72.</li>
+            <li>Cada <b>m³ </b> de agua custa R$4,09.</li>
+          </ul>
+          <p id="mensagem"></p>
+        </div>
+        </div>
+  </div>
+</body>
+</html>
+

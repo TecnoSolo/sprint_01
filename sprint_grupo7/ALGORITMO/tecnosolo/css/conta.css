@@ -5,7 +5,7 @@ main {
     height: 1000px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    margin-top: 100px;
 }
 main .barra {
     padding: 10px;
@@ -18,7 +18,7 @@ main .barra {
     background: #fff;
 }
 
-button {
+.barra button {
     width: 200px;
     text-align: left;
     display: block;
