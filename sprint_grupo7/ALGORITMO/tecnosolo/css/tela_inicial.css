@@ -7,20 +7,28 @@
 
 
 .header{
-    background-color: rgb(250, 235, 215);
+    background-color: white;
+    background-image: url("../img/fundo1.svg");
     width: 100%;
-    height: 100px;
+    background-color: #000000;
+    background-size: cover;
+    height: 110px;
+    align-items: center;
+    justify-content: center;
+    background-position: center;
     /* display: flex; */
-    border-bottom: 4px solid #610000;
+    /* border-bottom: 4px solid #610000; */
 }
 
 .logo{
     color: #cba075;
 }
 
+.container-1{
+    margin: 0 200px 0 200px; /*margem de respiro - espaço*/
+}
+
 .header .container-1{
-    margin: 0 200px 0 200px;
-    /* width: 100%; */
     height: 100%;
     display: flex;
     justify-content: space-between;
@@ -34,11 +42,60 @@
 
 .header .container-1 .navbar li a{
     text-decoration: none;
-    color: #c57d56;
+    color: #ffffff;
+}
+
+.header .container-1 .navbar .btn-header{
+    background-color: #111010;
+    width: 115px;
+    height: 36px;
+    padding: 8px 20px;
+    border-radius: 5px;
+}
+
+.conteudo-1{
+    background-image: url("../img/fundo1.svg");
+    background-color: #000000;
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+    background-position: center;
+
+}
+
+.conteudo-1 .container-1{
+    align-items: center;
+    display: flex;
+    margin: 0 0 0 90px;
+    justify-content: space-between;
+}
+
+.conteudo-1 .container-1 .texto h1{
+    width: 339px;
+    font-size: 35px;
+    margin-bottom: 10px;
+    font-weight: lighter; /*não negrito*/
+}
+
+.conteudo-1 .container-1 .texto p{
+    width: 400px;
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+.conteudo-1 .container-1 .texto button{
+    background-color: transparent; /*literalmente transparente*/
+    width: 142px;
+    height: 48px;
+    border-radius: 3px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 60px;
+    margin-left: 83px;
 }
 
 
-.banner{
+.banner-1{
     background-color: #000000;
     background-image: url("../img/Rectangle\ 659.svg");
     background-size: cover;
@@ -49,7 +106,7 @@
     
 }
 
-.banner .container-2 {
+.banner-1 .container-3 {
     margin: 0 200px 0 200px;
     height: 100%;
     font-size: 1.5rem;
@@ -59,7 +116,7 @@
 
 }
 
-.banner .container-2 h1{
+.banner-1 .container-3 h1{
     margin-bottom: 40px;
 }
 
@@ -68,5 +125,13 @@
     height: 100%;
 }
 
+.header img{
+    height: 50px;
+}
+
+
+
 
 /* #c57d56 cor da logo pode ser essa também */
+/*cor legal que pode ser background para não ficar muito branco #EED0B2*/
+/*DED3C8*/
