@@ -37,7 +37,8 @@ button:last-child {
     background-color: #1F2616;
     color: #fff;
 }
-.perfil-info {
+.perfil-info, .dados-info, .dash-info {
+    width: 900px;
     margin-left: 10px;
     background-color: #fff;
     height: 70%;
@@ -96,4 +97,49 @@ button:last-child {
 }
 .dash-info {
     display: none;
+}
+.bannerDados {
+    width: 100%;
+    background-color: #1F2616;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+}
+.branco {
+    padding-left: 20px;
+    font-size: 60px;
+    color: #fff;
+}
+.titulo-planta {
+    font-size: 20px;
+    font-weight: 100;
+    word-spacing: 10px;
+}
+.divDados {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 200px;
+    padding: 10px;
+    border-bottom: 1px solid #c1c1c1;
+}
+.conteudo-dados {
+    font-size: 18px;
+    padding: 10px;
+    width: 100%;
+    border-radius: 10px;
+}
+.informacoes-dados {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 70px;
+    padding: 20px;
+   border-bottom: 2px solid black;
+   border-top: 3px solid black;
+}
+.titulo-info {
+    font-weight: bold;
+    color: #1F2616;
+    font-size: 18px;
 }
