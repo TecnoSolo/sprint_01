@@ -34,15 +34,15 @@
     <main>
         <div class="barra">
             <div class="col-1">
-                <button id="perfil">Perfil</button>
-                <button>Dados</button>
-                <button>Dashboards</button>
+                <button id="perfilId" onclick="perfil()">Perfil</button>
+                <button id="dadosId" onclick="dados()">Dados</button>
+                <button id="dashId" onclick="dash()">Dashboards</button>
             </div>
             <div class="col-2">
                 <button>Sair<i class='bx bx-exit'></i></button>
             </div>
         </div>
-        <div class="perfil-info">
+        <div class="perfil-info" id="perfilInfo">
                 <div class="banner">
                     <img src="" alt="" class="img-banner">
                 </div>
@@ -50,8 +50,123 @@
                     <img src="../img/logo_tecnosolo.png" alt="" class="img-usuario">
                     <h3 class="nome-usuario">nome do usuario</h3>
                 </div>
-                <div class="informacoes-usuario"></div>
+                <div class="informacoes-usuario">
+                    <div class="nome flex">
+                        <p class="titulo-usuario">Nome</p>
+                        <p class="conteudo">Exemplo de nome</p>
+                    </div>
+                    <div class="cpf flex">
+                        <p class="titulo-usuario">CPF</p>
+                        <p class="conteudo">******-13</p>
+                    </div>
+                    <div class="email flex">
+                        <p class="titulo-usuario">Email</p>
+                        <p class="conteudo">exemplo@exemplo.com</p>
+                    </div>
+                    <div class="senha flex">
+                        <p class="titulo-usuario">Senha</p>
+                        <p class="conteudo">*********</p>
+                    </div>
+                    <div class="alterar ">
+                        <a class="titulo-alt" href="#">Alterar senha</p>
+                    </div>
+                </div>
         </div>
+        <div class="dados-info" id="dadosInfo">
+            <div class="banner">
+                <img src="" alt="" class="img-banner">
+            </div>
+            <div class="usuario">
+                <img src="../img/logo_tecnosolo.png" alt="" class="img-usuario">
+                <h3 class="nome-usuario">nome do usuario</h3>
+            </div>
+            <div class="informacoes-usuario">
+                <div class="nome flex">
+                    <p class="titulo-usuario">Nome</p>
+                    <p class="conteudo">Exemplo de nome</p>
+                </div>
+                <div class="cpf flex">
+                    <p class="titulo-usuario">CPF</p>
+                    <p class="conteudo">******-13</p>
+                </div>
+                <div class="email flex">
+                    <p class="titulo-usuario">Email</p>
+                    <p class="conteudo">exemplo@exemplo.com</p>
+                </div>
+                <div class="senha flex">
+                    <p class="titulo-usuario">Senha</p>
+                    <p class="conteudo">*********</p>
+                </div>
+                <div class="alterar ">
+                    <a class="titulo-alt" href="#">Alterar senha</p>
+                </div>
+            </div>
+    </div>
+    <div class="dash-info" id="dashInfo">
+        <div class="banner">
+            <img src="" alt="" class="img-banner">
+        </div>
+        <div class="usuario">
+            <img src="../img/logo_tecnosolo.png" alt="" class="img-usuario">
+            <h3 class="nome-usuario">nome do usuario</h3>
+        </div>
+        <div class="informacoes-usuario">
+            <div class="nome flex">
+                <p class="titulo-usuario">Nome</p>
+                <p class="conteudo">Exemplo de nome</p>
+            </div>
+            <div class="cpf flex">
+                <p class="titulo-usuario">CPF</p>
+                <p class="conteudo">******-13</p>
+            </div>
+            <div class="email flex">
+                <p class="titulo-usuario">Email</p>
+                <p class="conteudo">exemplo@exemplo.com</p>
+            </div>
+            <div class="senha flex">
+                <p class="titulo-usuario">Senha</p>
+                <p class="conteudo">*********</p>
+            </div>
+            <div class="alterar ">
+                <a class="titulo-alt" href="#">Alterar senha</p>
+            </div>
+        </div>
+</div>
     </main>
 </body>
 </html>
+<script>
+    function perfil(){
+        perfilInfo.style.display = 'block'
+        dashInfo.style.display = 'none'
+        dadosInfo.style.display = 'none'
+        perfilId.style.backgroundColor = '#1F2616'
+        perfilId.style.color = '#fff'
+        dadosId.style.backgroundColor = '#fff'
+        dadosId.style.color = 'black'
+        dashId.style.backgroundColor = '#fff'
+        dashId.style.color = 'black'
+    }
+    function dados(){
+        dadosInfo.style.display = 'block'
+        dashInfo.style.display = 'none'
+        perfilInfo.style.display = 'none'
+        dadosId.style.backgroundColor = '#1F2616'
+        dadosId.style.color = '#fff'
+        perfilId.style.backgroundColor = '#fff'
+        perfilId.style.color = 'black'
+        dashId.style.backgroundColor = '#fff'
+        dashId.style.color = 'black'
+    }
+    function dash(){
+        dashInfo.style.display = 'block'
+        perfilInfo.style.display = 'none'
+        dadosInfo.style.display = 'none'
+        dashId.style.backgroundColor = '#1F2616'
+        dashId.style.color = '#fff'
+        perfilId.style.backgroundColor = '#fff'
+        perfilId.style.color = 'black'
+        dadosId.style.backgroundColor = '#fff'
+        dadosId.style.color = 'black'
+    }
+</script>
