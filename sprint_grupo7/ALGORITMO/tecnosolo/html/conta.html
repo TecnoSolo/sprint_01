@@ -8,6 +8,16 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tecnosolo - perfil</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
+    <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+    <style>
+        canvas {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+    </style>
 </head>
 <body>
     <header class="cabecalho">
@@ -97,12 +107,57 @@
             </div>
     </div>
     <div class="dash-info" id="dashInfo">
+        <div>
+            <h1>Sensor DHT 11 - Umidade</h1>
+            <section style="width:100%">
+                <canvas id="dht11Umidade"></canvas>
+            </section>
+        </div>
 </div>
     </main>
-</body>
-</html>
-<script>
-    function perfil(){
+    <script>
+        /* -- dht11Umidade -- */
+        var contextoDht11Umidade = document.getElementById('dht11Umidade').getContext('2d');
+        contextoDht11Umidade.canvas.width = 1000;
+        contextoDht11Umidade.canvas.height = 300;
+        var dht11Umidade = new Chart(
+            contextoDht11Umidade,
+            {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        label: 'Umidade',
+                        type: 'line',
+                        borderColor: ['#45b3e7'],
+                        backgroundColor: ['#89cff0']
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            distribution: 'series',
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }],
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Umidade'
+                            },
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                    animation: {
+                        duration: 0
+                    }
+                }
+            }
+        );
+
+        function perfil(){
         perfilInfo.style.display = 'block'
         dashInfo.style.display = 'none'
         dadosInfo.style.display = 'none'
@@ -135,4 +190,7 @@
         dadosId.style.backgroundColor = '#fff'
         dadosId.style.color = 'black'
     }
-</script>
+
+    </script>
+</body>
+</html>

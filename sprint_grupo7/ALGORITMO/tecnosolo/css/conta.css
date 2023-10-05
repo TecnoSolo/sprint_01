@@ -143,3 +143,6 @@ button:last-child {
     color: #1F2616;
     font-size: 18px;
 }
+.dash-info div {
+    margin-top: 20%;
+}
