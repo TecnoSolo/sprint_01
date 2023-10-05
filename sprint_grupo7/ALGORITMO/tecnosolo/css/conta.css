@@ -33,6 +33,10 @@ main .barra {
 button:last-child {
     margin: 0;
 }
+#perfilId {
+    background-color: #1F2616;
+    color: #fff;
+}
 .perfil-info {
     margin-left: 10px;
     background-color: #fff;
