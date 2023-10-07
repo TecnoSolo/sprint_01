@@ -41,6 +41,7 @@
         
         </div>
         
+        
     </div>
     <style>
     #input_email {
@@ -65,3 +66,26 @@
 </center>
 </body>
 </html>
+<script>
+function entrar() {
+var email = input_email.value;
+var senha =input_senha.value;
+
+
+    
+     //Validando o email de Login//
+        if (email.indexOf('@') >= 0) { }
+        else alert("E-mail inválido")
+
+        if (email.endsWith('.com') || email.endsWith('.br') || email.endsWith('.school')) { }
+        else  alert(" insira um E-mail valido")
+
+}
+
+
+
+
+
+
+
+</script>
