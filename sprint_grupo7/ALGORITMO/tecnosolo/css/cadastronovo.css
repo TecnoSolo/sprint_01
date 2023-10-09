@@ -1,0 +1,127 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.cabecalho {
+    padding: 10px;
+
+}
+.container {
+    margin: 0 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.div-logo {
+    width: 30%;
+}
+.navbar ul li {
+    display: inline;
+    margin-left: 20px;
+}
+.navbar ul li a{
+    color: #ffffff;
+    text-decoration: none;
+}
+.idioma button{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    color: #ffffff;
+    padding: 10px;
+}
+.col-1 ul li {
+    display: inline;
+    margin-left: 20px;
+}
+.col-1 ul li a {
+    text-decoration: none;
+}
+.conta a {
+    padding: 10px 30px;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+}
+.sup a {
+    color: #ffffff;
+} 
+body {
+    background-color: #2F3723;
+}
+
+.titulo {
+    color: #141414;
+    font-size: 48px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin-bottom: 60px;
+}
+#mensagemErro {
+    display: none;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 5px;
+}
+body {
+    width: 100%;
+    height: 100vh;
+}
+input {
+    background-color: #F1F1F1;
+    border: none;
+    display: block;
+    width: 300px;
+    margin: 0 20px 20px 20px;
+    font-size: 18px;
+    padding: 8px 5px;
+    border-radius: 10px;
+}
+input::placeholder {
+    font-size: 18px;
+    color: #afafaf;
+    padding: 10px;
+}
+input:focus {
+    outline-color: #38703D;
+}
+
+.lados {
+    justify-content: center;
+    display: flex;
+    gap: 20px;
+}
+.box {
+    margin-top: 50px;
+    margin-left: 700px;
+    width: 450px;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    background-color: #FFFFFF;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.box button {
+    margin-top: 20px;
+    width: 15%;
+    height: 50px;
+    padding: 5px 10px 5px;
+    font-weight: bold;
+    border: 1px solid #7B7B7B;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.box button:hover {
+    background: #3d6d42;
+}
+
+#mensagemErro {
+    margin-top: 16px;
+    line-height: 25px;
+    font-weight: lighter;
+    font-size: 20px;
+}
