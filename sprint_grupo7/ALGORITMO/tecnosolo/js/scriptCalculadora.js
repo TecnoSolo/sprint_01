@@ -47,9 +47,9 @@
         // toLocaleString serve para formatar em valor MONETÁRIO é uma função do JS
 
           mensagem.innerHTML = ` Utilizando nosso sistema a produção da sua plantação irá aumentar em <strong>10%</strong>, passando de <b class='vermelho'>
-            ${quantidade_produzida.toLocaleString({style: "7kg"})}T
+            ${quantidade_produzida.toLocaleString({style: "7kg"})} toneladas
           </b> para <b class='green'>
-            ${quantidade_produzida_prod.toLocaleString({style: "7kg"})}T </b><br> E irá aumentar o seu faturamento de <b class='vermelho'>         
+            ${quantidade_produzida_prod.toLocaleString({style: "7kg"})} toneladas </b><br> E irá aumentar o seu faturamento de <b class='vermelho'>         
           ${valor_producao.toLocaleString("pt-BR", { style: "currency", currency: "BRL", maximumFractionDigits: 2})}</b> para <b class='green'>${valor_producao_prod.toLocaleString("pt-BR", { style: "currency", currency: "BRL", maximumFractionDigits: 2})}. </b><br>
        
 
