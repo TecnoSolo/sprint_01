@@ -3,64 +3,10 @@
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
-.cabecalho {
-    padding: 10px;
-
-}
-.container {
-    margin: 0 10%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.div-logo {
-    width: 30%;
-}
-.navbar ul li {
-    display: inline;
-    margin-left: 20px;
-}
-.navbar ul li a{
-    color: #ffffff;
-    text-decoration: none;
-}
-.idioma button{
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    background: none;
-    border: none;
-    color: #565656;
-    padding: 10px;
-}
-.bx-globe {
-    padding-left: 10px;
-    font-size: 30px;
-}
-.col-1 ul li {
-    display: inline;
-    margin-left: 20px;
-}
-.col-1 ul li a {
-    text-decoration: none;
-}
-.conta a {
-    padding: 10px 30px;
-    border-radius: 5px;
-    background-color: black;
-    color: white;
-}
-.sup a {
-    color: #ffffff;
-} 
-
-.background-image{
-    width: 100%;
-}
-
 
 .box_forms{
     width: 450px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     height: 450px;
     flex:auto;
     background-color: #FFFFFF;
@@ -79,7 +25,6 @@
     border-radius: 7px;
     padding: 0 0 0 20px;
 }
-
 
 .log{
     margin-top: 20px;
