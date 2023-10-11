@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Ubuntu', sans-serif;
 }
 
 
@@ -118,7 +117,7 @@
 
 .banner-1 .container-3 h1{
     margin-bottom: 40px;
-} */
+} 
 
 .backgroundOpacity{
     background-color: rgba(0, 0, 0, 0.5); /*background com opacidade*/
@@ -130,13 +129,10 @@
 }
 .conteudo-2{
     background-color: transparent; /*literalmente transparente*/
-    width: 142px;
-    height: 48px;
+    width: 100%;
     border-radius: 3px;
     font-size: 16px;
     font-weight: bold;
-    margin-top: 111px;
-    margin-left: 90px;
 }
 .titulo{
 
@@ -157,8 +153,6 @@ display:inline;
     margin-top:70px ;
 }
 .titulo-figura-1{
-    margin-left:245.66px ;
-    margin-right: 832.34px;
     color:rgba(16, 24, 32, 1);
     font-family: Inter;
     font-size: 24px;
@@ -174,14 +168,56 @@ display:inline;
 
 
 }
+.suporte {
+    background-color: #2F3723;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.suporte h3 {
+    text-align: center;
+    font-size: 50px;
+    color: white;
+    font-weight: bold;
+}
+.box-suporte {
+    border-radius: 10px;
+    margin-top: 50px;
+    width: 700px;
+    padding: 30px;
+    background: #fff;
+}
+.inputs {
+    margin-top: 40px;
+}
+.inputs p {
+    font-size: 20px;
+}
+.suporte input ,textarea {
+    width: 100%;
+    padding: 10px;
+    background-color: #EFEFEF;
+    border: none;
+    font-size: 20px;
+    border-radius: 20px;
+}
+.suporte input ,textarea::placeholder {
+    font-size: 20px;
+}
 
-
-
-
-
-
-
-
+.btnSup {
+    cursor: pointer;
+    margin-top: 50px;
+    width: 100%;
+    border: none;
+    color: white;
+    background: #2F3723;
+    border-radius: 50px;
+    font-size: 30px;
+    padding: 5px 0;
+}
 /* #c57d56 cor da logo pode ser essa também */
 /*cor legal que pode ser background para não ficar muito branco #EED0B2*/
 /*DED3C8*/
