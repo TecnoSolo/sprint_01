@@ -4,6 +4,15 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.container{
+    background-color: #FFFFFF;
+    margin: 0 ;
+}
+
+.cabecalho{
+    background-color: #FFFFFF;
+}
+
 .box_forms{
     width: 450px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
