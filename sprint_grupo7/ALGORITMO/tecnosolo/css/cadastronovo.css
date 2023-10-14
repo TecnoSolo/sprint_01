@@ -2,56 +2,6 @@
     padding: 0;
     margin: 0;
 }
-
-.cabecalho {
-    padding: 10px;
-    background-color: #FFFFFF;
-
-}
-.container {
-    margin: 0 10%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #FFFFFF;
-    margin: 0 ;
-}
-.div-logo {
-    width: 30%;
-}
-.navbar ul li {
-    display: inline;
-    margin-left: 20px;
-}
-.navbar ul li a{
-    color: #4d4d4d;
-    text-decoration: none;
-}
-.idioma button{
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    background: none;
-    border: none;
-    color: #4d4d4d;
-    padding: 10px;
-}
-.col-1 ul li {
-    display: inline;
-    margin-left: 20px;
-}
-.col-1 ul li a {
-    text-decoration: none;
-}
-.conta a {
-    padding: 10px 30px;
-    border-radius: 5px;
-    background-color: black;
-    color: white;
-}
-.sup a {
-    color: #4d4d4d;
-} 
 body {
     background-color: #2F3723;
 }

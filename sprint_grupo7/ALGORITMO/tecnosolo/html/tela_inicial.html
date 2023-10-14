@@ -10,33 +10,34 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/tela_inicial.css">
+    <link rel="stylesheet" href="../css/header.css">
     <link rel="icon" href="../img/logoTomate.png">
 
 
 </head>
 
 <body>
-
-    <div class="header">
-
-        <div class="container-1">
-            <img src="../img/logoTomate.png">
-
-            <div class="navbar">
+    <header class="cabecalho">
+        <div class="container">
+            <div class="div-logo">
+                <img width="52px" src="../img/logoTomate.png" alt="logo da empresa tecnosolo" class="logo">
+            </div>
+            <nav class="navbar">
                 <ul>
-                    <li><a href="#">Sobre nós</a></li>
-                    <li><a href="#">Recursos</a></li>
-                    <li><a href="#">Suporte</a></li>
-                    <li><a href="../html/calculadora_tecnosolo.html">Simulador</a></li>
-                    <li class="btn-header"><a href="#">Cadastro</a></li>
+                    <li><a href="./tela_inicial.html">Home</a></li>
+                    <li><a href="../html/tela_inicial.html#sobre-nos">Sobre nós</a></li>
+                    <li><a href="./tela_inicial.html#recursos-id">Recursos</a></li>
+                    <li><a  href="../html/calculadora_tecnosolo.html">Simulador</a></li>
+                </ul>
+            </nav>
+            <div class="col-1">
+                <ul>
+                    <li class="sup"><a href="./tela_inicial.html#suporte-id">Suporte</a></li>
+                    <li class="conta"><a href="">Conta</a></li>
                 </ul>
             </div>
-
         </div>
-
-
-    </div>
-
+    </header>
     <div class="conteudo-1">
         <div class="container-1">
             <div class="texto">
@@ -66,7 +67,7 @@
         </div>
     </div>
 
-    <div class="conteudo-3">
+    <div id="recursos-id" class="conteudo-3">
         <div class="container-1">
             <div class="setorCima">
                 <div class="setor">
@@ -129,7 +130,7 @@
         </div>
     </div>
 
-    <div class="sobreNos">
+    <div id="sobre-nos" class="sobreNos">
         <div class="container-1">
             <h1 class="sobreNos-title">Sobre Nós</h1>
             <p>A TecnoSolo foi fundada com a visão de revolucionar a forma como a umidade do solo é gerenciada nas
@@ -181,6 +182,22 @@
                     aliquid
                     voluptatum asperiores vero eligendi, reprehenderit libero tenetur impedit! Nulla ea natus
                     quibusdam. Nemo tempore dolor exercitationem repellendus.</p>
+            </div>
+        </div>
+    </div>
+    <div id="suporte-id" class="suporte">
+        <h3 class="titulo-suporte">Fale conosco</h3>
+        <div class="box">
+            <div class="men">
+                <div class="inputs">
+                    <p>E-mail</p>
+                    <input type="email" placeholder="Digite seu e-mail">
+                </div>
+                <div class="inputs">
+                    <p>Mensagem</p>
+                    <textarea name="" id="" cols="30" rows="10" placeholder="Digite sua mensagem"></textarea>
+                </div>
+                <button>Enviar</button>
             </div>
         </div>
     </div>
