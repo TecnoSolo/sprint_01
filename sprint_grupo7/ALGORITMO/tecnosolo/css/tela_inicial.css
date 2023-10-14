@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 
@@ -20,11 +21,12 @@
 }
 
 .logo{
-    color: #cba075;
+    color: #f4f4f4;
 }
 
 .container-1{
-    margin: 0 200px 0 200px; /*margem de respiro - espaço*/
+    margin: 0 90px 0 90px; /*margem de respiro - espaço*/
+    
 }
 
 .header .container-1{
@@ -93,12 +95,75 @@
     margin-left: 83px;
 }
 
-/* 
+.conteudo-2 .container-1 .texto-1 {
+    display: flex; /*Ele deixa a disposição dos elementos flexível; Ele mexe nos elementos filhos do elemento(div) - Sempre é no Pai dos elementos que quero mexer */
+    justify-content: space-between; /*só funcionam fora do display block(padrão html, um embaixo do outro)*/
+    height: 414px;
+    align-items: center;
+    
+}
+
+.conteudo-2 .container-1 .texto-1 h2{
+    font-size: 40px;
+
+}
+
+.conteudo-2 .container-1 .texto-1 p {
+    font-size: 18px;
+    font-weight: bold;
+    width: 600px;
+    height: 150px;
+}
+
+
+.conteudo-3 .container-1 {
+    display: flex;
+    flex-direction: column; /*Inverte os eixos(alerta!)*/
+    height: 581px;
+    justify-content: space-around;
+}
+
+.conteudo-3 .container-1 .setorCima {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.conteudo-3 .container-1 .setorBaixo {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.conteudo-3 .container-1 .setor {
+    display: flex;
+    align-items: center; /*align-items é y vertical*/
+    width: 40%;
+    justify-content: center; /* justify-content eixo x - horizontal*/
+}
+
+.conteudo-3 .container-1 .setor img {
+    /* width: 128px; */
+    margin-right: 20px;
+
+}
+
+.conteudo-3 .container-1 .setor h4 {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.conteudo-3 .container-1 .setor p {
+   font-size: 16px;
+   color: #55717F;
+   margin-top: 30px;
+}
+
 .banner-1{
-    background-color: #000000;
-    background-image: url("../img/Rectangle\ 659.svg");
+    /* background-color: #000000; */
+    background-image: url("../img/backSobre.svg");
     background-size: cover;
-    height: 500px;
+    height: 850px;
     align-items: center;
     justify-content: center;
     background-position: center;
@@ -107,117 +172,149 @@
 
 .banner-1 .container-3 {
     margin: 0 200px 0 200px;
-    height: 100%;
     font-size: 1.5rem;
     color: #fff;
-    padding: 130px 0 0 0;
-    /* width: 100%; */
+    width: 80%; 
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-/* } */
+
+}
 
 .banner-1 .container-3 h1{
     margin-bottom: 40px;
-} 
+}
+
+.banner-1 .container-3 p{
+    font-size: 18px;
+    
+
+}
+
+
 
 .backgroundOpacity{
-    background-color: rgba(0, 0, 0, 0.5); /*background com opacidade*/
+    /*background-color: rgba(0, 0, 0, 0.5); /*background com opacidade */
     height: 100%;
+    padding: 0;
 }
 
 .header img{
     height: 50px;
 }
-.conteudo-2{
-    background-color: transparent; /*literalmente transparente*/
-    width: 100%;
-    border-radius: 3px;
-    font-size: 16px;
+
+
+
+.sobreNos{
+    padding-top: 70px;
+    background-color: transparent;
+    padding-bottom: 100px;
+}
+
+.sobreNos .container-1 .sobreNos-title {
+    color: #2F3723;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 48px;
+    font-weight: 900;
+    
+}
+
+.sobreNos .container-1 p{
+    margin-left: 10px;
+    text-align: center;
     font-weight: bold;
-}
-.titulo{
-
-    color: #101820;
-font-family: Inter;
-font-size: 40px;
-font-style: normal;
-font-weight: 600;
-line-height: 60px; /* 150% */
-display:inline;
-}
-
-.figura-1{
-
-    width: 128px;
-    height: 128px;
-    flex-shrink: 0;
-    margin-top:70px ;
-}
-.titulo-figura-1{
-    color:rgba(16, 24, 32, 1);
-    font-family: Inter;
     font-size: 24px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 36px; /* 150% */
+    letter-spacing: 1px;
+    margin-top: 25px;
+} 
+
+.sobreNos .container-1 .botao {
+    margin-left: 103px;
+    margin-top: 65px;
+    margin-bottom: 100px;
+  
 }
 
-.conteudo-figura1{
+.cards .container-1 {
+    display: flex;
+    
+}
+
+.cards .container-1 .card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    padding: 2px 16px;
     display: flex;
     align-items: center;
+    flex-direction: column;
+    margin-bottom: 100px;
+    text-align: center;
+
+}
+
+.cards .container-1 .card:hover {
+    box-shadow: 0 8px 16px 0 #2F3723;
+  }
+
+.footer .container-2 {
+    background-color: #191D12;
+    color: #FFFFFF;
+    justify-content: space-between;
+    display: flex;
+    width: 100%;
+    padding-top: 15px;
+    padding: 25px;
+    padding-left: 103px;
+    padding-right: 103px;;
+    
+}
+
+.footer .container-2 p{
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    
+}
+
+.footer .container-2 .contatos img {
+    padding: 5px;
+    height: 50px;
+}
+
+.footer .container-2 .mais-informacoes input {
+    margin-top: 15px;
+    border-radius: 70px;
+    color: #000000;
+    width: 237px;
+    height: 47px;
+    
+}
+
+.footer .linha {
+    background-color: #1F2616;
+    border-top: #6D9E6B 2px solid;
+    width: 100%;
+    height: 67px;
+    display: flex; 
+    justify-content: space-between;
+    padding-left: 103px;
+    padding-right: 103px
+    ;
     
 
 
-}
-.suporte {
-    background-color: #2F3723;
-    padding: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.suporte h3 {
-    text-align: center;
-    font-size: 50px;
-    color: white;
-    font-weight: bold;
-}
-.box-suporte {
-    border-radius: 10px;
-    margin-top: 50px;
-    width: 700px;
-    padding: 30px;
-    background: #fff;
-}
-.inputs {
-    margin-top: 40px;
-}
-.inputs p {
-    font-size: 20px;
-}
-.suporte input ,textarea {
-    width: 100%;
-    padding: 10px;
-    background-color: #EFEFEF;
-    border: none;
-    font-size: 20px;
-    border-radius: 20px;
-}
-.suporte input ,textarea::placeholder {
-    font-size: 20px;
+  
 }
 
-.btnSup {
-    cursor: pointer;
-    margin-top: 50px;
-    width: 100%;
-    border: none;
-    color: white;
-    background: #2F3723;
-    border-radius: 50px;
-    font-size: 30px;
-    padding: 5px 0;
+.footer .linha p{
+    align-items: center;
+    padding-top: 15px;
+    color: #FFFFFF;
+    /* margin: 0 132px 0 142px; */
+
+    
 }
-/* #c57d56 cor da logo pode ser essa também */
-/*cor legal que pode ser background para não ficar muito branco #EED0B2*/
-/*DED3C8*/
