@@ -5,55 +5,6 @@
     font-family: 'Ubuntu', sans-serif;
 }
 
-
-.header{
-    background-color: white;
-    background-image: url("../img/fundo1.svg");
-    width: 100%;
-    background-color: #000000;
-    background-size: cover;
-    height: 110px;
-    align-items: center;
-    justify-content: center;
-    background-position: center;
-    /* display: flex; */
-    /* border-bottom: 4px solid #610000; */
-}
-
-.logo{
-    color: #f4f4f4;
-}
-
-.container-1{
-    margin: 0 90px 0 90px; /*margem de respiro - espaço*/
-    
-}
-
-.header .container-1{
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.header .container-1 li{
-    display: inline;
-    padding: 0 15px;
-}
-
-.header .container-1 .navbar li a{
-    text-decoration: none;
-    color: #ffffff;
-}
-
-.header .container-1 .navbar .btn-header{
-    background-color: #111010;
-    width: 115px;
-    height: 36px;
-    padding: 8px 20px;
-    border-radius: 5px;
-}
-
 .conteudo-1{
     background-image: url("../img/fundo1.svg");
     background-color: #000000;
@@ -365,4 +316,57 @@
     width: 570px;
     height: 435px;
     margin: auto;
+}
+.inputs {
+    margin-bottom: 20px;
+}
+.suporte {
+    background: #2F3723;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 50px;
+    color: black;
+}
+.titulo-suporte {
+    font-size: 50px;
+    padding: 20px;
+    margin-bottom: 30px;
+    color: #fff;
+}
+.inputs p {
+    font-size: 20px;
+}
+.inputs input, textarea{
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    background-color: #f3f3f3;
+    border: none;
+}
+.men {
+    width: 600px;
+    background-color: #fff;
+    padding: 20px;
+}
+.box {
+    padding: 20px;
+    display: flex;
+}
+.sup-img, .sup-img img{
+    width: 400px;
+    height: 460px;
+    opacity: 80%;
+}
+.box button {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    cursor: pointer;
+    background-color: #2F3723;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
 }
