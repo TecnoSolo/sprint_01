@@ -5,6 +5,7 @@
 
 .cabecalho {
     padding: 10px;
+    background-color: #FFFFFF;
 
 }
 .container {
@@ -12,6 +13,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: #FFFFFF;
+    margin: 0 ;
 }
 .div-logo {
     width: 30%;
@@ -21,7 +24,7 @@
     margin-left: 20px;
 }
 .navbar ul li a{
-    color: #ffffff;
+    color: #4d4d4d;
     text-decoration: none;
 }
 .idioma button{
@@ -30,7 +33,7 @@
     align-items: center;
     background: none;
     border: none;
-    color: #ffffff;
+    color: #4d4d4d;
     padding: 10px;
 }
 .col-1 ul li {
@@ -47,7 +50,7 @@
     color: white;
 }
 .sup a {
-    color: #ffffff;
+    color: #4d4d4d;
 } 
 body {
     background-color: #2F3723;
@@ -95,7 +98,7 @@ input:focus {
     gap: 20px;
 }
 .box {
-    margin-top: 50px;
+    margin-top: 100px;
     margin-left: 700px;
     width: 450px;
     border-radius: 10px;
