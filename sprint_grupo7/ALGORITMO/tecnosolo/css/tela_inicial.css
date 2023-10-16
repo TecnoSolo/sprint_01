@@ -33,6 +33,7 @@
     width: 400px;
     font-size: 15px;
     margin-top: 20px;
+    text-align: justify;
 }
 
 .conteudo-1 .container-1 .texto button{
@@ -43,7 +44,6 @@
     font-size: 16px;
     font-weight: bold;
     margin-top: 60px;
-    margin-left: 83px;
 }
 
 .conteudo-2 .container-1 .texto-1 {
@@ -51,7 +51,7 @@
     justify-content: space-between; /*só funcionam fora do display block(padrão html, um embaixo do outro)*/
     height: 414px;
     align-items: center;
-    
+    margin: 0 90px 0 90px;
 }
 
 .conteudo-2 .container-1 .texto-1 h2{
@@ -174,16 +174,15 @@
 }
 
 .sobreNos .container-1 p{
-    margin-left: 10px;
-    text-align: center;
+    text-align: justify;
     font-weight: bold;
     font-size: 24px;
     letter-spacing: 1px;
-    margin-top: 25px;
+    margin: 25px 90px 0 90px;
 } 
 
 .sobreNos .container-1 .botao {
-    margin-left: 103px;
+    margin-left: 90px;
     margin-top: 65px;
     margin-bottom: 100px;
   
@@ -309,7 +308,7 @@
     font-size: 20px;
     display: flex;
     padding-right: 100px;
-
+    text-align: justify;
 }
 
 .container-recurso .imagem-recurso .arquivo-imagem-recurso {
