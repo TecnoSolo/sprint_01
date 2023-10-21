@@ -108,7 +108,7 @@
     </div>
     <div class="dash-info" id="dashInfo">
         <div>
-            <h1>Sensor DHT 11 - Umidade</h1>
+            <h1 class="titulo-sensor">Sensor DHT 11 - Umidade</h1>
             <section style="width:100%">
                 <canvas id="dht11Umidade"></canvas>
             </section>
@@ -126,8 +126,9 @@
                 type: 'line',
                 data: {
                     datasets: [{
-                        label: 'Umidade',
+                        label: 'Umidade (%)',
                         type: 'line',
+                        data: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
                         borderColor: ['#45b3e7'],
                         backgroundColor: ['#89cff0']
                     }]
@@ -143,7 +144,7 @@
                         yAxes: [{
                             scaleLabel: {
                                 display: true,
-                                labelString: 'Umidade'
+                                labelString: 'Umidade (%)'
                             },
                             ticks: {
                                 beginAtZero: true

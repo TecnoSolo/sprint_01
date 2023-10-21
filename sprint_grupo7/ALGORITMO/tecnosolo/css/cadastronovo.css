@@ -3,7 +3,8 @@
     margin: 0;
 }
 body {
-    background-color: #2F3723;
+    background-color: #F1F1F1;
+
 }
 
 .titulo {
@@ -47,16 +48,23 @@ input:focus {
     display: flex;
     gap: 20px;
 }
+.container_box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 100px ;
+}
 .box {
-    margin-top: 100px;
-    margin-left: 700px;
-    width: 450px;
+    /* margin-top: 100px;
+    margin-left: 700px; */
+    width: 550px;
     border-radius: 10px;
     text-align: center;
     padding: 20px;
     background-color: #FFFFFF;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
+
 .box button {
     margin-top: 20px;
     width: 15%;

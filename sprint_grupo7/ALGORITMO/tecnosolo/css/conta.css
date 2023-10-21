@@ -143,6 +143,11 @@ button:last-child {
     color: #1F2616;
     font-size: 18px;
 }
-.dash-info div {
-    margin-top: 20%;
+
+.titulo-sensor {
+    font-size: 40px;
+    color: #4b4b4b;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-bottom: 10%;
 }
