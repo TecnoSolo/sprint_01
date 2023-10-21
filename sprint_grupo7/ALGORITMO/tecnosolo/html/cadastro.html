@@ -34,32 +34,39 @@
         </div>
     </header>
     <div class="box">
-        <img class="logo" src="../img/logo_tecnosolo.png" alt="">
+        <img class="logo" src="../img/logoTomate.png" alt="">
         <h2 class="titulo">Criar conta</h2>
         <div class="cadastro">
-
-            <div class="boxAB">
-                <div class="lados">
-                    <div class="lado-direito">
-                        <input type="email" id="iptEmail" placeholder="E-mail" required>
-                        <input type="password" id="iptSenha" placeholder="Senha" required>
-                        <input type="text" id="iptNome" placeholder="Nome" required>
-                        <input type="text" id="iptCnpj" placeholder="CNPJ" required>
-                        <input type="text" id="iptTelefone" placeholder="Telefone" required>
-                        <input type="text" id="iptRazaoSocial" placeholder="Nome da Empresa" required>
-
+                    <div id="direito" class="lado-direito">
+                        <p>E-mail:</p>
+                        <input type="email" id="iptEmail" placeholder="insira o e-mail" required>
+                        <p>Senha:</p>
+                        <input type="password" id="iptSenha" placeholder="insira uma senha" required>
+                        <p>Nome:</p>
+                        <input type="text" id="iptNome" placeholder="insira seu nome" required>
+                        <p>CNPJ:</p>
+                        <input type="text" id="iptCnpj" placeholder="insira o CNPJ" required>
+                        <p>Telefone:</p>
+                        <input type="text" id="iptTelefone" placeholder="insira seu telefone" required>
+                        <p>Nome da empresa:</p>
+                        <input type="text" id="iptRazaoSocial" placeholder="insira o nome da Empresa" required>
                     </div>
-                    <div class="lado-esquerdo">
-                        <input type="text" id="iptCep" placeholder="CEP" required>
-                        <input type="text" id="iptUF" placeholder="UF" required>
-                        <input type="text" id="iptCidade" placeholder="Cidade" required>
-                        <input type="text" id="iptBairro" placeholder="Bairro" required>
-                        <input type="text" id="iptRua" placeholder="Rua" required>
-                        <input type="text" id="iptComplemento" placeholder="Complemento">
+                    <div id="esquerdo" class="lado-esquerdo">
+                        <p>CEP:</p>
+                        <input type="text" id="iptCep" placeholder="insira o CEP" required>
+                        <p>UF:</p>
+                        <input type="text" id="iptUF" placeholder="insira o UF" required>
+                        <p>Cidade:</p>
+                        <input type="text" id="iptCidade" placeholder="insira a cidade" required>
+                        <p>Bairro:</p>
+                        <input type="text" id="iptBairro" placeholder="insira o bairro" required>
+                        <p>Rua:</p>
+                        <input type="text" id="iptRua" placeholder="insira a rua" required>
+                        <p>Complemento:</p>
+                        <input type="text" id="iptComplemento" placeholder="insira o complemento">
                     </div>
-                </div>
-                <button onclick="cadastrar()">Cadastrar</button>
-            </div>
+                <button id="passoUm" onclick="passo1()">Proxima</button>
+                <button id="cadastrarse" onclick="cadastrar()">Cadastrar</button>
             <p style="color: white;" id="mensagemErro"></p>
         </div>
         </div>
@@ -67,61 +74,66 @@
 
 </html>
 <script>
-    function cadastrar() {
-        var email = iptEmail.value
-        var senha = iptSenha.value
-        var nome = iptNome.value
-        var cnpj = iptCnpj.value
-        var telefone = iptTelefone.value
-        var razaoSocial = iptRazaoSocial.value
-        var cep = iptCep.value
-        var UF = iptUF.value
-        var cidade = iptCidade.value
-        var bairro = iptBairro.value
-        var rua = iptRua.value
-        var complemento = iptComplemento.value
+    function passo1() {
+        // var email = iptEmail.value
+        // var senha = iptSenha.value
+        // var nome = iptNome.value
+        // var cnpj = iptCnpj.value
+        // var telefone = iptTelefone.value
+        // var razaoSocial = iptRazaoSocial.value
+        // var cep = iptCep.value
+        // var UF = iptUF.value
+        // var cidade = iptCidade.value
+        // var bairro = iptBairro.value
+        // var rua = iptRua.value
+        // var complemento = iptComplemento.value
 
-        mensagemErro.innerHTML = ``
-        mensagemErro.style.display = 'block'
+        // mensagemErro.innerHTML = ``
+        // mensagemErro.style.display = 'block'
         
 
 
-        if (email.indexOf('@') >= 0) { }
-        else mensagemErro.innerHTML = 'E-mail inválido'
+        // if (email.indexOf('@') >= 0) { }
+        // else mensagemErro.innerHTML = 'E-mail inválido'
 
-        if (email.endsWith('.com') || email.endsWith('.br') || email.endsWith('.school')) { }
-        else mensagemErro.innerHTML += '<br>Terminação do email é inválida'
-
-
-        var possui_especial =
-            senha.indexOf('#') >= 0 ||
-            senha.indexOf('@') >= 0 ||
-            senha.indexOf('!') >= 0 ||
-            senha.indexOf('%') >= 0 ||
-            senha.indexOf('?') >= 0 ||
-            senha.indexOf('-') >= 0 ||
-            senha.indexOf('+') >= 0 ||
-            senha.indexOf('_') >= 0;
-
-        if (senha.length >= 8) { }
-        else mensagemErro.innerHTML += '<br>Insira uma senha com pelo menos 8 dígitos'
-
-        if (possui_especial) { }
-        else mensagemErro.innerHTML += '<br>A senha deve ter pelo menos 1 caractere especial'
-
-        if (senha != senha.toUpperCase() && senha != senha.toLowerCase()) { }
-        else mensagemErro.innerHTML += `
-                    <br>A senha deve ter pelo menos uma letra maiúscula
-                    <br>A senha deve ter pelo menos uma letra minúscula`
-
-        //if senha tiver número//
+        // if (email.endsWith('.com') || email.endsWith('.br') || email.endsWith('.school')) { }
+        // else mensagemErro.innerHTML += '<br>Terminação do email é inválida'
 
 
-        if (cnpj.length == 14) { }
-        else mensagemErro.innerHTML += `<br>CNPJ inválido`
+        // var possui_especial =
+        //     senha.indexOf('#') >= 0 ||
+        //     senha.indexOf('@') >= 0 ||
+        //     senha.indexOf('!') >= 0 ||
+        //     senha.indexOf('%') >= 0 ||
+        //     senha.indexOf('?') >= 0 ||
+        //     senha.indexOf('-') >= 0 ||
+        //     senha.indexOf('+') >= 0 ||
+        //     senha.indexOf('_') >= 0;
 
-        if (cep.length == 8) { }
-        else mensagemErro.innerHTML += `<br> CEP inválido`
+        // if (senha.length >= 8) { }
+        // else mensagemErro.innerHTML += '<br>Insira uma senha com pelo menos 8 dígitos'
 
+        // if (possui_especial) { }
+        // else mensagemErro.innerHTML += '<br>A senha deve ter pelo menos 1 caractere especial'
+
+        // if (senha != senha.toUpperCase() && senha != senha.toLowerCase()) { }
+        // else mensagemErro.innerHTML += `
+        //             <br>A senha deve ter pelo menos uma letra maiúscula
+        //             <br>A senha deve ter pelo menos uma letra minúscula`
+
+        // //if senha tiver número//
+
+
+        // if (cnpj.length == 14) { }
+        // else mensagemErro.innerHTML += `<br>CNPJ inválido`
+
+        // if (cep.length == 8) { }
+        // else mensagemErro.innerHTML += `<br> CEP inválido`
+        direito.style.display = 'none'
+        esquerdo.style.display = 'block'
+        passoUm.style.display = 'none'
+        cadastrarse.style.display = 'block'
+    }
+    function cadastrar(){
     }
 </script>
