@@ -196,18 +196,17 @@ h4{
     overflow: hidden;
     overflow-y: scroll;
 }
-
-.footer .container-2 {
+.footer{
+    width: 100%;
     background-color: #191D12;
+}
+.footer .container-2 {
     color: #FFFFFF;
     justify-content: space-between;
     display: flex;
-    width: 100%;
-    padding-top: 15px;
+    margin: 0 auto;
+    width: 90%;
     padding: 25px;
-    padding-left: 103px;
-    padding-right: 103px;
-    
 }
 
 .footer .container-2 p{
@@ -220,7 +219,7 @@ h4{
 
 .footer .container-2 .contatos img {
     padding: 5px;
-    height: 50px;
+    height: 40px;
 }
 
 .footer .container-2 .mais-informacoes input {
@@ -228,7 +227,7 @@ h4{
     border-radius: 70px;
     color: #000000;
     width: 237px;
-    height: 47px;
+    padding: 10px;
     
 }
 
@@ -239,18 +238,11 @@ h4{
     height: 67px;
     display: flex; 
     justify-content: space-between;
-    padding-left: 103px;
-    padding-right: 103px
-    ;
-    
-
-
-  
+    align-items: center;
 }
 
 .footer .linha p{
-    align-items: center;
-    padding-top: 15px;
+    padding: 10px 40px;
     color: #FFFFFF;
     /* margin: 0 132px 0 142px; */
 
