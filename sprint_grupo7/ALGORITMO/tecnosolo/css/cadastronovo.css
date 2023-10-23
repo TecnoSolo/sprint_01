@@ -51,7 +51,7 @@ input:focus {
 .container_box{
     display: flex;
     justify-content: center;
-    align-items: center;
+    
     margin: 100px ;
 }
 .box {
