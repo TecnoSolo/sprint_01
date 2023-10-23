@@ -1,14 +1,14 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Ubuntu', sans-serif;
 }
 .cabecalho {
     padding: 10px;
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: #fff;
+    background-color: #2F3723;
 }
 
 .container {
@@ -25,7 +25,7 @@
     margin-left: 20px;
 }
 .navbar ul li a{
-    color: #555555;
+    color: #fff;
     text-decoration: none;
 }
 .idioma button{

@@ -1,50 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="../css/header.css">
-  <link rel="icon" href="../img/logoTomate.png">
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-  <link rel="stylesheet" href="../css/calculadora.css">
-  <script src="../js/scriptCalculadora.js"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tecnosolo - Calculadora financeira</title>
-</head>
-<body>
-  <header class="cabecalho">
-    <div class="container">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../css/header.css" />
+    <link rel="icon" href="../img/logoTomate.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/calculadora.css" />
+    <script src="../js/scriptCalculadora.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tecnosolo - Calculadora financeira</title>
+  </head>
+  <body>
+    <header class="cabecalho">
+      <div class="container">
         <div class="div-logo">
-            <img width="52px" src="../img/logoTomate.png" alt="logo da empresa tecnosolo" class="logo">
+          <img
+            width="52px"
+            src="../img/Design_sem_nome__2_-removebg-preview.png"
+            alt="logo da empresa tecnosolo"
+            class="logo"
+          />
         </div>
         <nav class="navbar">
-            <ul>
-                <li><a href="./tela_inicial.html">Home</a></li>
-                <li><a href="../html/tela_inicial.html#sobre-nos">Sobre nós</a></li>
-                <li><a href="./tela_inicial.html#recursos-id">Recursos</a></li>
-                <li><a  href="../html/calculadora_tecnosolo.html">Simulador</a></li>
-            </ul>
+          <ul>
+            <li><a href="./tela_inicial.html">Home</a></li>
+            <li><a href="../html/tela_inicial.html#sobre-nos">Sobre nós</a></li>
+            <li><a href="./tela_inicial.html#recursos-id">Recursos</a></li>
+            <li><a href="../html/calculadora_tecnosolo.html">Simulador</a></li>
+            <li><a href="./tela_inicial.html#suporte-id">Suporte</a></li>
+          </ul>
         </nav>
         <div class="col-1">
-            <ul>
-                <li class="sup"><a href="./tela_inicial.html#suporte-id">Suporte</a></li>
-                <li class="conta"><a href="">Conta</a></li>
-            </ul>
+          <ul>
+            <li class="conta"><a href="">Conta</a></li>
+          </ul>
         </div>
-    </div>
-</header>
+      </div>
+    </header>
 
-  <div class="calculadora">
-    <h2 class="titulo">Simulador Financeiro</h2>
-          <div class="box">
-            <div class="inputs">
-              <div class="valores">
-              <p>Tamanho em m² da plantação de tomate: </p>
-            <input type="text" id="qtd_m2">
-          <p>Quantidade de litros de água utilizado na safra: </p>
-            <input type="text" id="qtd_agua">
-          <button onclick="analisar()">Simular</button>
-                </div>
-        
+    <div class="calculadora">
+      <h2 class="titulo">Simulador Financeiro</h2>
+      <div class="box">
+        <div class="inputs">
+          <div class="valores">
+            <p>Tamanho em m² da plantação de tomate:</p>
+            <input type="text" id="qtd_m2" />
+            <p>Quantidade de litros de água utilizado na safra:</p>
+            <input type="text" id="qtd_agua" />
+            <button onclick="analisar()">Simular</button>
+          </div>
         </div>
         <div class="resultado">
           <h3 class="titulo-tec">Tecnosolo</h3>
@@ -53,17 +66,50 @@
             <li>Umidade ideal para solos argilosos é entre 60% e 70%.</li>
             <li>um tomate maduro possui cerca de 93% a 94% de água.</li>
           </ul>
-          <p class="desc">A partir de fontes de pesquisas <strong>EMBRAPA</strong> uma planção de tomate precisa de 2 a 7 milhões de litros de água por hectare de safra de alta produtividade.</p>
+          <p class="desc">
+            A partir de fontes de pesquisas <strong>EMBRAPA</strong> uma planção
+            de tomate precisa de 2 a 7 milhões de litros de água por hectare de
+            safra de alta produtividade.
+          </p>
           <ul>
             <li>10.000m² de plantação possui cerca de 13.500 plantas sendo;</li>
-            <li>Cada planta produz em média <b>7kgs</b> de fruto; </li>
+            <li>Cada planta produz em média <b>7kgs</b> de fruto;</li>
             <li>Cada <strong>KG</strong> tomate custa R$2,72.</li>
             <li>Cada <b>m³ </b> de agua custa R$4,09.</li>
           </ul>
           <p id="mensagem"></p>
         </div>
-        </div>
-  </div>
-</body>
-</html>
+      </div>
+    </div>
 
+    <div class="footer">
+      <div class="container-2">
+        <div class="conheca-nos">
+          <h5>Conheça-nos</h5>
+          <p>Sobre nós</p>
+        </div>
+        <div class="deixe-nos">
+          <h5>Deixe-nos ajudar você</h5>
+          <p>Sua conta</p>
+          <p>Suporte</p>
+        </div>
+        <div class="contatos">
+          <h5>Contatos</h5>
+          <img src="../img/Instagram.svg" />
+          <p>E-mail:tecnosolo@gmail.com</p>
+        </div>
+        <div class="mais-informacoes">
+          <h5>Gostaria de receber mais informações?</h5>
+          <input type="text" id="email" placeholder="seu e-mail aqui!" />
+        </div>
+      </div>
+      <div class="linha">
+        <p>
+          Condições de Uso | Notificação de Privacidade | Cookies | Anúncios
+          baseados em interesses
+        </p>
+        <p>©2023. All Rights Reserved.</p>
+      </div>
+    </div>
+  </body>
+</html>

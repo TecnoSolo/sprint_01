@@ -190,6 +190,9 @@
 
 .cards .container-1 {
     display: flex;
+    justify-content: center;
+    
+
     
 }
 
@@ -202,6 +205,7 @@
     flex-direction: column;
     margin-bottom: 100px;
     text-align: center;
+    padding-bottom: 15px;
 
 }
 
@@ -209,65 +213,7 @@
     box-shadow: 0 8px 16px 0 #2F3723;
   }
 
-.footer .container-2 {
-    background-color: #191D12;
-    color: #FFFFFF;
-    justify-content: space-between;
-    display: flex;
-    width: 100%;
-    padding-top: 15px;
-    padding: 25px;
-    padding-left: 103px;
-    padding-right: 103px;;
-    
-}
 
-.footer .container-2 p{
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    
-}
-
-.footer .container-2 .contatos img {
-    padding: 5px;
-    height: 50px;
-}
-
-.footer .container-2 .mais-informacoes input {
-    margin-top: 15px;
-    border-radius: 70px;
-    color: #000000;
-    width: 237px;
-    height: 47px;
-    
-}
-
-.footer .linha {
-    background-color: #1F2616;
-    border-top: #6D9E6B 2px solid;
-    width: 100%;
-    height: 67px;
-    display: flex; 
-    justify-content: space-between;
-    padding-left: 103px;
-    padding-right: 103px
-    ;
-    
-
-
-  
-}
-
-.footer .linha p{
-    align-items: center;
-    padding-top: 15px;
-    color: #FFFFFF;
-    /* margin: 0 132px 0 142px; */
-
-    
-}
 /* #c57d56 cor da logo pode ser essa também */
 /*cor legal que pode ser background para não ficar muito branco #EED0B2*/
 /*DED3C8*/
@@ -368,4 +314,57 @@
     font-size: 20px;
     font-weight: bold;
     margin-top: 20px;
+}
+
+.footer{
+    width: 100%;
+    background-color: #191D12;
+}
+.footer .container-2 {
+    color: #FFFFFF;
+    justify-content: space-between;
+    display: flex;
+    margin: 0 auto;
+    width: 90%;
+    padding: 25px;
+}
+
+.footer .container-2 p{
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    
+}
+
+.footer .container-2 .contatos img {
+    padding: 5px;
+    height: 40px;
+}
+
+.footer .container-2 .mais-informacoes input {
+    margin-top: 15px;
+    border-radius: 70px;
+    color: #000000;
+    width: 237px;
+    padding: 10px;
+    
+}
+
+.footer .linha {
+    background-color: #1F2616;
+    border-top: #6D9E6B 2px solid;
+    width: 100%;
+    height: 67px;
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer .linha p{
+    padding: 10px 40px;
+    color: #FFFFFF;
+    /* margin: 0 132px 0 142px; */
+
+    
 }

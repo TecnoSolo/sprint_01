@@ -5,6 +5,9 @@
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/conta.css">
     <link rel="icon" href="../img/logoTomate.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tecnosolo - perfil</title>
@@ -23,7 +26,7 @@
     <header class="cabecalho">
         <div class="container">
             <div class="div-logo">
-                <img width="52px" src="../img/logoTomate.png" alt="logo da empresa tecnosolo" class="logo">
+                <img width="52px" src="../img/Design_sem_nome__2_-removebg-preview.png" alt="logo da empresa tecnosolo" class="logo">
             </div>
             <nav class="navbar">
                 <ul>
@@ -31,11 +34,11 @@
                     <li><a href="../html/tela_inicial.html#sobre-nos">Sobre nós</a></li>
                     <li><a href="./tela_inicial.html#recursos-id">Recursos</a></li>
                     <li><a  href="../html/calculadora_tecnosolo.html">Simulador</a></li>
+                    <li><a href="./tela_inicial.html#suporte-id">Suporte</a></li>
                 </ul>
             </nav>
             <div class="col-1">
                 <ul>
-                    <li class="sup"><a href="./tela_inicial.html#suporte-id">Suporte</a></li>
                     <li class="conta"><a href="">Conta</a></li>
                 </ul>
             </div>
@@ -107,6 +110,32 @@
             </div>
     </div>
     <div class="dash-info" id="dashInfo">
+        <h3 class="titulo-dash">Dashboard</h3>
+        <div class="dash-cima">
+            <div class="box1">
+                <h4>Status sensor</h4>
+                <p class="marginB green">ON</p>
+                <h4 >Tipo de solo</h4>
+                <p class="green">Arenoso</p>
+            </div>
+            <div class="box2">
+                <h4>Quantidade de sensores</h4>
+                <p class="marginB">100</p>
+                <h4 >Quantidade de hectares</h4>
+                <p class="marginB">10</p>
+                <h4 >ID plantação</h4>
+                <p>1</p>
+            </div>
+            <div class="box3">
+                <h4>54.3%</h4>
+                <p class="marginB">Umidade máxima- ID SENSOR- HECTAR 1:</p>
+                <h4>52.1%</h4>
+                <p class="marginB">Umidade mínima- ID SENSOR- HECTAR 1:</p>
+                <h4>Localização do Sensor</h4>
+                <p>LATITUDE: 40.71727401</p>
+                <p>LONGITUDE: -74.00898606</p>
+            </div>
+        </div>
         <div>
             <h1 class="titulo-sensor">Sensor DHT 11 - Umidade</h1>
             <section style="width:100%">
@@ -193,5 +222,33 @@
     }
 
     </script>
+
+<div class="footer">
+    <div class="container-2">
+        <div class="conheca-nos">
+            <h5>Conheça-nos</h5>
+            <p>Sobre nós</p>
+        </div>
+        <div class="deixe-nos">
+            <h5>Deixe-nos ajudar você</h5>
+            <p>Sua conta</p>
+            <p>Suporte</p>
+        </div>
+        <div class="contatos">
+            <h5>Contatos</h5>
+            <img src="../img/Instagram.svg">
+            <p>E-mail:tecnosolo@gmail.com</p>
+        </div>
+        <div class="mais-informacoes">
+            <h5>Gostaria de receber mais informações?</h5>
+            <input type="text" id="email" placeholder="seu e-mail aqui!">
+        </div>
+    </div>
+    <div class="linha">
+        <p>Condições de Uso | Notificação de Privacidade | Cookies | Anúncios baseados em interesses </p>
+        <p>©2023. All Rights Reserved.</p>
+    </div>
+</div>
+
 </body>
 </html>
