@@ -162,10 +162,16 @@
         </div>
     </div>
 <div class="dash-graficos">
-    <div>
-        <h1 class="titulo-sensor">Sensor DHT 11 - Umidade</h1>
-        <section style="width:500px">
+    <div class="grafico">
+        <h1 class="titulo-sensor">Umidade Hora</h1>
+        <section style="width:800px">
             <canvas id="dht11Umidade"></canvas>
+        </section>
+    </div>
+    <div class="grafico">
+        <h1 class="titulo-sensor">Umidade media dia</h1>
+        <section style="width:800px">
+            <canvas id="dht11UmidadeMedia"></canvas>
         </section>
     </div>
 </div>
@@ -204,7 +210,7 @@
     /* -- dht11Umidade -- */
     var contextoDht11Umidade = document.getElementById('dht11Umidade').getContext('2d');
     contextoDht11Umidade.canvas.width = 1000;
-    contextoDht11Umidade.canvas.height = 600;
+    contextoDht11Umidade.canvas.height = 350;
     const labels = [
         '00:00',
         '01:00',
@@ -267,10 +273,115 @@
                 53.6
             ],
                     
-                    borderColor: ['#45b3e7'],
+                    borderColor: ['#38703D'],
                     fill: 0
                 }]
             },
+            options: {
+                scales: {
+                    xAxes: [{
+                        distribution: 'series',
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Umidade (%)'
+                        },
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                },
+                animation: {
+                    duration: 0
+                }
+            }
+        }
+    );
+    var contextoDht11UmidadeMedia = document.getElementById('dht11UmidadeMedia').getContext('2d');
+    contextoDht11UmidadeMedia.canvas.width = 1000;
+    contextoDht11UmidadeMedia.canvas.height = 350;
+
+    const labelsDia = [
+        'Dia 1',
+        'Dia 2',
+        'Dia 3',
+        'Dia 4',
+        'Dia 5',
+        'Dia 6',
+        'Dia 7',
+        'Dia 8',
+        'Dia 9',
+        'Dia 10',
+        'Dia 11',
+        'Dia 12',
+        'Dia 13',
+        'Dia 14',
+        'Dia 15',
+        'Dia 16',
+        'Dia 17',
+        'Dia 18',
+        'Dia 19',
+        'Dia 20',
+        'Dia 21',
+        'Dia 22',
+        'Dia 23',
+        'Dia 24',
+        'Dia 25',
+        'Dia 26',
+        'Dia 27',
+        'Dia 28',
+        'Dia 29',
+        'Dia 30',
+    ];
+    var dht11UmidadeMedia = new Chart(
+        contextoDht11UmidadeMedia,
+        {
+            type: 'bar',
+            data: {
+                labels: labelsDia,
+                datasets: [{
+                    label: 'Umidade (%)',
+                    type: 'bar',
+                    data: [55,
+                    53.4,
+                    52.8,
+                53.1,
+                53.7,
+                54.6,
+                55.3,
+                55.7,
+                55.8,
+                55.7,
+                55.7,
+                55.5,
+                55.4,
+                55.2,
+                55,
+                54.9,
+                54.7,
+                54.5,
+                54.4,
+                54.2,
+                54,
+                53.9,
+                53.8,
+                53.7,
+                53.6,
+                53.6,
+                53.6,
+                53.6,
+                53.6,
+                53.6,
+                53.6,
+                53.6,
+            ],
+            backgroundColor: ['#38703D'],
+        }]
+    },
             options: {
                 scales: {
                     xAxes: [{
