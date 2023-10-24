@@ -47,12 +47,14 @@
     <main>
         <div class="barra">
             <div class="col-1">
-                <button id="perfilId" onclick="perfil()">Perfil</button>
-                <button id="dadosId" onclick="dados()">Dados</button>
-                <button id="dashId" onclick="dash()">Dashboards</button>
+                <button id="perfilId" class="btn cima" onclick="perfil()">Perfil</button>
+                <button id="dadosId" class="btn meio" onclick="dados()">Dados</button>
+                <button id="dashId" class="btn baixo" onclick="dash()">Dashboards</button>
+                <button id="geralId" class="btnDash" onclick="geral()">Sensores Geral</button>
+                <button id="indiviId" class="btnDash" onclick="individual()">Sensor individual</button>
             </div>
             <div class="col-2">
-                <button>Sair<i class='bx bx-exit'></i></button>
+                <button class="btn" >Sair<i class='bx bx-exit'></i></button>
             </div>
         </div>
         <div class="perfil-info" id="perfilInfo">
@@ -80,9 +82,6 @@
                         <p class="titulo-usuario">Senha</p>
                         <p class="conteudo">*********</p>
                     </div>
-                    <!-- <div class="alterar ">
-                        <a class="titulo-alt" href="">Alterar senha</p>
-                    </div> -->
                 </div>
         </div>
         <div class="dados-info" id="dadosInfo">
@@ -110,38 +109,33 @@
             </div>
     </div>
     <div class="dash-info" id="dashInfo">
-        <h3 class="titulo-dash">Dashboard</h3>
-        <div class="dash-cima">
-            <div class="box1">
-                <h4>Status sensor</h4>
-                <p class="marginB green">ON</p>
-                <h4 >Tipo de solo</h4>
-                <p class="green">Arenoso</p>
-            </div>
-            <div class="box2">
-                <h4>Quantidade de sensores</h4>
-                <p class="marginB">100</p>
-                <h4 >Quantidade de hectares</h4>
-                <p class="marginB">10</p>
-                <h4 >ID plantação</h4>
-                <p>1</p>
-            </div>
-            <div class="box3">
-                <h4>54.3%</h4>
-                <p class="marginB">Umidade máxima- ID SENSOR- HECTAR 1:</p>
-                <h4>52.1%</h4>
-                <p class="marginB">Umidade mínima- ID SENSOR- HECTAR 1:</p>
-                <h4>Localização do Sensor</h4>
-                <p>LATITUDE: 40.71727401</p>
-                <p>LONGITUDE: -74.00898606</p>
-            </div>
-        </div>
+        <h3 class="titulo-dash">Dashboard - Sensores Geral</h3>
         <div>
             <h1 class="titulo-sensor">Sensor DHT 11 - Umidade</h1>
             <section style="width:100%">
                 <canvas id="dht11Umidade"></canvas>
             </section>
         </div>
+</div>
+<div class="individual-info" id="individualInfo">
+    <h3 class="titulo-dash">Dashboard - Sensor individual</h3>
+    <div class="dash-cima">
+        <div class="box">
+            <h4>Status sensor</h4>
+            <p class="marginB green">ON</p>
+            <h4 >Tipo de solo</h4>
+            <p class="green">Arenoso</p>
+        </div>
+        <div class="box">
+            <h4>54.3%</h4>
+            <p class="marginB">Umidade máxima- ID SENSOR- HECTAR 1:</p>
+            <h4>52.1%</h4>
+            <p class="marginB">Umidade mínima- ID SENSOR- HECTAR 1:</p>
+            <h4>Localização do Sensor</h4>
+            <p>LATITUDE: 40.71727401</p>
+            <p>LONGITUDE: -74.00898606</p>
+        </div>
+    </div>
 </div>
     </main>
     <script>
@@ -191,26 +185,62 @@
         perfilInfo.style.display = 'block'
         dashInfo.style.display = 'none'
         dadosInfo.style.display = 'none'
+        individualInfo.style.display = 'none'
         perfilId.style.backgroundColor = '#1F2616'
         perfilId.style.color = '#fff'
         dadosId.style.backgroundColor = '#fff'
         dadosId.style.color = 'black'
         dashId.style.backgroundColor = '#fff'
         dashId.style.color = 'black'
+        indiviId.style.display = 'none'
+        geralId.style.display = 'none'
     }
     function dados(){
         dadosInfo.style.display = 'block'
         dashInfo.style.display = 'none'
         perfilInfo.style.display = 'none'
+        individualInfo.style.display = 'none'
         dadosId.style.backgroundColor = '#1F2616'
         dadosId.style.color = '#fff'
         perfilId.style.backgroundColor = '#fff'
         perfilId.style.color = 'black'
         dashId.style.backgroundColor = '#fff'
         dashId.style.color = 'black'
+        indiviId.style.display = 'none'
+        geralId.style.display = 'none'
     }
     function dash(){
         dashInfo.style.display = 'block'
+        perfilInfo.style.display = 'none'
+        dadosInfo.style.display = 'none'
+        individualInfo.style.display = 'none'
+        dashId.style.backgroundColor = '#1F2616'
+        dashId.style.color = '#fff'
+        perfilId.style.backgroundColor = '#fff'
+        perfilId.style.color = 'black'
+        dadosId.style.backgroundColor = '#fff'
+        dadosId.style.color = 'black'
+        geralId.style.display = 'block'
+        indiviId.style.display = 'block'
+    }
+    
+    function geral(){
+        dashInfo.style.display = 'block'
+        perfilInfo.style.display = 'none'
+        dadosInfo.style.display = 'none'
+        individualInfo.style.display = 'none'
+        dashId.style.backgroundColor = '#1F2616'
+        dashId.style.color = '#fff'
+        perfilId.style.backgroundColor = '#fff'
+        perfilId.style.color = 'black'
+        dadosId.style.backgroundColor = '#fff'
+        dadosId.style.color = 'black'
+        geralId.style.display = 'block'
+        indiviId.style.display = 'block'
+    }
+    function individual(){
+        individualInfo.style.display = 'block'
+        dashInfo.style.display = 'none'
         perfilInfo.style.display = 'none'
         dadosInfo.style.display = 'none'
         dashId.style.backgroundColor = '#1F2616'
@@ -219,8 +249,9 @@
         perfilId.style.color = 'black'
         dadosId.style.backgroundColor = '#fff'
         dadosId.style.color = 'black'
+        geralId.style.display = 'block'
+        indiviId.style.display = 'block'
     }
-
     </script>
 
 <div class="footer">

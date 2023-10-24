@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="../img/logoTomate.png">
+    <link rel="stylesheet" href="../css/cadastronovo.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecnosolo - cadastro</title>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <div class="container">
+            <div class="div-logo">
+                <img width="52px" src="../img/logoTomate.png" alt="logo da empresa tecnosolo" class="logo">
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="./tela_inicial.html">Home</a></li>
+                    <li><a href="../html/tela_inicial.html#sobre-nos">Sobre nós</a></li>
+                    <li><a href="./tela_inicial.html#recursos-id">Recursos</a></li>
+                    <li><a  href="../html/calculadora_tecnosolo.html">Simulador</a></li>
+                </ul>
+            </nav>
+            <div class="col-1">
+                <ul>
+                    <li class="sup"><a href="./tela_inicial.html#suporte-id">Suporte</a></li>
+                    <li class="conta"><a href="">Conta</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="container_box">
+        <div class="box" >
+            <h2 class="titulo">Criar conta</h2>
+            <div class="cadastro">
+                <div class="boxAB">
+                    <div class="lados">
+                        <div class="lado-direito">
+                            Email:<input type="email" id="iptEmail" placeholder="E-mail" required>
+                            Senha<input type="password" id="iptSenha" placeholder="Senha" required>
+                            <input type="text" id="iptNome" placeholder="Nome" required>
+                            <input type="text" id="iptCnpj" placeholder="CNPJ" required>
+                            <input type="text" id="iptTelefone" placeholder="Telefone" required>
+                            <input type="text" id="iptNomeEmpresa" placeholder="Nome da Empresa" required>
+                            <input type="text" id="iptRua" placeholder="Rua" required>
+                            <input type="text" id="iptBairro" placeholder="Bairro" required>
+                            <input type="text" id="iptCidade" placeholder="Cidade" required>
+                            <input type="text" id="iptUF" placeholder="UF" required>
+                            <input type="text" id="iptCep" placeholder="CEP" required>
+                        </div>
+                    </div>
+                    <div class="but_Log"> <br>
+                        <button class="log" onclick="cadastrar()">
+                            <img src="/img/Vector.png" style = "height: 20px; padding-left: 5px;"alt="Icone">
+                            <a  href="../html/cadastronovo2.html"></a></button>
+                    </div>
+                <p style="color: red;" id="mensagemErro"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+        <style>
+            body{
+        background-repeat: no-repeat;
+        justify-content: flex-end;
+        }
+        </style>
+</body>
+
+</html>
+<script>
+    function cadastrar() {
+        var email = iptEmail.value
+        var senha = iptSenha.value
+        var nome = iptNome.value
+        var cnpj = iptCnpj.value
+
+        mensagemErro.innerHTML = ``
+        mensagemErro.style.display = 'block'
+        
+
+
+        if (email.indexOf('@') >= 0) { }
+        else mensagemErro.innerHTML = '-E-mail inválido.'
+
+        if (email.endsWith('.com') || email.endsWith('.br') || email.endsWith('.school')) { }
+        else mensagemErro.innerHTML += '<br>-Terminação do email é inválida.'
+
+
+        var possui_especial =
+            senha.indexOf('#') >= 0 ||
+            senha.indexOf('@') >= 0 ||
+            senha.indexOf('!') >= 0 ||
+            senha.indexOf('%') >= 0 ||
+            senha.indexOf('?') >= 0 ||
+            senha.indexOf('-') >= 0 ||
+            senha.indexOf('+') >= 0 ||
+            senha.indexOf('_') >= 0;
+
+        if (senha.length >= 8) { }
+        else mensagemErro.innerHTML += '<br>-Insira uma senha com pelo menos 8 dígitos.'
+
+        if (possui_especial) { }
+        else mensagemErro.innerHTML += '<br>-A senha deve ter pelo menos 1 caractere especial.'
+
+        if (senha != senha.toUpperCase() && senha != senha.toLowerCase()) { }
+        else mensagemErro.innerHTML += `
+                    <br>-A senha deve ter pelo menos uma letra maiúscula.
+                    <br>-A senha deve ter pelo menos uma letra minúscula.`
+
+        //if senha tiver número//
+
+
+        if (cnpj.length == 14) { }
+        else mensagemErro.innerHTML += `<br>-CNPJ inválido.`
+
+        if (cep.length == 8) { }
+        else mensagemErro.innerHTML += `<br> CEP inválido`
+
+    }
+</script>
