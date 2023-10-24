@@ -19,7 +19,7 @@ main .barra {
     background: #fff;
 }
 
-.barra button {
+.barra .btn {
     width: 200px;
     text-align: left;
     display: block;
@@ -28,8 +28,10 @@ main .barra {
     color: #555555;
     background-color: transparent;
     font-size: 20px;
-    margin-bottom: 20px;
     cursor: pointer;
+}
+.cima, .meio {
+    margin-bottom: 20px;
 }
 button:last-child {
     margin: 0;
@@ -38,7 +40,7 @@ button:last-child {
     background-color: #1F2616;
     color: #fff;
 }
-.perfil-info, .dados-info, .dash-info {
+.perfil-info, .dados-info, .dash-info, .individual-info {
     width: 1200px;
     margin-left: 10px;
     background-color: #fff;
@@ -50,7 +52,7 @@ button:last-child {
     flex-direction: column;
 }
 .perfil-info .banner .img-banner {
-    width: 900px;
+    width: 100%;
     height: 150px;
 }
 .perfil-info .usuario .img-usuario {
@@ -92,6 +94,9 @@ button:last-child {
     color: #4b4b4b;
     font-size: 22px;
     font-weight: 700;
+}
+.individual-info {
+    display: none;
 }
 .dados-info {
     display: none;
@@ -157,26 +162,18 @@ button:last-child {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
 }
-.box1{
+.box{
     text-align: center;
     padding: 15px;
     width: 200px;
-    height: 100px;
-    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
-.box2{
-    text-align: center;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-}
-.box3{
-    text-align: center;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-}
+
 .dash-cima {
     display: flex;
     gap: 30px;
@@ -247,4 +244,15 @@ h4{
     /* margin: 0 132px 0 142px; */
 
     
+}
+.btnDash {
+    font-size: 15px;
+    border: none;
+    color: #fff;
+    width: 80%;
+    background-color: #4b4b4b;
+    padding: 10px;
+    text-align: left;
+    display: none;
+    cursor: pointer;
 }
