@@ -156,12 +156,13 @@ button:last-child {
     padding: 30px 0;
 }
 .titulo-sensor {
-    margin-top: 200px;
+    margin-top: 20px;
     font-size: 20px;
     color: #4b4b4b;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
 }
+
 .box{
     text-align: center;
     padding: 15px;
@@ -177,6 +178,8 @@ button:last-child {
 .dash-cima {
     display: flex;
     gap: 30px;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 h4{
     color: #4b4b4b;
@@ -187,6 +190,7 @@ h4{
 }
 .green {
     color: #38703D;
+    font-size: 18px;
     font-weight: bold;
 }
 .dash-info {
@@ -250,9 +254,39 @@ h4{
     border: none;
     color: #fff;
     width: 80%;
-    background-color: #4b4b4b;
+    background-color: #6d6d6d;
     padding: 10px;
     text-align: left;
     display: none;
     cursor: pointer;
+}
+.individual-info {
+    overflow: hidden;
+    overflow-y: scroll;
+}
+.box select {
+    width: 100%;
+    padding: 15px;
+    font-size: 20px;
+}
+.box option {
+    font-size: 18px;
+}
+.dash-meio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.atual {
+    background-color: #191D12;
+    color: #fff;
+}
+.atual p {
+    font-size: 20px;
+}
+.amarelo {
+    color: yellow;
+}
+.atual .tempAtual {
+    color: #fff;
 }

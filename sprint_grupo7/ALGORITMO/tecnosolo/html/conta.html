@@ -110,16 +110,25 @@
     </div>
     <div class="dash-info" id="dashInfo">
         <h3 class="titulo-dash">Dashboard - Sensores Geral</h3>
-        <div>
-            <h1 class="titulo-sensor">Sensor DHT 11 - Umidade</h1>
-            <section style="width:100%">
-                <canvas id="dht11Umidade"></canvas>
-            </section>
-        </div>
 </div>
 <div class="individual-info" id="individualInfo">
     <h3 class="titulo-dash">Dashboard - Sensor individual</h3>
     <div class="dash-cima">
+        <div class="box">
+            <select id="">
+                <option value="1">Sensor 1</option>
+                <option value="2">Sensor 2</option>
+                <option value="3">Sensor 3</option>
+                <option value="4">Sensor 4</option>
+                <option value="5">Sensor 5</option>
+                <option value="6">Sensor 6</option>
+
+            </select>
+        </div>
+        <div class="box">
+            <h4 class="marginB">Data</h4>
+            <p class="green">21/05/2005</p>
+        </div>
         <div class="box">
             <h4>Status sensor</h4>
             <p class="marginB green">ON</p>
@@ -127,133 +136,41 @@
             <p class="green">Arenoso</p>
         </div>
         <div class="box">
+            <h4 class="marginB">Localização do Sensor</h4>
+            <h5>LATIDUTE</h5>
+            <p>40.71727401</p>
+            <h5>LONGITUDE</h5>
+            <p class="marginB">-74.00898606</p>
+            <h4>Endereço</h4>
+            <p>rua vladimir campos - MG</p>
+        </div>
+        <div class="box">
+            <h4 lass="marginB">Tipo do tomate</h4>
+            <p class="green">Saladete</p>
+        </div>
+        <!-- <div class="box">
             <h4>54.3%</h4>
-            <p class="marginB">Umidade máxima- ID SENSOR- HECTAR 1:</p>
-            <h4>52.1%</h4>
-            <p class="marginB">Umidade mínima- ID SENSOR- HECTAR 1:</p>
-            <h4>Localização do Sensor</h4>
-            <p>LATITUDE: 40.71727401</p>
-            <p>LONGITUDE: -74.00898606</p>
+            <p class="marginB">Umidade média</p>
+        </div> -->
+    </div>
+    <div class="dash-meio">
+        <div class="box atual">
+            <p class="marginB">Umidade Atual</p>
+            <h4 class="marginB tempAtual">54.3%<i class='bx bxs-droplet-half'></i></h4>
+            
+            <h4 class="amarelo">ALERTA</h4>
         </div>
     </div>
+<div class="dash-graficos">
+    <div>
+        <h1 class="titulo-sensor">Sensor DHT 11 - Umidade</h1>
+        <section style="width:500px">
+            <canvas id="dht11Umidade"></canvas>
+        </section>
+    </div>
+</div>
 </div>
     </main>
-    <script>
-        /* -- dht11Umidade -- */
-        var contextoDht11Umidade = document.getElementById('dht11Umidade').getContext('2d');
-        contextoDht11Umidade.canvas.width = 1000;
-        contextoDht11Umidade.canvas.height = 300;
-        var dht11Umidade = new Chart(
-            contextoDht11Umidade,
-            {
-                type: 'line',
-                data: {
-                    datasets: [{
-                        label: 'Umidade (%)',
-                        type: 'line',
-                        data: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
-                        borderColor: ['#45b3e7'],
-                        backgroundColor: ['#89cff0']
-                    }]
-                },
-                options: {
-                    scales: {
-                        xAxes: [{
-                            distribution: 'series',
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }],
-                        yAxes: [{
-                            scaleLabel: {
-                                display: true,
-                                labelString: 'Umidade (%)'
-                            },
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }]
-                    },
-                    animation: {
-                        duration: 0
-                    }
-                }
-            }
-        );
-
-        function perfil(){
-        perfilInfo.style.display = 'block'
-        dashInfo.style.display = 'none'
-        dadosInfo.style.display = 'none'
-        individualInfo.style.display = 'none'
-        perfilId.style.backgroundColor = '#1F2616'
-        perfilId.style.color = '#fff'
-        dadosId.style.backgroundColor = '#fff'
-        dadosId.style.color = 'black'
-        dashId.style.backgroundColor = '#fff'
-        dashId.style.color = 'black'
-        indiviId.style.display = 'none'
-        geralId.style.display = 'none'
-    }
-    function dados(){
-        dadosInfo.style.display = 'block'
-        dashInfo.style.display = 'none'
-        perfilInfo.style.display = 'none'
-        individualInfo.style.display = 'none'
-        dadosId.style.backgroundColor = '#1F2616'
-        dadosId.style.color = '#fff'
-        perfilId.style.backgroundColor = '#fff'
-        perfilId.style.color = 'black'
-        dashId.style.backgroundColor = '#fff'
-        dashId.style.color = 'black'
-        indiviId.style.display = 'none'
-        geralId.style.display = 'none'
-    }
-    function dash(){
-        dashInfo.style.display = 'block'
-        perfilInfo.style.display = 'none'
-        dadosInfo.style.display = 'none'
-        individualInfo.style.display = 'none'
-        dashId.style.backgroundColor = '#1F2616'
-        dashId.style.color = '#fff'
-        perfilId.style.backgroundColor = '#fff'
-        perfilId.style.color = 'black'
-        dadosId.style.backgroundColor = '#fff'
-        dadosId.style.color = 'black'
-        geralId.style.display = 'block'
-        indiviId.style.display = 'block'
-    }
-    
-    function geral(){
-        dashInfo.style.display = 'block'
-        perfilInfo.style.display = 'none'
-        dadosInfo.style.display = 'none'
-        individualInfo.style.display = 'none'
-        dashId.style.backgroundColor = '#1F2616'
-        dashId.style.color = '#fff'
-        perfilId.style.backgroundColor = '#fff'
-        perfilId.style.color = 'black'
-        dadosId.style.backgroundColor = '#fff'
-        dadosId.style.color = 'black'
-        geralId.style.display = 'block'
-        indiviId.style.display = 'block'
-    }
-    function individual(){
-        individualInfo.style.display = 'block'
-        dashInfo.style.display = 'none'
-        perfilInfo.style.display = 'none'
-        dadosInfo.style.display = 'none'
-        dashId.style.backgroundColor = '#1F2616'
-        dashId.style.color = '#fff'
-        perfilId.style.backgroundColor = '#fff'
-        perfilId.style.color = 'black'
-        dadosId.style.backgroundColor = '#fff'
-        dadosId.style.color = 'black'
-        geralId.style.display = 'block'
-        indiviId.style.display = 'block'
-    }
-    </script>
-
 <div class="footer">
     <div class="container-2">
         <div class="conheca-nos">
@@ -283,3 +200,171 @@
 
 </body>
 </html>
+<script>
+    /* -- dht11Umidade -- */
+    var contextoDht11Umidade = document.getElementById('dht11Umidade').getContext('2d');
+    contextoDht11Umidade.canvas.width = 1000;
+    contextoDht11Umidade.canvas.height = 600;
+    const labels = [
+        '00:00',
+        '01:00',
+        '02:00',
+        '03:00',
+        '04:00',
+        '05:00',
+        '06:00',
+        '07:00',
+        '08:00',
+        '09:00',
+        '10:00',
+        '11:00',
+        '12:00',
+        '13:00',
+        '14:00',
+        '15:00',
+        '16:00',
+        '17:00',
+        '18:00',
+        '19:00',
+        '20:00',
+        '21:00',
+        '22:00',
+        '23:00',
+    ];
+    var dht11Umidade = new Chart(
+        contextoDht11Umidade,
+        {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Umidade (%)',
+                    type: 'line',
+                    data: [55,
+                53.4,
+                52.8,
+                53.1,
+                53.7,
+                54.6,
+                55.3,
+                55.7,
+                55.8,
+                55.7,
+                55.7,
+                55.5,
+                55.4,
+                55.2,
+                55,
+                54.9,
+                54.7,
+                54.5,
+                54.4,
+                54.2,
+                54,
+                53.9,
+                53.8,
+                53.7,
+                53.6
+            ],
+                    
+                    borderColor: ['#45b3e7'],
+                    fill: 0
+                }]
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        distribution: 'series',
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Umidade (%)'
+                        },
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                },
+                animation: {
+                    duration: 0
+                }
+            }
+        }
+    );
+
+    function perfil(){
+    perfilInfo.style.display = 'block'
+    dashInfo.style.display = 'none'
+    dadosInfo.style.display = 'none'
+    individualInfo.style.display = 'none'
+    perfilId.style.backgroundColor = '#1F2616'
+    perfilId.style.color = '#fff'
+    dadosId.style.backgroundColor = '#fff'
+    dadosId.style.color = 'black'
+    dashId.style.backgroundColor = '#fff'
+    dashId.style.color = 'black'
+    indiviId.style.display = 'none'
+    geralId.style.display = 'none'
+}
+function dados(){
+    dadosInfo.style.display = 'block'
+    dashInfo.style.display = 'none'
+    perfilInfo.style.display = 'none'
+    individualInfo.style.display = 'none'
+    dadosId.style.backgroundColor = '#1F2616'
+    dadosId.style.color = '#fff'
+    perfilId.style.backgroundColor = '#fff'
+    perfilId.style.color = 'black'
+    dashId.style.backgroundColor = '#fff'
+    dashId.style.color = 'black'
+    indiviId.style.display = 'none'
+    geralId.style.display = 'none'
+}
+function dash(){
+    dashInfo.style.display = 'block'
+    perfilInfo.style.display = 'none'
+    dadosInfo.style.display = 'none'
+    individualInfo.style.display = 'none'
+    dashId.style.backgroundColor = '#1F2616'
+    dashId.style.color = '#fff'
+    perfilId.style.backgroundColor = '#fff'
+    perfilId.style.color = 'black'
+    dadosId.style.backgroundColor = '#fff'
+    dadosId.style.color = 'black'
+    geralId.style.display = 'block'
+    indiviId.style.display = 'block'
+}
+
+function geral(){
+    dashInfo.style.display = 'block'
+    perfilInfo.style.display = 'none'
+    dadosInfo.style.display = 'none'
+    individualInfo.style.display = 'none'
+    dashId.style.backgroundColor = '#1F2616'
+    dashId.style.color = '#fff'
+    perfilId.style.backgroundColor = '#fff'
+    perfilId.style.color = 'black'
+    dadosId.style.backgroundColor = '#fff'
+    dadosId.style.color = 'black'
+    geralId.style.display = 'block'
+    indiviId.style.display = 'block'
+}
+function individual(){
+    individualInfo.style.display = 'block'
+    dashInfo.style.display = 'none'
+    perfilInfo.style.display = 'none'
+    dadosInfo.style.display = 'none'
+    dashId.style.backgroundColor = '#1F2616'
+    dashId.style.color = '#fff'
+    perfilId.style.backgroundColor = '#fff'
+    perfilId.style.color = 'black'
+    dadosId.style.backgroundColor = '#fff'
+    dadosId.style.color = 'black'
+    geralId.style.display = 'block'
+    indiviId.style.display = 'block'
+}
+</script>
