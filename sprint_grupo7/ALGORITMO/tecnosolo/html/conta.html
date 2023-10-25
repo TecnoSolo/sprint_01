@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/conta.css">
+    <link rel="stylesheet" href="../css/dashGeral.css">
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="icon" href="../img/logoTomate.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -111,6 +112,77 @@
     </div>
     <div class="dash-info" id="dashInfo">
         <h3 class="titulo-dash">Dashboard - Sensores Geral</h3>
+        <div class="cardsSensores">
+            <h2>Umidade dos Sensores</h2>
+            <div class="legenda">
+                <div class="legCard">
+                    <div class="cardVermelho"></div>
+                    <p>Crítico</p>
+                </div>
+                <div class="legCard">
+                    <div class="cardLaranja"></div>
+                    <p>Emergência</p>
+                </div>
+                <div class="legCard">
+                    <div class="cardAmarelo"></div>
+                    <p>Alerta</p>
+                </div>
+                <div class="legCard">
+                    <div class="cardVerde"></div>
+                    <p>Crítico</p>
+                </div>
+            </div>
+            <div class="cardsFlex">
+                <div class="card cardVermelho">
+                    <h4 class="sensor">Sensor 1</h4>
+                    <p class="">Umidade Atual</p>
+                    <h4 class="">10.3%<i class='bx bxs-droplet-half'></i></h4>
+                    <h4 class="sensor">Plantação 1</h4>
+                </div>
+                <div class="card cardLaranja">
+                    <h4 class="sensor">Sensor 2</h4>
+                    <p class="">Umidade Atual</p>
+                    <h4 class="">41.3%<i class='bx bxs-droplet-half'></i></h4>
+                    <h4 class="sensor">Plantação 1</h4>
+                </div>
+                <div class="card cardAmarelo">
+                    <h4 class="sensor">Sensor 3</h4>
+                    <p class="">Umidade Atual<p>
+                    <h4 class="">54.3%<i class='bx bxs-droplet-half'></i></h4>
+                    <h4 class="sensor">Plantação 1</h4>
+                </div>
+                <div class="card cardAmarelo">
+                    <h4 class="sensor">Sensor 4</h4>
+                    <p class="">Umidade Atual</p>
+                    <h4 class="">54.3%<i class='bx bxs-droplet-half'></i></h4>
+                    <h4 class="sensor">Plantação 1</h4>
+                </div>
+                <div class="card cardVerde">
+                    <h4 class="sensor">Sensor 5</h4>
+                    <p class="">Umidade Atual</p>
+                    <h4 class="">79.2%<i class='bx bxs-droplet-half'></i></h4>
+                    <h4 class="sensor">Plantação 1</h4>
+                </div>
+                <div class="card cardVerde">
+                    <h4 class="sensor">Sensor 6</h4>
+                    <p class="">Umidade Atual</p>
+                    <h4 class="">78.3%<i class='bx bxs-droplet-half'></i></h4>
+                    <h4 class="sensor">Plantação 1</h4>
+                </div>
+                <div class="card cardVerde">
+                    <h4 class="sensor">Sensor 7</h4>
+                    <p class="">Umidade Atual</p>
+                    <h4 class="">74.3%<i class='bx bxs-droplet-half'></i></h4>
+                    <h4 class="sensor">Plantação 1</h4>
+                </div>
+                <div class="card cardVerde">
+                    <h4 class="sensor">Sensor 8</h4>
+                    <p class="">Umidade Atual</p>
+                    <h4 class="">70.3%<i class='bx bxs-droplet-half'></i></h4>
+                    <h4 class="sensor">Plantação 1</h4>
+                </div>
+            </div>
+        </div>
 </div>
 <div class="individual-info" id="individualInfo">
     <h3 class="titulo-dash">Dashboard - Sensor individual</h3>
@@ -123,31 +195,35 @@
                 <option value="4">Sensor 4</option>
                 <option value="5">Sensor 5</option>
                 <option value="6">Sensor 6</option>
+                <option value="6">Sensor 7</option>
+                <option value="6">Sensor 8</option>
 
             </select>
         </div>
-        <div class="box">
-            <h4 class="marginB">Data</h4>
+        <div class="box bgVerde">
+            <h4 >Endereço</h4>
+            <p >rua vladimir campos - MG</p>
+        </div>
+        <div class="box bgCinza">
+            <h4>Data</h4>
             <p class="green">27/10/2023</p>
         </div>
-        <div class="box">
+        <div class="box bgCinza">
             <h4>Status sensor</h4>
-            <p class="marginB green">ON</p>
+            <p class="green">ON</p>
         </div>
         <div class="box bgVerde">
-            <h4 class="marginB brancoText">Localização do Sensor</h4>
-            <h5 class="brancoText">LATIDUTE</h5>
-            <p class="brancoText">40.71727401</p>
-            <h5 class="brancoText">LONGITUDE</h5>
-            <p class="marginB brancoText">-74.00898606</p>
-            <h4 class="brancoText">Endereço</h4>
-            <p class="brancoText">rua vladimir campos - MG</p>
+            <h4 class="marginB ">Localização do Sensor</h4>
+            <h5 class="verdeClaro">LATIDUTE</h5>
+            <p class="">40.71727401</p>
+            <h5 class="verdeClaro">LONGITUDE</h5>
+            <p>-74.00898606</p>
         </div>
-        <div class="box">
+        <div class="box bgVermelho">
             <h4 >Tipo de solo</h4>
-            <p class="green marginB">Arenoso</p>
+            <p class="cinzaClaro marginB">Arenoso</p>
             <h4 lass="marginB">Tipo do tomate</h4>
-            <p class="green">Saladete</p>
+            <p class="cinzaClaro">Saladete</p>
         </div>
         <!-- <div class="box">
             <h4>54.3%</h4>
@@ -155,12 +231,15 @@
         </div> -->
     </div>
     <div class="dash-meio">
-        <div class="box atual">
-            <p class="marginB">Umidade Atual</p>
-            <h4 class="marginB tempAtual">54.3%<i class='bx bxs-droplet-half'></i></h4>
-        </div>
-        <div class="table">
-            <img src="../img/thumbnail_image.png" alt="">
+        <h2>Analytics</h2>
+        <div class="anaFlex">
+            <div class="box atual">
+                <p class="marginB">Umidade Atual</p>
+                <h4 class="marginB tempAtual">54.3%<i class='bx bxs-droplet-half'></i></h4>
+            </div>
+            <div class="table">
+                <img src="../img/thumbnail_image.png" alt="">
+            </div>
         </div>
     </div>
 <div class="dash-graficos">

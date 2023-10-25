@@ -1,0 +1,48 @@
+.cardsFlex {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.cardsSensores {
+    padding: 10px;
+}
+.legenda {
+    display: flex;
+    justify-content: space-around;
+}
+.legCard {
+    display: flex;
+    margin-bottom: 5px;
+}
+.legCard div {
+    width: 20px;
+    height: 20px;
+}
+.card{
+    width: 200px;
+    text-align: center;
+    padding: 10px;
+}
+.cardVerde {
+    background-color: #38703D;
+    color: #fff;
+}
+.cardAmarelo {
+    background-color: yellow;
+}
+.cardLaranja {
+    background-color: rgb(255, 145, 0);
+}
+.cardVermelho {
+    background-color: red;
+}
+.card h4 {
+    font-size: 24px;
+    padding: 10px;
+}
+h2 {
+    text-align: center;
+}

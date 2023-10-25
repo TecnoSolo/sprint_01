@@ -168,25 +168,21 @@ button:last-child {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
 .dash-cima {
     display: flex;
     gap: 30px;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: left;
     margin-bottom: 20px;
-}
-h4{
-    color: #4b4b4b;
-    font-size: 20px;
 }
 .marginB {
     margin-bottom: 20px;
 }
 .green {
-    color: #38703D;
+    color: #206326;
     font-size: 18px;
     font-weight: bold;
 }
@@ -266,25 +262,41 @@ h4{
     padding: 10px;
     font-size: 20px;
 }
+
 .box option {
     font-size: 18px;
+}.dash-meio h2 {
+    padding-bottom: 20px;
+    font-size: 34px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #818181;
 }
 .dash-meio {
+    background-color: #f1f1f1;
+    padding: 10px;
+    text-align: center;
+    gap: 30px;
+}
+.anaFlex {
     display: flex;
     align-items: center;
-    gap: 30px;
     justify-content: center;
+    gap: 20px;
 }
 .atual {
     background-color: rgb(247, 252, 0);
     color: #000000;
+    font-weight: bold;
+    height: 142px;
 }
 .atual p {
-    font-size: 20px;
+    font-size: 25px;
 }
 
 .atual .tempAtual {
     color: #000000;
+    font-size: 25px;
+    font-weight: bold;
 }
 .dash-graficos {
     display: flex;
@@ -304,4 +316,24 @@ h4{
 }
 .bgVerde {
     background-color: #38703D;
+    color: #fff;
+}
+.bgCinza {
+    background-color: #e6e6e6;
+    color: #000;
+    font-size: 20px;
+}
+.verdeClaro {
+    color: #d2ffd1;
+    font-weight: bold;
+    font-size: 16px;
+}
+.bgVermelho {
+    background-color: rgb(97, 71, 0);
+    color: #fff;
+}
+.cinzaClaro {
+    color: rgb(209, 209, 209);
+    font-weight: bold;
+    font-size: 17px;
 }
