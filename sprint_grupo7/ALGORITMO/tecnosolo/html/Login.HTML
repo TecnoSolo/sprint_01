@@ -10,6 +10,7 @@
     <link rel="icon" href="../img/logoTomate.png">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/Login.CSS">
+    <link rel="stylesheet" href="../css/footer.css">
 </head>
 <body>
     <header class="cabecalho">
@@ -46,8 +47,7 @@
                 <img src="../img/Vector.png" style = "height: 20px; padding-left: 5px;"alt="Icone"></button>
         
         </div>
-        
-        
+
     </div>
     <style>
     #input_email {
@@ -64,20 +64,22 @@
         
     </style>
 </center>
+
+
 <div class="footer">
     <div class="container-2">
         <div class="conheca-nos">
             <h5>Conheça-nos</h5>
-            <p>Sobre nós</p>
+            <p><a href="../html/tela_inicial.html#sobre-nos">Sobre nós</a></p>
         </div>
         <div class="deixe-nos">
             <h5>Deixe-nos ajudar você</h5>
-            <p>Sua conta</p>
-            <p>Suporte</p>
+           <p><a href="./conta.html">Sua Conta</a></p>
+            <p><a href="./tela_inicial.html#suporte-id">Suporte</a></p>
         </div>
         <div class="contatos">
             <h5>Contatos</h5>
-            <img src="../img/Instagram.svg">
+           <p><a href="http://instagra.com/tecnosolo_"> <img src="../img/Instagram.svg"></a></p>
             <p>E-mail:tecnosolo@gmail.com</p>
         </div>
         <div class="mais-informacoes">
@@ -98,8 +100,6 @@ function entrar() {
 var email = input_email.value;
 var senha =input_senha.value;
 
-
-    
      //Validando o email de Login//
     
         if (email.indexOf('@') >= 0) { }
@@ -108,7 +108,7 @@ var senha =input_senha.value;
         if (email.endsWith('.com') || email.endsWith('.br') || email.endsWith('.school')) { }
         else  alert(" insira um E-mail valido")
 
-}
+}  
 
 
 
