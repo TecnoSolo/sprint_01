@@ -82,6 +82,7 @@ button:last-child {
 }
 .titulo-usuario {
     font-size: 20px;
+    width: 1px;
 }
 .conteudo {
     font-size: 18px;
