@@ -119,6 +119,9 @@ button:last-child {
     font-size: 60px;
     color: #fff;
 }
+.brancoText {
+    color: #fff;
+}
 .titulo-planta {
     font-size: 20px;
     font-weight: 100;
@@ -260,7 +263,7 @@ h4{
 }
 .box select {
     width: 100%;
-    padding: 15px;
+    padding: 10px;
     font-size: 20px;
 }
 .box option {
@@ -269,29 +272,36 @@ h4{
 .dash-meio {
     display: flex;
     align-items: center;
+    gap: 30px;
     justify-content: center;
 }
 .atual {
-    background-color: #191D12;
-    color: #fff;
+    background-color: rgb(247, 252, 0);
+    color: #000000;
 }
 .atual p {
     font-size: 20px;
 }
-.amarelo {
-    color: yellow;
-}
+
 .atual .tempAtual {
-    color: #fff;
+    color: #000000;
 }
 .dash-graficos {
     display: flex;
     justify-content: center;
     margin-top: 50px;
     flex-wrap: wrap;
+
 }
 
 .titulo-sensor {
     text-align: center;
     color: #38703D;
+}
+.table img {
+    width: 200px;
+    border: 4px solid black;
+}
+.bgVerde {
+    background-color: #38703D;
 }
