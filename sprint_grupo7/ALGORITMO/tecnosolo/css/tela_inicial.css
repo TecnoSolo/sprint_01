@@ -215,6 +215,8 @@
     margin-bottom: 100px;
     text-align: center;
     padding-bottom: 15px;
+    width: 400px;
+    text-align: justify;
 
 }
 
@@ -372,7 +374,7 @@ margin-top: 120px;
 
 
 .suporte {
-    background: #2F3723;
+    background: white;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -384,18 +386,32 @@ margin-top: 120px;
     font-size: 45px;
     padding: 20px;
     margin-bottom: 30px;
-    color: #fff;
+    color: #38703D;
 }
 .inputs p {
     font-size: 20px;
+    color:#38703D;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
 }
 .inputs input, textarea{
     width: 100%;
     padding: 10px;
     font-size: 18px;
-    background-color: #f3f3f3;
+    background-color: #2F3723;
     border: none;
+    color:white;
+    border-radius: 4px;
+    border: 2px solid gray;
 }
+.inputs input, textarea::placeholder{
+    color: #fff;
+}
+.inputs input::placeholder{
+    color:#fff;
+}
+
 .men {
     width: 600px;
     background-color: #fff;
@@ -420,6 +436,8 @@ margin-top: 120px;
     font-size: 20px;
     font-weight: bold;
     margin-top: 20px;
+    border: 2px solid gray;
+    border-radius: 4px;
 }
 
 .footer{
