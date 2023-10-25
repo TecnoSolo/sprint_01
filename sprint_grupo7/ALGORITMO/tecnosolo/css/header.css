@@ -4,7 +4,7 @@
     font-family: 'Ubuntu', sans-serif;
 }
 .cabecalho {
-    padding: 10px;
+    /* padding: 10px; */
     position: fixed;
     top: 0;
     z-index: 100;
