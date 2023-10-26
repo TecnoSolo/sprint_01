@@ -7,7 +7,11 @@
     <link rel="stylesheet" href="../css/dashGeral.css">
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="icon" href="../img/logoTomate.png">
+    <link rel="stylesheet" href="../css/dashIndividual.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -182,12 +186,44 @@
                     <h4 class="sensor">Plantação 1</h4>
                 </div>
             </div>
+            <div class="kpis">
+                <div class="box qtdSensores">
+                    <h4 >Quantidade de Sensores</h4>
+                    <p class="">8</p>
+                </div>
+                <div class="box qtdHectar">
+                    <h4 >Quantidade de hectares</h4>
+                    <p class="">1</p>
+                </div>
+                <div class="box tipo">
+                    <h4 >R$200.684,20</h4>
+                    <p class="marginB">Lucro total</p>
+                    <h4 >R$18.938,46</h4>
+                    <p class="marginB">Maior lucro(JULHO)</p>
+                    <h4 >R$14.810,43</h4>
+                    <p class="marginB">Menor lucro(SETEMBRO)</p>
+                </div>
+            </div>
+            <div class="dash-graficos">
+    <div class="grafico">
+        <h1 class="titulo-sensor">Lucro Mensal</h1>
+        <section style="width:800px">
+            <canvas id="lucroMensal"></canvas>
+        </section>
+    </div>
+    <div class="grafico">
+        <h1 class="titulo-sensor">Média mensal de Umidade</h1>
+        <section style="width:800px">
+            <canvas id="mensalMediaUmidade"></canvas>
+        </section>
+    </div>
+</div>
         </div>
 </div>
 <div class="individual-info" id="individualInfo">
     <h3 class="titulo-dash">Dashboard - Sensor individual</h3>
     <div class="dash-cima">
-        <div class="box bgVerde">
+        <div class="box sele">
             <select id="">
                 <option value="1">Sensor 1</option>
                 <option value="2">Sensor 2</option>
@@ -200,30 +236,33 @@
 
             </select>
         </div>
-        <div class="box bgVerde">
+        <div class="box endereco">
             <h4 >Endereço</h4>
-            <p >rua vladimir campos - MG</p>
+            <p class="marginB">rua vladimir campos - MG</p>
+            <h4 >Plantação</h4>
+            <p >1</p>
         </div>
-        <div class="box bgCinza">
-            <h4>Data</h4>
-            <p class="green">27/10/2023</p>
-        </div>
-        <div class="box bgCinza">
-            <h4>Status sensor</h4>
-            <p class="green">ON</p>
-        </div>
-        <div class="box bgVerde">
-            <h4 class="marginB ">Localização do Sensor</h4>
-            <h5 class="verdeClaro">LATIDUTE</h5>
+        <div class="box ">
+            <h4 class="marginB ">Localização do Sensor </h4>
+            <h5 class="">LATIDUTE</h5>
             <p class="">40.71727401</p>
-            <h5 class="verdeClaro">LONGITUDE</h5>
+            <h5 class="">LONGITUDE</h5>
             <p>-74.00898606</p>
         </div>
-        <div class="box bgVermelho">
+        <div class="box data">
+            <h4>Data</h4>
+            <h5>27/10/2023  <i class='bx bxs-calendar'></i></h5>
+        </div>
+        <div class="box status">
+            <h4>Status sensor</h4>
+            <h5>ON</h5>
+        </div>
+        
+        <div class="box tipo">
             <h4 >Tipo de solo</h4>
-            <p class="cinzaClaro marginB">Arenoso</p>
+            <p class=" marginB">Arenoso</p>
             <h4 lass="marginB">Tipo do tomate</h4>
-            <p class="cinzaClaro">Saladete</p>
+            <p class="">Saladete</p>
         </div>
         <!-- <div class="box">
             <h4>54.3%</h4>
@@ -234,6 +273,7 @@
         <h2>Analytics</h2>
         <div class="anaFlex">
             <div class="box atual">
+                <i class='bx bxs-megaphone'></i>
                 <p class="marginB">Umidade Atual</p>
                 <h4 class="marginB tempAtual">54.3%<i class='bx bxs-droplet-half'></i></h4>
             </div>
@@ -466,6 +506,144 @@
             ],
         }]
     },
+            options: {
+                scales: {
+                    xAxes: [{
+                        distribution: 'series',
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Umidade (%)'
+                        },
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                },
+                animation: {
+                    duration: 0
+                }
+            }
+        }
+    );
+    var contextoLucroMensal = document.getElementById('lucroMensal').getContext('2d');
+    contextoLucroMensal.canvas.width = 1000;
+    contextoLucroMensal.canvas.height = 350;
+    const labelsLucro = [
+        'Jan',
+        'Fev',
+        'Mar',
+        'Abr',
+        'Mai',
+        'Jun',
+        'Jul',
+        'Ago',
+        'Set',
+        'Out',
+        'Nov',
+        'Dez',
+    ];
+    var lucroMensal = new Chart(
+        contextoLucroMensal,
+        {
+            type: 'line',
+            data: {
+                labels: labelsLucro,
+                datasets: [{
+                    label: 'Lucro mensal',
+                    type: 'line',
+                    data: [55,
+                53.4,
+                52.8,
+                53.1,
+                53.7,
+                54.6,
+                55.3,
+                55.7,
+                55.8,
+                55.7,
+                55.7,
+                55.5,
+                55.4,
+            ],
+                    
+                    borderColor: ['#38703D'],
+                    fill: 0
+                }]
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        distribution: 'series',
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Real (R$)'
+                        },
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                },
+                animation: {
+                    duration: 0
+                }
+            }
+        }
+    );
+    var contextoMediaMensal = document.getElementById('mensalMediaUmidade').getContext('2d');
+    contextoMediaMensal.canvas.width = 1000;
+    contextoMediaMensal.canvas.height = 350;
+    const labelsMensal = [
+        'Jan',
+        'Fev',
+        'Mar',
+        'Abr',
+        'Mai',
+        'Jun',
+        'Jul',
+        'Ago',
+        'Set',
+        'Out',
+        'Nov',
+        'Dez',
+    ];
+    var lucroMensal = new Chart(
+        contextoMediaMensal,
+        {
+            type: 'line',
+            data: {
+                labels: labelsMensal,
+                datasets: [{
+                    label: 'Umidade mensal',
+                    type: 'line',
+                    data: [55,
+                53.4,
+                52.8,
+                53.1,
+                53.7,
+                54.6,
+                55.3,
+                55.7,
+                55.8,
+                55.7,
+                55.7,
+                55.5,
+                55.4,
+            ],
+                    
+                    borderColor: ['#38703D'],
+                    fill: 0
+                }]
+            },
             options: {
                 scales: {
                     xAxes: [{
