@@ -37,7 +37,7 @@ idPlantacao int primary key auto_increment,
 hectares float default 0,
 qtdAgua float default 0,
 qtdSensores int default 0,
-fkEmpresa int, constraint  foreign key (fkEmpresa) references cliente (idEmpresa),
+fkEmpresa int, constraint  foreign key (fkEmpresa) references empresa (idEmpresa),
 qtdPlantas int,
 qtdKg float,
 tipoSolo varchar(45));
@@ -51,7 +51,7 @@ bairro varchar(50),
 rua varchar(50),
 complemento varchar(10),
 constraint chkcep check (cep LIKE '_____-___'),
-fkEmpresa int, constraint  foreign key (fkEmpresa) references cliente (idEmpresa));
+fkEmpresa int, constraint  foreign key (fkEmpresa) references empresa (idEmpresa));
 
 insert into empresa values 
 	(null, 'pomodoro@tomate.com', 'EoK01!3f', 'João Carlos Gomes', 'PomodoroCompany', '01.001.001/0001-01', '997828063'),
@@ -78,6 +78,11 @@ insert into registro values
     (null, '2023-06-08', current_timestamp(), 75, 2);
 
 
+select * from regisensoresstro;
 
+use metricas;
 
+select * from sensores;
+
+truncate table sensores;
     
