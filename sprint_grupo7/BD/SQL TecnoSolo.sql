@@ -2,8 +2,8 @@ create database tecnosolo;
 
 use tecnosolo;
 
-CREATE TABLE cliente (
-idCliente int primary key auto_increment,
+CREATE TABLE empresa (
+idEmpresa int primary key auto_increment,
 email varchar(245) UNIQUE, 
 senha varchar(245) NOT NULL,
 nome varchar(40), 
@@ -15,21 +15,21 @@ constraint chkcnpj check (cnpj LIKE '__.___.___/0001-__'))auto_increment = 1;
 
 create table sensores (
 idSensor int primary key auto_increment,
-modelo_sensor varchar(40),
+modeloSensor varchar(40),
 latitude decimal(10, 8) DEFAULT 00.000000,
 longitude decimal(11, 8) DEFAULT 00.000000,
-fkCliente int, constraint  foreign key (fkCliente) references cliente (idCliente),
+dataInstalacao date not null,
 fkPlantacao int, constraint fkPT foreign key (fkPlantacao) references plantacaoTomate (idPlantacao));
 
 -- tipo_sensor varchar(50));
 
 
-CREATE TABLE dadosLeitura(
-idLeitura int primary key auto_increment,
-data_instalacao date not null,
-data_hora_leitura timestamp default current_timestamp not null,
+CREATE TABLE registro(
+idRegistro int primary key auto_increment,
+registroLeitura timestamp default current_timestamp not null,
 umidadeSoloTomate float not null,
-fkSensor int, constraint fkS foreign key (fkSensor) references sensores (idSensor));
+fkSensor int, 
+constraint fkS foreign key (fkSensor) references sensores (idSensor));
 
 
 create table plantacaoTomate(
@@ -37,8 +37,10 @@ idPlantacao int primary key auto_increment,
 hectares float default 0,
 qtdAgua float default 0,
 qtdSensores int default 0,
-fkCliente int, constraint  foreign key (fkCliente) references cliente (idCliente));
-;
+fkEmpresa int, constraint  foreign key (fkEmpresa) references cliente (idEmpresa),
+qtdPlantas int,
+qtdKg float,
+tipoSolo varchar(45));
 
 create table endereco(
 idEndereco int primary key auto_increment,
@@ -49,9 +51,9 @@ bairro varchar(50),
 rua varchar(50),
 complemento varchar(10),
 constraint chkcep check (cep LIKE '_____-___'),
-fkCliente int, constraint  foreign key (fkCliente) references cliente (idCliente));
+fkEmpresa int, constraint  foreign key (fkEmpresa) references cliente (idEmpresa));
 
-insert into cliente values 
+insert into empresa values 
 	(null, 'pomodoro@tomate.com', 'EoK01!3f', 'João Carlos Gomes', 'PomodoroCompany', '01.001.001/0001-01', '997828063'),
     (null, 'tomato@gmail.com', '!OPcD05d', 'Jonas Cardooso Alves', 'TomatoCompany', '02.002.002/0001-02', '912018173');
     
@@ -70,7 +72,7 @@ insert into sensores values
 	(null, 'DHT11', '-71.6741', '36.0204', 1, 3),
     (null, 'DHT11', '-50.2925', '29.1891', 2, 2);
 
-insert into dadosLeitura values
+insert into registro values
 	(null, '2023-10-11', current_timestamp(), 70, 1),
     (null, '2023-10-11', current_timestamp(), 80, 3),
     (null, '2023-06-08', current_timestamp(), 75, 2);

@@ -3,6 +3,9 @@ body {
     background-color: #F1F1F1;
     font-family: 'Ubuntu', sans-serif;
 }
+.cabecalho{
+    height: 75px;
+}
 .calculadora {
     text-align: center;
     margin-top: 150px;
@@ -68,6 +71,7 @@ body {
 }
 .desc{
     margin-bottom: 30px;
+    text-align: justify;
 }
 #mensagem {
     background-color: #F1F1F1;
@@ -75,6 +79,9 @@ body {
     border-radius: 10px;
     display: none;
     line-height: 25px;
+    text-align: justify;
+    /* letter-spacing: 1px; */
+    word-spacing: 1px;
 }
 .green {
     color: #38703D;

@@ -47,13 +47,13 @@
         // toLocaleString serve para formatar em valor MONETÁRIO é uma função do JS
 
           mensagem.innerHTML = ` Utilizando nosso sistema a produção da sua plantação irá aumentar em <strong>10%</strong>, passando de <b class='vermelho'>
-            ${quantidade_produzida.toLocaleString({style: "7kg"})} toneladas de TOMATE
-          </b> para <b class='green'>
-            ${quantidade_produzida_prod.toLocaleString({style: "7kg"})} toneladas de TOMATE </b><br> E irá aumentar o seu faturamento de <b class='vermelho'>         
+            ${quantidade_produzida.toLocaleString({style: "7kg"})} toneladas
+          </b> de <b>tomate</b> para <b class='green'>
+            ${quantidade_produzida_prod.toLocaleString({style: "7kg"})} toneladas</b> de <b>tomate</b> aumentando o seu faturamento de <b class='vermelho'>         
           ${valor_producao.toLocaleString("pt-BR", { style: "currency", currency: "BRL", maximumFractionDigits: 2})}</b> para <b class='green'>${valor_producao_prod.toLocaleString("pt-BR", { style: "currency", currency: "BRL", maximumFractionDigits: 2})}. </b><br>
        
 
                     
-          E sua conta de água que era <strong class='vermelho'>${quantidade_agua.toLocaleString("pt-BR", {style: "currency" , currency: "BRL", maximumSignificantDigits: 3})}</strong> passa a ser <strong class='green'>${(quantidade_agua - quantidade_agua_prod).toLocaleString("pt-BR", {style: "currency" , currency: "BRL", maximumSignificantDigits: 3})}</strong> tendo uma economia de.<strong class='green'>
-          ${quantidade_agua_prod.toLocaleString("pt-BR", {style: "currency" , currency: "BRL", maximumSignificantDigits: 3})}</strong>`
+          E sua conta de água que era <strong class='vermelho'>${quantidade_agua.toLocaleString("pt-BR", {style: "currency" , currency: "BRL", maximumSignificantDigits: 3})}</strong> passa a ser <strong class='green'>${(quantidade_agua - quantidade_agua_prod).toLocaleString("pt-BR", {style: "currency" , currency: "BRL", maximumSignificantDigits: 3})}</strong> tendo uma economia de <b>15%</b><strong class='green'>
+          ${quantidade_agua_prod.toLocaleString("pt-BR", {style: "currency" , currency: "BRL", maximumSignificantDigits: 3})}</strong>.`
         }
