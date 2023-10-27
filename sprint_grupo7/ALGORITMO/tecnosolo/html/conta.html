@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../css/conta.css">
     <link rel="stylesheet" href="../css/dashGeral.css">
     <link rel="stylesheet" href="../css/footer.css">
-    <link rel="icon" href="../img/logoTomate.png">
+    <link rel="icon" href="../img/Design_sem_nome__2_-removebg-preview.png">
     <link rel="stylesheet" href="../css/dashIndividual.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,7 +32,7 @@
     <header class="cabecalho">
         <div class="container">
             <div class="div-logo">
-                <img width="52px" src="../img/Design_sem_nome__2_-removebg-preview.png" alt="logo da empresa tecnosolo" class="logo">
+                <img width="72px" src="../img/Design_sem_nome__2_-removebg-preview.png" alt="logo da empresa tecnosolo" class="logo">
             </div>
             <nav class="navbar">
                 <ul>
@@ -65,7 +65,7 @@
         </div>
         <div class="perfil-info" id="perfilInfo">
                 <div class="banner">
-                    <img src="../img/fpT.jpg" alt="" class="img-banner">
+                    <img src="" alt="" class="img-banner">
                 </div>
                 <div class="usuario">
                     <img src="../img/foto.jpg" alt="" class="img-usuario">
@@ -117,7 +117,34 @@
     <div class="dash-info" id="dashInfo">
         <h3 class="titulo-dash">Dashboard - Sensores Geral</h3>
         <div class="cardsSensores">
-            <h2>Umidade dos Sensores</h2>
+            <div class="kpis">
+                <div class="box tipo">
+                    <h4 >R$200.684,20</h4>
+                    <p class="marginB">Lucro total</p>
+                    <h4 >R$18.938,46</h4>
+                    <p class="marginB">Maior lucro(JULHO)</p>
+                    <h4 >R$14.810,43</h4>
+                    <p class="marginB">Menor lucro(SETEMBRO)</p>
+                </div>
+                <div class="box tipo">
+                    <h4 >R$200.684,20</h4>
+                    <p class="marginB">Lucro total</p>
+                    <h4 >R$18.938,46</h4>
+                    <p class="marginB">Maior lucro(JULHO)</p>
+                    <h4 >R$14.810,43</h4>
+                    <p class="marginB">Menor lucro(SETEMBRO)</p>
+                </div>
+                <div class="box qtdSensores">
+                    <h4 >Quantidade de Sensores</h4>
+                    <p class="">8</p>
+                </div>
+                <div class="box qtdHectar">
+                    <h4 >Quantidade de hectares</h4>
+                    <p class="">1</p>
+                </div>
+                
+            </div>
+            <h2 class="titulo-analytics">Analytics</h2>
             <div class="legenda">
                 <div class="legCard">
                     <div class="cardVermelho"></div>
@@ -186,34 +213,17 @@
                     <h4 class="sensor">Plantação 1</h4>
                 </div>
             </div>
-            <div class="kpis">
-                <div class="box qtdSensores">
-                    <h4 >Quantidade de Sensores</h4>
-                    <p class="">8</p>
-                </div>
-                <div class="box qtdHectar">
-                    <h4 >Quantidade de hectares</h4>
-                    <p class="">1</p>
-                </div>
-                <div class="box tipo">
-                    <h4 >R$200.684,20</h4>
-                    <p class="marginB">Lucro total</p>
-                    <h4 >R$18.938,46</h4>
-                    <p class="marginB">Maior lucro(JULHO)</p>
-                    <h4 >R$14.810,43</h4>
-                    <p class="marginB">Menor lucro(SETEMBRO)</p>
-                </div>
-            </div>
+            
             <div class="dash-graficos">
     <div class="grafico">
         <h1 class="titulo-sensor">Lucro Mensal</h1>
-        <section style="width:800px">
+        <section style="width:500px">
             <canvas id="lucroMensal"></canvas>
         </section>
     </div>
     <div class="grafico">
         <h1 class="titulo-sensor">Média mensal de Umidade</h1>
-        <section style="width:800px">
+        <section style="width:500px">
             <canvas id="mensalMediaUmidade"></canvas>
         </section>
     </div>
@@ -270,7 +280,7 @@
         </div> -->
     </div>
     <div class="dash-meio">
-        <h2>Analytics</h2>
+        <h2 class="titulo-analytics">Analytics</h2>
         <div class="anaFlex">
             <div class="box atual">
                 <i class='bx bxs-megaphone'></i>
@@ -556,19 +566,19 @@
                 datasets: [{
                     label: 'Lucro mensal',
                     type: 'line',
-                    data: [55,
-                53.4,
-                52.8,
-                53.1,
-                53.7,
-                54.6,
-                55.3,
-                55.7,
-                55.8,
-                55.7,
-                55.7,
-                55.5,
-                55.4,
+                    data: [
+                18641,
+                15930,
+                16493,
+                18424,
+                16681,
+                16555,
+                18938,
+                18696,
+                14810,
+                18393,
+                17340,
+                18778,
             ],
                     
                     borderColor: ['#38703D'],
@@ -627,17 +637,17 @@
                     type: 'line',
                     data: [55,
                 53.4,
-                52.8,
-                53.1,
+                22.8,
+                98.1,
                 53.7,
                 54.6,
                 55.3,
                 55.7,
                 55.8,
-                55.7,
-                55.7,
-                55.5,
-                55.4,
+                56.7,
+                67.7,
+                77.5,
+                60.4,
             ],
                     
                     borderColor: ['#38703D'],
