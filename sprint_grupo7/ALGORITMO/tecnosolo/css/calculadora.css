@@ -10,12 +10,12 @@ body {
     text-align: center;
     margin-top: 150px;
     padding-bottom: 50px;
-    
 }
 .titulo {
     padding: 20px;
     font-size: 50px;
     color: #38703D;
+    margin-bottom: 80px;
 }
 .titulo-tec {
     font-size: 25px;
@@ -139,6 +139,8 @@ body {
     padding: 10px 40px;
     color: #FFFFFF;
     /* margin: 0 132px 0 142px; */
+}
+.simulador{
+    padding: 35px;
 
-    
 }

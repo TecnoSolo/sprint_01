@@ -223,3 +223,9 @@ button:last-child {
     display: none;
     cursor: pointer;
 }
+#myChart3{
+
+    width: 45vw;
+    height: 45vh;
+
+}
