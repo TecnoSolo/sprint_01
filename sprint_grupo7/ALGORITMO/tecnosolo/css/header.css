@@ -13,14 +13,12 @@
 }
 
 .container {
-    margin: 0 10%;
+    margin: 0 70px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.div-logo {
-    width: 30%;
-}
+
 .navbar ul li {
     display: inline;
     margin-left: 20px;
@@ -52,16 +50,11 @@
 .conta a {
     padding: 10px 30px;
     border-radius: 5px;
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: black;
+    font-weight: 700;
     text-decoration: none;
 }
 .sup a {
     color: #555555;
-}
-.simulador{
-    padding: 35px;
-
-
-
 }

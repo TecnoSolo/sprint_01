@@ -78,13 +78,14 @@
 .conteudo-3 .container-1 .setorCima {
     display: flex;
     justify-content: space-between;
+    margin: 0px 70px;
 
 }
 
 .conteudo-3 .container-1 .setorBaixo {
     display: flex;
     justify-content: space-between;
-
+    margin: 0px 70px;
 }
 
 .conteudo-3 .container-1 .setor {
@@ -203,8 +204,11 @@
 
     
 }
-.cards .container-1 h4{
+.cards .container-1 h4 {
     margin-top: 20px;
+    margin-bottom: 12px;
+    font-size: 24px;
+    font-weight: 800;
 }
 .cards .container-1 .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -321,7 +325,7 @@ font-family: monospace;
 font-size: 28px;
 color: white;
 text-align: left;
-margin-left: 50px;
+margin-left: 85px;
 width: 400px;
 margin-top: 120px;
 /* text-align: justify; */
