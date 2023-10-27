@@ -41,16 +41,17 @@
 
 .box option {
     font-size: 18px;
-}.dash-meio h2 {
+}.titulo-analytics {
     font-family: 'Kanit', sans-serif;
     padding-bottom: 20px;
     font-size: 34px;
-    color: #818181;
+    color: #000000;
 }
 .dash-meio {
     padding: 10px;
     text-align: center;
     gap: 30px;
+    margin-bottom: 10px;
 }
 .anaFlex {
     display: flex;
@@ -79,6 +80,7 @@
     justify-content: center;
     margin-top: 50px;
     flex-wrap: wrap;
+    gap: 20px;
 
 }
 
