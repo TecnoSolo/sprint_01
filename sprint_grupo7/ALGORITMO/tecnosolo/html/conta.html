@@ -32,21 +32,22 @@
     <header class="cabecalho">
         <div class="container">
             <div class="div-logo">
-                <img width="72px" src="../img/Design_sem_nome__2_-removebg-preview.png" alt="logo da empresa tecnosolo" class="logo">
+                <a href="./tela_inicial.html" target="blank" rel="noopener noreferrer"><img width="72px" src="../img/Design_sem_nome__2_-removebg-preview.png" alt="logo da empresa tecnosolo" class="logo"></a>
             </div>
             <nav class="navbar">
                 <ul>
                     <li><a href="./tela_inicial.html">Home</a></li>
-                    <li><a href="../html/tela_inicial.html#sobre-nos">Sobre nós</a></li>
                     <li><a href="./tela_inicial.html#recursos-id">Recursos</a></li>
-                    <li><a  href="../html/calculadora_tecnosolo.html">Simulador</a></li>
+                    <li><a href="../html/tela_inicial.html#sobre-nos">Sobre nós</a></li>
                     <li><a href="./tela_inicial.html#suporte-id">Suporte</a></li>
+                    <li><a class="simulador" href="../html/calculadora_tecnosolo.html">Simulador</a></li>
+                   
                 </ul>
             </nav>
             <div class="col-1">
                 <ul>
-                    <li class="conta"><a href="">Conta</a></li>
-                </ul>
+                    <li class="conta"><a class="conta" href="./Login.HTML">Conta</a></li>
+                    <ul>
             </div>
         </div>
     </header>
@@ -119,20 +120,20 @@
         <div class="cardsSensores">
             <div class="kpis">
                 <div class="box tipo">
-                    <h4 >R$200.684,20</h4>
-                    <p class="marginB">Lucro total</p>
-                    <h4 >R$18.938,46</h4>
-                    <p class="marginB">Maior lucro(JULHO)</p>
-                    <h4 >R$14.810,43</h4>
-                    <p class="marginB">Menor lucro(SETEMBRO)</p>
+                    <h4 >2.672,45</h4>
+                    <p class="marginB">Produção total</p>
+                    <h4 >623.7</h4>
+                    <p class="marginB">Maior produção(Safra 5)</p>
+                    <h4 >445</h4>
+                    <p class="marginB">Menor produção(Safra 1)</p>
                 </div>
                 <div class="box tipo">
-                    <h4 >R$200.684,20</h4>
-                    <p class="marginB">Lucro total</p>
-                    <h4 >R$18.938,46</h4>
-                    <p class="marginB">Maior lucro(JULHO)</p>
-                    <h4 >R$14.810,43</h4>
-                    <p class="marginB">Menor lucro(SETEMBRO)</p>
+                    <h4 >R$367.600,00</h4>
+                    <p class="marginB">Custo de agua total</p>
+                    <h4 >R$104.000,20</h4>
+                    <p class="marginB">Maior custo de agua(Safra 5)</p>
+                    <h4 >R$42.800,0</h4>
+                    <p class="marginB">Menor custo de agua(Safra 1)</p>
                 </div>
                 <div class="box qtdSensores">
                     <h4 >Quantidade de Sensores</h4>
@@ -140,7 +141,7 @@
                 </div>
                 <div class="box qtdHectar">
                     <h4 >Quantidade de hectares</h4>
-                    <p class="">1</p>
+                    <p class="">6</p>
                 </div>
                 
             </div>
@@ -216,7 +217,7 @@
             
             <div class="dash-graficos">
     <div class="grafico">
-        <h1 class="titulo-sensor">Lucro Mensal</h1>
+        <h1 class="titulo-sensor">Produtividade por safra</h1>
         <section style="width:500px">
             <canvas id="lucroMensal"></canvas>
         </section>
@@ -227,10 +228,10 @@
             <canvas id="mensalMediaUmidade"></canvas>
         </section>
     </div>
-            <div class="grafico-custo">
-                <h1 class="titulo-sensor"> Custo água</h1>
-            <section style="width: 800px;">
-                <canvas id="CustoAgua"></canvas>
+            <div class="grafico">
+                <h1 class="titulo-sensor">Custo água por Safra</h1>
+            <section style="width: 700px;">
+                <canvas id="custoAgua"></canvas>
             </section>
 
             </div>
@@ -552,45 +553,30 @@
     contextoLucroMensal.canvas.width = 1000;
     contextoLucroMensal.canvas.height = 350;
     const labelsLucro = [
-        'Jan',
-        'Fev',
-        'Mar',
-        'Abr',
-        'Mai',
-        'Jun',
-        'Jul',
-        'Ago',
-        'Set',
-        'Out',
-        'Nov',
-        'Dez',
+        'Safra 1',
+        'Safra 2',
+        'Safra 3',
+        'Safra 4',
+        'Safra 5',
     ];
     var lucroMensal = new Chart(
         contextoLucroMensal,
         {
-            type: 'line',
+            type: 'bar',
             data: {
                 labels: labelsLucro,
                 datasets: [{
-                    label: 'Lucro mensal',
-                    type: 'line',
+                    label: 'Produtividade por safra',
+                    borderColor: '#38703D',
+                    backgroundColor: '#38703D',
+                    type: 'bar',
                     data: [
-                18641,
-                15930,
-                16493,
-                18424,
-                16681,
-                16555,
-                18938,
-                18696,
-                14810,
-                18393,
-                17340,
-                18778,
+                445,
+                534.6,
+                490.05,
+                579.15,
+                623.7,
             ],
-                    
-                    borderColor: ['#38703D'],
-                    fill: 0
                 }]
             },
             options: {
@@ -604,7 +590,7 @@
                     yAxes: [{
                         scaleLabel: {
                             display: true,
-                            labelString: 'Real (R$)'
+                            labelString: 'Tonenada (T)'
                         },
                         ticks: {
                             beginAtZero: true
@@ -686,52 +672,60 @@
             }
         }
     );
-    var contextoGastoAgua = document.getElementById('CustoAgua').getContext('2d');
-    contextoGastoAgua.canvas.width = 1000;
-    contextoGastoAgua.canvas.height = 350;
-
-
-    
-    const xGrafico2 = [
-        '1 hectare',
-        '2 hectare',
-        '3 hectare',
-        '4 hectare',
-        '5 hectare',
-        '6 hectare',
-
+    var contextoCustoAgua = document.getElementById('custoAgua').getContext('2d');
+    contextoCustoAgua.canvas.width = 1000;
+    contextoCustoAgua.canvas.height = 350;
+    const labelsAgua = [
+    'Safra 1',
+        'Safra 2',
+        'Safra 3',
+        'Safra 4',
+        'Safra 5',
     ];
-    const data2 = {
-        labels: xGrafico2,
-        datasets: [{
-            label: 'Sem sensor',
-            backgroundColor: 'rgb(255,0,0)',
-            borderColor: 'rgb(255,255,255)',
-            data: [20500, 40900, 61400, 81800, 102000, 123000],
-        },
+    var lucroMensal = new Chart(
+        contextoCustoAgua,
         {
+            type: 'bar',
+            data: {
+                labels: labelsAgua,
+                datasets: [{
+                    label: 'Sem sensor  ',
+                    borderColor: 'rgb(255,255,255)',
+                    backgroundColor: 'rgb(255,0,0)',
+                    type: 'bar',
+                    data: [
+                    50300, 75700, 102000, 81800, 123000
+            ],},{
             label: 'Com sensor',
-            backgroundColor: 'rgb(0,255,0)',
+            backgroundColor: '#38703D',
             borderColor: 'rgb(255,255,255)',
-            data: [17400, 34800, 52100, 69500, 86900, 104000],
-        }
-        ]
-    };
-
-
-    const config2 = {
-        type: 'bar',
-        data: data2,
-        options: {
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'Comparação gasto com água COM SENSOR x SEM SENSOR',
+            data: [42800, 64300, 86900, 69600, 104000],
+            }
+        ]},
+            options: {
+                scales: {
+                    xAxes: [{
+                        distribution: 'series',
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Real(R$)'
+                        },
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                },
+                animation: {
+                    duration: 0
                 }
             }
         }
-    };
-
+    );
 
     function perfil(){
     perfilInfo.style.display = 'block'
