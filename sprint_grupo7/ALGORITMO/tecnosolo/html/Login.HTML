@@ -41,7 +41,9 @@
                 <h1>Iniciar Sessão</h1>
                 
                 E-mail <input id="input_email" type="text" placeholder="E-mail "> <br>
-                Senha <input id="input_senha" type="text" placeholder="Senha "> <br> <br>
+                Senha <input id="input_senha" type="password" placeholder="Senha "> <br> <br>
+                <p id="mensagemErro" style="color: red"></p>
+
         <br> <a input id="conta" href="../html/cadastro.html">Não possui uma <strong style="color: black;">conta</strong>?</a> <br>
         <div class="but_Log"> <br>
             <button class="log" onclick="entrar()">
@@ -107,9 +109,17 @@ var senha =input_senha.value;
         else if (email.indexOf('@') >= 0) { alert("E-mail inválido")}
 
         if (email.endsWith('.com') || email.endsWith('.br') || email.endsWith('.school')) { }
-        else  alert(" insira um E-mail valido")
+        else  alert("insira um E-mail válido")
 
-}  
+
+  if (senha.trim() === '') {
+    document.getElementById("mensagemErro").textContent = "Senha em branco."
+  } else {
+    document.getElementById("mensagemErro").textContent = ""
+  }
+}
+
+
 
 
 
