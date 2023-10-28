@@ -244,3 +244,8 @@ button:last-child {
     height: 45vh;
 
 }
+
+.barra .col-2 .btn a{
+    text-decoration: none;
+    color: #fff;
+}
