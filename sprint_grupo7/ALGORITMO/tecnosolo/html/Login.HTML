@@ -40,8 +40,14 @@
     <div class="box_forms">
                 <h1>Iniciar Sessão</h1>
                 
-                E-mail <input id="input_email" type="text" placeholder="E-mail "> <br>
-                Senha <input id="input_senha" type="password" placeholder="Senha "> <br> <br>
+                <div id="seçao" class="info">
+                    E-mail:
+                    <input type="email" id="input_email" placeholder="Insira o e-mail" required />
+                    <div class="mensagemErro" id="erroEmail" style="display: none;"> <br>
+                      E-mail inválido <br>
+                    </div>
+
+                <br> Senha <input id="input_senha" type="password" placeholder="Senha "> <br> <br>
                 <p id="mensagemErro" style="color: red"></p>
 
         <br> <a input id="conta" href="../html/cadastro.html">Não possui uma <strong style="color: black;">conta</strong>?</a> <br>
@@ -105,11 +111,13 @@ var senha =input_senha.value;
 
      //Validando o email de Login//
     
-        if (email.indexOf('@') >= 0) { }
-        else if (email.indexOf('@') >= 0) { alert("E-mail inválido")}
-
-        if (email.endsWith('.com') || email.endsWith('.br') || email.endsWith('.school')) { }
-        else  alert("insira um E-mail válido")
+     if (email.indexOf('@') >= 0 && (email.endsWith('.com') || email.endsWith('.br') || email.endsWith('.school'))) {
+      erroEmail.style.display = 'none'
+    }
+    else {
+      erroEmail.style.display = 'block';
+      input_email.style.borderColor = 'red';
+    }
 
 
   if (senha.trim() === '') {
