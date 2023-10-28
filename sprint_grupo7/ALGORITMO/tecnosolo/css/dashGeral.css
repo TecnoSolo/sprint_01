@@ -1,7 +1,7 @@
 .dash-info {
     overflow: hidden;
     overflow-y: scroll;
-    background-color: #ebebeb;
+    background-color: #fff;
 }
 .cardsFlex {
     padding: 10px;
@@ -31,6 +31,7 @@
     width: 240px;
     text-align: center;
     padding: 10px;
+    border-radius: 16px;
 }
 .cardVerde {
     background-color: #38703D;

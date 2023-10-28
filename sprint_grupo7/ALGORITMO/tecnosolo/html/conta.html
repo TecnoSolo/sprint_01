@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/header.css">
@@ -10,8 +11,8 @@
     <link rel="stylesheet" href="../css/dashIndividual.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -28,68 +29,51 @@
         }
     </style>
 </head>
+
 <body>
-    <header class="cabecalho">
-        <div class="container">
-            <div class="div-logo">
-                <a href="./tela_inicial.html" target="blank" rel="noopener noreferrer"><img width="72px" src="../img/Design_sem_nome__2_-removebg-preview.png" alt="logo da empresa tecnosolo" class="logo"></a>
-            </div>
-            <nav class="navbar">
-                <ul>
-                    <li><a href="./tela_inicial.html">Home</a></li>
-                    <li><a href="./tela_inicial.html#recursos-id">Recursos</a></li>
-                    <li><a href="../html/tela_inicial.html#sobre-nos">Sobre nós</a></li>
-                    <li><a href="./tela_inicial.html#suporte-id">Suporte</a></li>
-                    <li><a class="simulador" href="../html/calculadora_tecnosolo.html">Simulador</a></li>
-                   
-                </ul>
-            </nav>
-            <div class="col-1">
-                <ul>
-                    <li class="conta"><a class="conta" href="./conta.html">Conta</a></li>
-                    <ul>
-            </div>
-        </div>
-    </header>
+
     <main>
-        <div class="barra">
+        <header class="barra">
             <div class="col-1">
+                <div class="header-imagem">
+                    <img src="../img/foto.jpg" alt="" class="img-usuario">
+                </div>
                 <button id="perfilId" class="btn cima" onclick="perfil()">Perfil</button>
                 <button id="dadosId" class="btn meio" onclick="dados()">Dados</button>
                 <button id="dashId" class="btn baixo" onclick="dash()">Dashboards</button>
-                <button id="geralId" class="btnDash" onclick="geral()">Sensores Geral</button>
+                <button id="geralId" class="btnDash" onclick="geral()">Visão geral</button>
                 <button id="indiviId" class="btnDash" onclick="individual()">Sensor individual</button>
             </div>
             <div class="col-2">
-                <button class="btn" >Sair<i class='bx bx-exit'></i></button>
+                <button class="btn">Sair<i class='bx bx-exit'></i></button>
             </div>
-        </div>
+        </header>
         <div class="perfil-info" id="perfilInfo">
-                <div class="banner">
-                    <img src="" alt="" class="img-banner">
+            <div class="banner">
+                <img src="" alt="" class="img-banner">
+            </div>
+            <div class="usuario">
+                <img src="../img/foto.jpg" alt="" class="img-usuario">
+                <h3 class="nome-usuario">Nome do usuario</h3>
+            </div>
+            <div class="informacoes-usuario">
+                <div class="nome flex">
+                    <p class="titulo-usuario">Nome</p>
+                    <p class="conteudo">Exemplo de nome</p>
                 </div>
-                <div class="usuario">
-                    <img src="../img/foto.jpg" alt="" class="img-usuario">
-                    <h3 class="nome-usuario">Nome do usuario</h3>
+                <div class="cpf flex">
+                    <p class="titulo-usuario">CPF</p>
+                    <p class="conteudo">******-13</p>
                 </div>
-                <div class="informacoes-usuario">
-                    <div class="nome flex">
-                        <p class="titulo-usuario">Nome</p>
-                        <p class="conteudo">Exemplo de nome</p>
-                    </div>
-                    <div class="cpf flex">
-                        <p class="titulo-usuario">CPF</p>
-                        <p class="conteudo">******-13</p>
-                    </div>
-                    <div class="email flex">
-                        <p class="titulo-usuario">Email</p>
-                        <p class="conteudo">exemplo@exemplo.com</p>
-                    </div>
-                    <div class="senha flex">
-                        <p class="titulo-usuario">Senha</p>
-                        <p class="conteudo">*********</p>
-                    </div>
+                <div class="email flex">
+                    <p class="titulo-usuario">Email</p>
+                    <p class="conteudo">exemplo@exemplo.com</p>
                 </div>
+                <div class="senha flex">
+                    <p class="titulo-usuario">Senha</p>
+                    <p class="conteudo">*********</p>
+                </div>
+            </div>
         </div>
         <div class="dados-info" id="dadosInfo">
             <div class="bannerDados">
@@ -114,239 +98,241 @@
                     <p class="conteudo-dados">Rua Vladimir Campos - MG</p>
                 </div>
             </div>
-    </div>
-    <div class="dash-info" id="dashInfo">
-        <h3 class="titulo-dash">Dashboard - Sensores Geral</h3>
-        <div class="cardsSensores">
-            <div class="kpis">
-                <div class="box tipo">
-                    <h4 >2.672,45</h4>
-                    <p class="marginB">Produção total</p>
-                    <h4 >623.7</h4>
-                    <p class="marginB">Maior produção(Safra 5)</p>
-                    <h4 >445</h4>
-                    <p class="marginB">Menor produção(Safra 1)</p>
-                </div>
-                <div class="box tipo">
-                    <h4 >R$367.600,00</h4>
-                    <p class="marginB">Custo de agua total</p>
-                    <h4 >R$104.000,20</h4>
-                    <p class="marginB">Maior custo de agua(Safra 5)</p>
-                    <h4 >R$42.800,0</h4>
-                    <p class="marginB">Menor custo de agua(Safra 1)</p>
-                </div>
-                <div class="box qtdSensores">
-                    <h4 >Quantidade de Sensores</h4>
-                    <p class="">8</p>
-                </div>
-                <div class="box qtdHectar">
-                    <h4 >Quantidade de hectares</h4>
-                    <p class="">6</p>
-                </div>
-                
-            </div>
-            <h2 class="titulo-analytics">Analytics</h2>
-            <div class="legenda">
-                <div class="legCard">
-                    <div class="cardVermelho"></div>
-                    <p>Crítico</p>
-                </div>
-                <div class="legCard">
-                    <div class="cardLaranja"></div>
-                    <p>Emergência</p>
-                </div>
-                <div class="legCard">
-                    <div class="cardAmarelo"></div>
-                    <p>Alerta</p>
-                </div>
-                <div class="legCard">
-                    <div class="cardVerde"></div>
-                    <p>Crítico</p>
-                </div>
-            </div>
-            <div class="cardsFlex">
-                <div class="card cardVermelho">
-                    <h4 class="sensor">Sensor 1</h4>
-                    <p class="">Umidade Atual</p>
-                    <h4 class="">10.3%<i class='bx bxs-droplet-half'></i></h4>
-                    <h4 class="sensor">Plantação 1</h4>
-                </div>
-                <div class="card cardLaranja">
-                    <h4 class="sensor">Sensor 2</h4>
-                    <p class="">Umidade Atual</p>
-                    <h4 class="">41.3%<i class='bx bxs-droplet-half'></i></h4>
-                    <h4 class="sensor">Plantação 1</h4>
-                </div>
-                <div class="card cardAmarelo">
-                    <h4 class="sensor">Sensor 3</h4>
-                    <p class="">Umidade Atual<p>
-                    <h4 class="">54.3%<i class='bx bxs-droplet-half'></i></h4>
-                    <h4 class="sensor">Plantação 1</h4>
-                </div>
-                <div class="card cardAmarelo">
-                    <h4 class="sensor">Sensor 4</h4>
-                    <p class="">Umidade Atual</p>
-                    <h4 class="">54.3%<i class='bx bxs-droplet-half'></i></h4>
-                    <h4 class="sensor">Plantação 1</h4>
-                </div>
-                <div class="card cardVerde">
-                    <h4 class="sensor">Sensor 5</h4>
-                    <p class="">Umidade Atual</p>
-                    <h4 class="">79.2%<i class='bx bxs-droplet-half'></i></h4>
-                    <h4 class="sensor">Plantação 1</h4>
-                </div>
-                <div class="card cardVerde">
-                    <h4 class="sensor">Sensor 6</h4>
-                    <p class="">Umidade Atual</p>
-                    <h4 class="">78.3%<i class='bx bxs-droplet-half'></i></h4>
-                    <h4 class="sensor">Plantação 1</h4>
-                </div>
-                <div class="card cardVerde">
-                    <h4 class="sensor">Sensor 7</h4>
-                    <p class="">Umidade Atual</p>
-                    <h4 class="">74.3%<i class='bx bxs-droplet-half'></i></h4>
-                    <h4 class="sensor">Plantação 1</h4>
-                </div>
-                <div class="card cardVerde">
-                    <h4 class="sensor">Sensor 8</h4>
-                    <p class="">Umidade Atual</p>
-                    <h4 class="">70.3%<i class='bx bxs-droplet-half'></i></h4>
-                    <h4 class="sensor">Plantação 1</h4>
-                </div>
-            </div>
-            
-            <div class="dash-graficos">
-    <div class="grafico">
-        <h1 class="titulo-sensor">Produtividade por safra</h1>
-        <section style="width:500px">
-            <canvas id="lucroMensal"></canvas>
-        </section>
-    </div>
-    <div class="grafico">
-        <h1 class="titulo-sensor">Média mensal de Umidade</h1>
-        <section style="width:500px">
-            <canvas id="mensalMediaUmidade"></canvas>
-        </section>
-    </div>
-            <div class="grafico">
-                <h1 class="titulo-sensor">Custo água por Safra</h1>
-            <section style="width: 700px;">
-                <canvas id="custoAgua"></canvas>
-            </section>
+        </div>
+        <div class="dash-info" id="dashInfo">
+            <h3 class="titulo-dash">Dashboard - Visão geral</h3>
+            <div class="cardsSensores">
+                <div class="kpis">
+                    <div class="box tipo">
+                        <h4>2.672,45</h4>
+                        <p class="marginB">Produção total</p>
+                        <h4>623.7</h4>
+                        <p class="marginB">Maior produção(Safra 5)</p>
+                        <h4>445</h4>
+                        <p class="marginB">Menor produção(Safra 1)</p>
+                    </div>
+                    <div class="box tipo">
+                        <h4>R$367.600,00</h4>
+                        <p class="marginB">Custo de agua total</p>
+                        <h4>R$104.000,20</h4>
+                        <p class="marginB">Maior custo de agua(Safra 5)</p>
+                        <h4>R$42.800,0</h4>
+                        <p class="marginB">Menor custo de agua(Safra 1)</p>
+                    </div>
+                    <div class="box qtdSensores">
+                        <h4>Quantidade de Sensores</h4>
+                        <p class="">8</p>
+                    </div>
+                    <div class="box qtdHectar">
+                        <h4>Quantidade de hectares</h4>
+                        <p class="">6</p>
+                    </div>
 
+                </div>
+                <h2 class="titulo-analytics">Analytics</h2>
+                <div class="legenda">
+                    <div class="legCard">
+                        <div class="cardVermelho"></div>
+                        <p>Crítico</p>
+                    </div>
+                    <div class="legCard">
+                        <div class="cardLaranja"></div>
+                        <p>Emergência</p>
+                    </div>
+                    <div class="legCard">
+                        <div class="cardAmarelo"></div>
+                        <p>Alerta</p>
+                    </div>
+                    <div class="legCard">
+                        <div class="cardVerde"></div>
+                        <p>Ideal</p>
+                    </div>
+                </div>
+                <div class="cardsFlex">
+                    <div class="card cardVermelho">
+                        <h4 class="sensor">Sensor 1</h4>
+                        <p class="">Umidade Atual</p>
+                        <h4 class="">10.3%<i class='bx bxs-droplet-half'></i></h4>
+                        <h4 class="sensor">Plantação 1</h4>
+                    </div>
+                    <div class="card cardLaranja">
+                        <h4 class="sensor">Sensor 2</h4>
+                        <p class="">Umidade Atual</p>
+                        <h4 class="">41.3%<i class='bx bxs-droplet-half'></i></h4>
+                        <h4 class="sensor">Plantação 1</h4>
+                    </div>
+                    <div class="card cardAmarelo">
+                        <h4 class="sensor">Sensor 3</h4>
+                        <p class="">Umidade Atual
+                        <p>
+                        <h4 class="">54.3%<i class='bx bxs-droplet-half'></i></h4>
+                        <h4 class="sensor">Plantação 1</h4>
+                    </div>
+                    <div class="card cardAmarelo">
+                        <h4 class="sensor">Sensor 4</h4>
+                        <p class="">Umidade Atual</p>
+                        <h4 class="">54.3%<i class='bx bxs-droplet-half'></i></h4>
+                        <h4 class="sensor">Plantação 1</h4>
+                    </div>
+                    <div class="card cardVerde">
+                        <h4 class="sensor">Sensor 5</h4>
+                        <p class="">Umidade Atual</p>
+                        <h4 class="">79.2%<i class='bx bxs-droplet-half'></i></h4>
+                        <h4 class="sensor">Plantação 1</h4>
+                    </div>
+                    <div class="card cardVerde">
+                        <h4 class="sensor">Sensor 6</h4>
+                        <p class="">Umidade Atual</p>
+                        <h4 class="">78.3%<i class='bx bxs-droplet-half'></i></h4>
+                        <h4 class="sensor">Plantação 1</h4>
+                    </div>
+                    <div class="card cardVerde">
+                        <h4 class="sensor">Sensor 7</h4>
+                        <p class="">Umidade Atual</p>
+                        <h4 class="">74.3%<i class='bx bxs-droplet-half'></i></h4>
+                        <h4 class="sensor">Plantação 1</h4>
+                    </div>
+                    <div class="card cardVerde">
+                        <h4 class="sensor">Sensor 8</h4>
+                        <p class="">Umidade Atual</p>
+                        <h4 class="">70.3%<i class='bx bxs-droplet-half'></i></h4>
+                        <h4 class="sensor">Plantação 1</h4>
+                    </div>
+                </div>
+
+                <div class="dash-graficos">
+                    <div class="grafico">
+                        <h1 class="titulo-sensor">Produtividade por safra</h1>
+                        <section style="width:500px">
+                            <canvas id="lucroMensal"></canvas>
+                        </section>
+                    </div>
+                    <div class="grafico">
+                        <h1 class="titulo-sensor">Média mensal de Umidade</h1>
+                        <section style="width:500px">
+                            <canvas id="mensalMediaUmidade"></canvas>
+                        </section>
+                    </div>
+                    <div class="grafico">
+                        <h1 class="titulo-sensor">Custo água por Safra</h1>
+                        <section style="width: 700px;">
+                            <canvas id="custoAgua"></canvas>
+                        </section>
+
+                    </div>
+                </div>
             </div>
         </div>
-</div>
         </div>
-</div>
-<div class="individual-info" id="individualInfo">
-    <h3 class="titulo-dash">Dashboard - Sensor individual</h3>
-    <div class="dash-cima">
-        <div class="box sele">
-            <select id="">
-                <option value="1">Sensor 1</option>
-                <option value="2">Sensor 2</option>
-                <option value="3">Sensor 3</option>
-                <option value="4">Sensor 4</option>
-                <option value="5">Sensor 5</option>
-                <option value="6">Sensor 6</option>
-                <option value="6">Sensor 7</option>
-                <option value="6">Sensor 8</option>
+        <div class="individual-info" id="individualInfo">
+            <h3 class="titulo-dash">Dashboard - Sensor individual</h3>
+            <div class="dash-cima">
+                <div class="box sele">
+                    <select id="">
+                        <option value="1">Sensor 1</option>
+                        <option value="2">Sensor 2</option>
+                        <option value="3">Sensor 3</option>
+                        <option value="4">Sensor 4</option>
+                        <option value="5">Sensor 5</option>
+                        <option value="6">Sensor 6</option>
+                        <option value="6">Sensor 7</option>
+                        <option value="6">Sensor 8</option>
 
-            </select>
-        </div>
-        <div class="box endereco">
-            <h4 >Endereço</h4>
-            <p class="marginB">rua vladimir campos - MG</p>
-            <h4 >Plantação</h4>
-            <p >1</p>
-        </div>
-        <div class="box ">
-            <h4 class="marginB ">Localização do Sensor </h4>
-            <h5 class="">LATIDUTE</h5>
-            <p class="">40.71727401</p>
-            <h5 class="">LONGITUDE</h5>
-            <p>-74.00898606</p>
-        </div>
-        <div class="box data">
-            <h4>Data</h4>
-            <h5>27/10/2023  <i class='bx bxs-calendar'></i></h5>
-        </div>
-        <div class="box status">
-            <h4>Status sensor</h4>
-            <h5>ON</h5>
-        </div>
-        
-        <div class="box tipo">
-            <h4 >Tipo de solo</h4>
-            <p class=" marginB">Arenoso</p>
-            <h4 lass="marginB">Tipo do tomate</h4>
-            <p class="">Saladete</p>
-        </div>
-        <!-- <div class="box">
+                    </select>
+                </div>
+                <div class="box endereco">
+                    <h4>Endereço</h4>
+                    <p class="marginB">rua vladimir campos - MG</p>
+                    <h4>Plantação</h4>
+                    <p>1</p>
+                </div>
+                <div class="box ">
+                    <h4 class="marginB ">Localização do Sensor </h4>
+                    <h5 class="">LATIDUTE</h5>
+                    <p class="">40.71727401</p>
+                    <h5 class="">LONGITUDE</h5>
+                    <p>-74.00898606</p>
+                </div>
+                <div class="box data">
+                    <h4>Data</h4>
+                    <h5>27/10/2023 <i class='bx bxs-calendar'></i></h5>
+                </div>
+                <div class="box status">
+                    <h4>Status sensor</h4>
+                    <h5>ON</h5>
+                </div>
+
+                <div class="box tipo">
+                    <h4>Tipo de solo</h4>
+                    <p class=" marginB">Arenoso</p>
+                    <h4 lass="marginB">Tipo do tomate</h4>
+                    <p class="">Saladete</p>
+                </div>
+                <!-- <div class="box">
             <h4>54.3%</h4>
             <p class="marginB">Umidade média</p>
         </div> -->
-    </div>
-    <div class="dash-meio">
-        <h2 class="titulo-analytics">Analytics</h2>
-        <div class="anaFlex">
-            <div class="box atual">
-                <i class='bx bxs-megaphone'></i>
-                <p class="marginB">Umidade Atual</p>
-                <h4 class="marginB tempAtual">54.3%<i class='bx bxs-droplet-half'></i></h4>
             </div>
-            <div class="table">
-                <img src="../img/thumbnail_image.png" alt="">
+            <div class="dash-meio">
+                <h2 class="titulo-analytics">Analytics</h2>
+                <div class="anaFlex">
+                    <div class="box atual">
+                        <i class='bx bxs-megaphone'></i>
+                        <p class="marginB">Umidade Atual</p>
+                        <h4 class="marginB tempAtual">54.3%<i class='bx bxs-droplet-half'></i></h4>
+                    </div>
+                    <div class="table">
+                        <img src="../img/thumbnail_image.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="dash-graficos">
+                <div class="grafico">
+                    <h1 class="titulo-sensor">Umidade por hora</h1>
+                    <section style="width:800px">
+                        <canvas id="dht11Umidade"></canvas>
+                    </section>
+                </div>
+                <div class="grafico">
+                    <h1 class="titulo-sensor">Umidade média dos dias</h1>
+                    <section style="width:800px">
+                        <canvas id="dht11UmidadeMedia"></canvas>
+                    </section>
+                </div>
             </div>
         </div>
-    </div>
-<div class="dash-graficos">
-    <div class="grafico">
-        <h1 class="titulo-sensor">Umidade por hora</h1>
-        <section style="width:800px">
-            <canvas id="dht11Umidade"></canvas>
-        </section>
-    </div>
-    <div class="grafico">
-        <h1 class="titulo-sensor">Umidade média dos dias</h1>
-        <section style="width:800px">
-            <canvas id="dht11UmidadeMedia"></canvas>
-        </section>
-    </div>
-</div>
-</div>
     </main>
 
 
-<div class="footer">
-    <div class="container-2">
-        <div class="conheca-nos">
-            <h5>Conheça-nos</h5>
-            <p><a href="../html/tela_inicial.html#sobre-nos">Sobre nós</a></p>
+    <div class="footer">
+        <div class="container-2">
+            <div class="conheca-nos">
+                <h5>Conheça-nos</h5>
+                <p><a href="../html/tela_inicial.html#sobre-nos">Sobre nós</a></p>
+            </div>
+            <div class="deixe-nos">
+                <h5>Deixe-nos ajudar você</h5>
+                <p><a href="./conta.html">Sua Conta</a></p>
+                <p><a href="./tela_inicial.html#suporte-id">Suporte</a></p>
+            </div>
+            <div class="contatos">
+                <h5>Contatos</h5>
+                <p><a href="http://instagra.com/tecnosolo_"> <img src="../img/Instagram.svg"></a></p>
+                <p>E-mail:tecnosolo@gmail.com</p>
+            </div>
+            <div class="mais-informacoes">
+                <h5>Gostaria de receber mais informações?</h5>
+                <input type="text" id="email" placeholder="Seu e-mail aqui!">
+            </div>
         </div>
-        <div class="deixe-nos">
-            <h5>Deixe-nos ajudar você</h5>
-           <p><a href="./conta.html">Sua Conta</a></p>
-            <p><a href="./tela_inicial.html#suporte-id">Suporte</a></p>
-        </div>
-        <div class="contatos">
-            <h5>Contatos</h5>
-           <p><a href="http://instagra.com/tecnosolo_"> <img src="../img/Instagram.svg"></a></p>
-            <p>E-mail:tecnosolo@gmail.com</p>
-        </div>
-        <div class="mais-informacoes">
-            <h5>Gostaria de receber mais informações?</h5>
-            <input type="text" id="email" placeholder="Seu e-mail aqui!">
+        <div class="linha">
+            <p>Condições de Uso | Notificação de Privacidade | Cookies | Anúncios baseados em interesses </p>
+            <p>©2023. All Rights Reserved.</p>
         </div>
     </div>
-    <div class="linha">
-        <p>Condições de Uso | Notificação de Privacidade | Cookies | Anúncios baseados em interesses </p>
-        <p>©2023. All Rights Reserved.</p>
-    </div>
-</div>
 
 </body>
+
 </html>
 <script>
     /* -- dht11Umidade -- */
@@ -389,32 +375,32 @@
                     label: 'Umidade (%)',
                     type: 'line',
                     data: [55,
-                53.4,
-                52.8,
-                53.1,
-                53.7,
-                54.6,
-                55.3,
-                55.7,
-                55.8,
-                55.7,
-                55.7,
-                55.5,
-                55.4,
-                55.2,
-                55,
-                54.9,
-                54.7,
-                54.5,
-                54.4,
-                54.2,
-                54,
-                53.9,
-                53.8,
-                53.7,
-                53.6
-            ],
-                    
+                        53.4,
+                        52.8,
+                        53.1,
+                        53.7,
+                        54.6,
+                        55.3,
+                        55.7,
+                        55.8,
+                        55.7,
+                        55.7,
+                        55.5,
+                        55.4,
+                        55.2,
+                        55,
+                        54.9,
+                        54.7,
+                        54.5,
+                        54.4,
+                        54.2,
+                        54,
+                        53.9,
+                        53.8,
+                        53.7,
+                        53.6
+                    ],
+
                     borderColor: ['#38703D'],
                     fill: 0
                 }]
@@ -491,40 +477,40 @@
                     fill: false,
                     borderColor: ['#38703D'],
                     data: [55,
-                    53.4,
-                    52.8,
-                53.1,
-                53.7,
-                54.6,
-                55.3,
-                55.7,
-                55.8,
-                55.7,
-                55.7,
-                55.5,
-                55.4,
-                55.2,
-                55,
-                54.9,
-                54.7,
-                54.5,
-                54.4,
-                54.2,
-                54,
-                53.9,
-                53.8,
-                53.7,
-                53.6,
-                53.6,
-                53.6,
-                53.6,
-                53.6,
-                53.6,
-                53.6,
-                53.6,
-            ],
-        }]
-    },
+                        53.4,
+                        52.8,
+                        53.1,
+                        53.7,
+                        54.6,
+                        55.3,
+                        55.7,
+                        55.8,
+                        55.7,
+                        55.7,
+                        55.5,
+                        55.4,
+                        55.2,
+                        55,
+                        54.9,
+                        54.7,
+                        54.5,
+                        54.4,
+                        54.2,
+                        54,
+                        53.9,
+                        53.8,
+                        53.7,
+                        53.6,
+                        53.6,
+                        53.6,
+                        53.6,
+                        53.6,
+                        53.6,
+                        53.6,
+                        53.6,
+                    ],
+                }]
+            },
             options: {
                 scales: {
                     xAxes: [{
@@ -571,12 +557,12 @@
                     backgroundColor: '#38703D',
                     type: 'bar',
                     data: [
-                445,
-                534.6,
-                490.05,
-                579.15,
-                623.7,
-            ],
+                        445,
+                        534.6,
+                        490.05,
+                        579.15,
+                        623.7,
+                    ],
                 }]
             },
             options: {
@@ -630,20 +616,20 @@
                     label: 'Umidade mensal',
                     type: 'line',
                     data: [55,
-                53.4,
-                22.8,
-                98.1,
-                53.7,
-                54.6,
-                55.3,
-                55.7,
-                55.8,
-                56.7,
-                67.7,
-                77.5,
-                60.4,
-            ],
-                    
+                        53.4,
+                        22.8,
+                        98.1,
+                        53.7,
+                        54.6,
+                        55.3,
+                        55.7,
+                        55.8,
+                        56.7,
+                        67.7,
+                        77.5,
+                        60.4,
+                    ],
+
                     borderColor: ['#38703D'],
                     fill: 0
                 }]
@@ -676,7 +662,7 @@
     contextoCustoAgua.canvas.width = 1000;
     contextoCustoAgua.canvas.height = 350;
     const labelsAgua = [
-    'Safra 1',
+        'Safra 1',
         'Safra 2',
         'Safra 3',
         'Safra 4',
@@ -694,14 +680,16 @@
                     backgroundColor: 'rgb(255,0,0)',
                     type: 'bar',
                     data: [
-                    50300, 75700, 102000, 81800, 123000
-            ],},{
-            label: 'Com sensor',
-            backgroundColor: '#38703D',
-            borderColor: 'rgb(255,255,255)',
-            data: [42800, 64300, 86900, 69600, 104000],
-            }
-        ]},
+                        50300, 75700, 102000, 81800, 123000
+                    ],
+                }, {
+                    label: 'Com sensor',
+                    backgroundColor: '#38703D',
+                    borderColor: 'rgb(255,255,255)',
+                    data: [42800, 64300, 86900, 69600, 104000],
+                }
+                ]
+            },
             options: {
                 scales: {
                     xAxes: [{
@@ -727,75 +715,75 @@
         }
     );
 
-    function perfil(){
-    perfilInfo.style.display = 'block'
-    dashInfo.style.display = 'none'
-    dadosInfo.style.display = 'none'
-    individualInfo.style.display = 'none'
-    perfilId.style.backgroundColor = '#1F2616'
-    perfilId.style.color = '#fff'
-    dadosId.style.backgroundColor = '#fff'
-    dadosId.style.color = 'black'
-    dashId.style.backgroundColor = '#fff'
-    dashId.style.color = 'black'
-    indiviId.style.display = 'none'
-    geralId.style.display = 'none'
-}
-function dados(){
-    dadosInfo.style.display = 'block'
-    dashInfo.style.display = 'none'
-    perfilInfo.style.display = 'none'
-    individualInfo.style.display = 'none'
-    dadosId.style.backgroundColor = '#1F2616'
-    dadosId.style.color = '#fff'
-    perfilId.style.backgroundColor = '#fff'
-    perfilId.style.color = 'black'
-    dashId.style.backgroundColor = '#fff'
-    dashId.style.color = 'black'
-    indiviId.style.display = 'none'
-    geralId.style.display = 'none'
-}
-function dash(){
-    dashInfo.style.display = 'block'
-    perfilInfo.style.display = 'none'
-    dadosInfo.style.display = 'none'
-    individualInfo.style.display = 'none'
-    dashId.style.backgroundColor = '#1F2616'
-    dashId.style.color = '#fff'
-    perfilId.style.backgroundColor = '#fff'
-    perfilId.style.color = 'black'
-    dadosId.style.backgroundColor = '#fff'
-    dadosId.style.color = 'black'
-    geralId.style.display = 'block'
-    indiviId.style.display = 'block'
-}
+    function perfil() {
+        perfilInfo.style.display = 'block'
+        dashInfo.style.display = 'none'
+        dadosInfo.style.display = 'none'
+        individualInfo.style.display = 'none'
+        // perfilId.style.backgroundColor = '#1F2616'
+        // perfilId.style.color = '#fff'
+        // dadosId.style.backgroundColor = '#fff'
+        // dadosId.style.color = 'black'
+        // dashId.style.backgroundColor = '#fff'
+        // dashId.style.color = 'black'
+        indiviId.style.display = 'none'
+        geralId.style.display = 'none'
+    }
+    function dados() {
+        dadosInfo.style.display = 'block'
+        dashInfo.style.display = 'none'
+        perfilInfo.style.display = 'none'
+        individualInfo.style.display = 'none'
+        // dadosId.style.backgroundColor = '#1F2616'
+        // dadosId.style.color = '#fff'
+        // perfilId.style.backgroundColor = '#fff'
+        // perfilId.style.color = 'black'
+        // dashId.style.backgroundColor = '#fff'
+        // dashId.style.color = 'black'
+        indiviId.style.display = 'none'
+        geralId.style.display = 'none'
+    }
+    function dash() {
+        dashInfo.style.display = 'block'
+        perfilInfo.style.display = 'none'
+        dadosInfo.style.display = 'none'
+        // individualInfo.style.display = 'none'
+        // dashId.style.backgroundColor = '#1F2616'
+        // dashId.style.color = '#fff'
+        // perfilId.style.backgroundColor = '#fff'
+        // perfilId.style.color = 'black'
+        // dadosId.style.backgroundColor = '#fff'
+        // dadosId.style.color = 'black'
+        geralId.style.display = 'block'
+        indiviId.style.display = 'block'
+    }
 
-function geral(){
-    dashInfo.style.display = 'block'
-    perfilInfo.style.display = 'none'
-    dadosInfo.style.display = 'none'
-    individualInfo.style.display = 'none'
-    dashId.style.backgroundColor = '#1F2616'
-    dashId.style.color = '#fff'
-    perfilId.style.backgroundColor = '#fff'
-    perfilId.style.color = 'black'
-    dadosId.style.backgroundColor = '#fff'
-    dadosId.style.color = 'black'
-    geralId.style.display = 'block'
-    indiviId.style.display = 'block'
-}
-function individual(){
-    individualInfo.style.display = 'block'
-    dashInfo.style.display = 'none'
-    perfilInfo.style.display = 'none'
-    dadosInfo.style.display = 'none'
-    dashId.style.backgroundColor = '#1F2616'
-    dashId.style.color = '#fff'
-    perfilId.style.backgroundColor = '#fff'
-    perfilId.style.color = 'black'
-    dadosId.style.backgroundColor = '#fff'
-    dadosId.style.color = 'black'
-    geralId.style.display = 'block'
-    indiviId.style.display = 'block'
-}
+    function geral() {
+        dashInfo.style.display = 'block'
+        perfilInfo.style.display = 'none'
+        dadosInfo.style.display = 'none'
+        individualInfo.style.display = 'none'
+        // dashId.style.backgroundColor = '#1F2616'
+        // dashId.style.color = '#fff'
+        // perfilId.style.backgroundColor = '#fff'
+        // perfilId.style.color = 'black'
+        // dadosId.style.backgroundColor = '#fff'
+        // dadosId.style.color = 'black'
+        geralId.style.display = 'block'
+        indiviId.style.display = 'block'
+    }
+    function individual() {
+        individualInfo.style.display = 'block'
+        dashInfo.style.display = 'none'
+        perfilInfo.style.display = 'none'
+        dadosInfo.style.display = 'none'
+        // dashId.style.backgroundColor = '#1F2616'
+        // dashId.style.color = '#fff'
+        // perfilId.style.backgroundColor = '#fff'
+        // perfilId.style.color = 'black'
+        // dadosId.style.backgroundColor = '#fff'
+        // dadosId.style.color = 'black'
+        geralId.style.display = 'block'
+        indiviId.style.display = 'block'
+    }
 </script>
