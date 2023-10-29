@@ -20,6 +20,11 @@ body {
     margin-bottom: 35px;
 }
 
+.titulo-input {
+    padding-top: 30px;
+    font-size: 18px;
+}
+
 .box_forms input{
     color: #38703D;
     background-color: #F1F1F1;

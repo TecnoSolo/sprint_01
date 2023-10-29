@@ -413,6 +413,8 @@ margin-top: 120px;
     width: 600px;
     background-color: #fff;
     padding: 20px;
+    border: solid 1px;
+    border-radius: 12px;
 }
 .box {
     padding: 20px;
