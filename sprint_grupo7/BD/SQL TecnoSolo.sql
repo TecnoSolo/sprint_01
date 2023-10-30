@@ -21,15 +21,15 @@ longitude decimal(11, 8) DEFAULT 00.000000,
 dataInstalacao date not null,
 fkPlantacao int, constraint fkPT foreign key (fkPlantacao) references plantacaoTomate (idPlantacao));
 
--- tipo_sensor varchar(50));
-
 
 CREATE TABLE registro(
-idRegistro int primary key auto_increment,
+idRegistro int auto_increment,
 registroLeitura timestamp default current_timestamp not null,
 umidadeSoloTomate float not null,
 fkSensor int, 
-constraint fkS foreign key (fkSensor) references sensores (idSensor));
+constraint fkS foreign key (fkSensor) references sensores (idSensor),
+primary key (idRegistro, fkSensor)
+);
 
 
 create table plantacaoTomate(
@@ -56,33 +56,32 @@ fkEmpresa int, constraint  foreign key (fkEmpresa) references empresa (idEmpresa
 insert into empresa values 
 	(null, 'pomodoro@tomate.com', 'EoK01!3f', 'João Carlos Gomes', 'PomodoroCompany', '01.001.001/0001-01', '997828063'),
     (null, 'tomato@gmail.com', '!OPcD05d', 'Jonas Cardooso Alves', 'TomatoCompany', '02.002.002/0001-02', '912018173');
-    
+
 insert into endereco values 
 	(null, '05889-380', 'SP', 'São Paulo', 'Parque Fernanda', 'Rua General Ribamar de Miranda', null, 1),
     (null, '19872-331', 'RJ', 'Rio de Janeiro', 'Botafogo', 'Rua Uruguaiana', null, 1),
     (null, '83312-912', 'SP', 'São Paulo', 'Jardins', 'Rua Canadá', null, 2);
-    
+
 insert into plantacaoTomate values 
-	(null, 25, 2000000, 125, 1),
-    (null, 20, 1800000, 120, 2),
-    (null, 13, 1100000, 80, 1);
+	(null, 25, 2000000, 125, 1, 33750, 260000, 'arenoso'),
+    (null, 20, 1800000, 120, 2, 27000, 200000, 'argiloso'),
+    (null, 13, 1100000, 80, 1, 17550, 135000, 'arenoso');
 
 insert into sensores values
-	(null, 'DHT11', '40.71727401', '-74.00898606', 1, 1),
-	(null, 'DHT11', '-71.6741', '36.0204', 1, 3),
-    (null, 'DHT11', '-50.2925', '29.1891', 2, 2);
+	(null, 'DHT11', '40.71727401', '-74.00898606', '2023-04-01', 1),
+	(null, 'DHT11', '-71.6741', '36.0204', '2023-03-23', 3),
+    (null, 'DHT11', '-50.2925', '29.1891', '2023-06-17', 2);
 
 insert into registro values
-	(null, '2023-10-11', current_timestamp(), 70, 1),
-    (null, '2023-10-11', current_timestamp(), 80, 3),
-    (null, '2023-06-08', current_timestamp(), 75, 2);
+	(null, current_timestamp(), 70, 1),
+    (null, current_timestamp(), 80, 3),
+    (null, current_timestamp(), 75, 2);
+    
+select plantacaoTomate.idPlantacao, empresa.razaoSocial, sensores.idSensor from plantacaoTomate join empresa on fkEmpresa = idEmpresa join sensores on fkPlantacao = idPlantacao;
+
+select registro.registroLeitura, registro.umidadeSoloTomate, sensores.idSensor, sensores.latitude, sensores.longitude from registro join sensores on fkSensor = idSensor;
 
 
-select * from regisensoresstro;
 
-use metricas;
 
-select * from sensores;
-
-truncate table sensores;
     
