@@ -17,7 +17,14 @@
 }
 .legenda {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.tableGeral {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 40px;
 }
 .legCard {
     display: flex;
@@ -64,4 +71,7 @@ h2 {
 }
 .qtdHectar {
     height: 90px;
+}
+.kpis .tipo {
+    width: 260px;
 }
