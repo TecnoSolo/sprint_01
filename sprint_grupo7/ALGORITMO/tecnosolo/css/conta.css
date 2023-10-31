@@ -64,10 +64,14 @@ button:last-child {
 .perfil-info .banner {
     display: flex;
     flex-direction: column;
-}
-.perfil-info .banner .img-banner {
-    width: 100%;
+    background-color: #191D12;
     height: 150px;
+    width: 100%;
+}
+.bxs-edit {
+    padding: 10px;
+    font-size: 30px;
+    color: white;
 }
 .perfil-info .usuario .img-usuario {
     width: 70px;
@@ -97,6 +101,16 @@ button:last-child {
 .titulo-usuario {
     font-size: 20px;
     width: 1px;
+}
+.selectDados select{
+    padding: 10px 20px;
+    font-size: 17px;
+}
+.tituloColor {
+    color: #5f5f5f;
+    font-weight: bold;
+    font-size: 24px;
+    font-family: 'Kanit', sans-serif;
 }
 .conteudo {
     font-size: 18px;
