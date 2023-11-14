@@ -124,9 +124,7 @@ button:last-child {
     font-size: 22px;
     font-weight: 700;
 }
-.individual-info {
-    display: none;
-}
+
 .dados-info {
     display: none;
 }

@@ -1,5 +1,17 @@
+.individualInfo {
+    display: block;
+}
 .individual-info{
     background-color: #fff;
+}
+#geralId a,#indiviId a {
+    color: white;
+    text-decoration: none;
+}
+#dadosId a {
+    color: #fff;
+    text-decoration: none;
+
 }
 .box{
     background-color: #ebebeb;
