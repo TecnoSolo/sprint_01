@@ -3,14 +3,14 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" href="../img/Design_sem_nome__2_-removebg-preview.png">
-  <link rel="stylesheet" href="../css/header.css" />
+  <link rel="icon" href="./img/Design_sem_nome__2_-removebg-preview.png">
+  <link rel="stylesheet" href="./css/header.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/cadastro.css" />
-  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="./css/cadastro.css" />
+  <link rel="stylesheet" href="./css/footer.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tecnosolo - cadastro</title>
 </head>
@@ -19,15 +19,15 @@
   <header class="cabecalho">
     <div class="container">
         <div class="div-logo">
-            <a href="./tela_inicial.html" target="blank" rel="noopener noreferrer"><img width="72px" src="../img/Design_sem_nome__2_-removebg-preview.png" alt="logo da empresa tecnosolo" class="logo"></a>
+            <a href="./index.html" target="blank" rel="noopener noreferrer"><img width="72px" src="./img/Design_sem_nome__2_-removebg-preview.png" alt="logo da empresa tecnosolo" class="logo"></a>
         </div>
         <nav class="navbar">
             <ul>
-                <li><a href="./tela_inicial.html">Home</a></li>
-                <li><a href="./tela_inicial.html#recursos-id">Recursos</a></li>
-                <li><a href="../html/tela_inicial.html#sobre-nos">Sobre nós</a></li>
-                <li><a href="./tela_inicial.html#suporte-id">Suporte</a></li>
-                <li><a class="simulador" href="../html/calculadora_tecnosolo.html">Simulador</a></li>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./index.html#recursos-id">Recursos</a></li>
+                <li><a href="./index.html#sobre-nos">Sobre nós</a></li>
+                <li><a href="./index.html#suporte-id">Suporte</a></li>
+                <li><a class="simulador" href="./calculadora_tecnosolo.html">Simulador</a></li>
                
             </ul>
         </nav>
@@ -39,7 +39,7 @@
     </div>
 </header>
   <div class="box">
-    <img class="logo" src="../img/logoTomate.png" alt="" />
+    <img class="logo" src="./img/logoTomate.png" alt="" />
     <h2 class="titulo">Criar conta</h2>
     <div class="passosForm">
       <div class="circuloPassos">
@@ -68,7 +68,7 @@
         <p>Nome:</p>
         <input type="text" id="iptNome" placeholder="Insira seu nome" required />
         <p>CNPJ:</p>
-        <input type="number" id="iptCnpj" placeholder="Insira o CNPJ" required />
+        <input type="text" id="iptCnpj" placeholder="Insira o CNPJ" required />
         <div class="mensagemErro" id="erroCNPJ" style="display: none;">
           CNPJ inválido
         </div>
@@ -109,16 +109,16 @@
     <div class="container-2">
       <div class="conheca-nos">
         <h5>Conheça-nos</h5>
-        <p><a href="../html/tela_inicial.html#sobre-nos">Sobre nós</a></p>
+        <p><a href="./index.html#sobre-nos">Sobre nós</a></p>
       </div>
       <div class="deixe-nos">
         <h5>Deixe-nos ajudar você</h5>
         <p><a href="./conta.html">Sua Conta</a></p>
-        <p><a href="./tela_inicial.html#suporte-id">Suporte</a></p>
+        <p><a href="./index.html#suporte-id">Suporte</a></p>
       </div>
       <div class="contatos">
         <h5>Contatos</h5>
-        <p><a href="http://instagra.com/tecnosolo_"> <img src="../img/Instagram.svg"></a></p>
+        <p><a href="http://instagra.com/tecnosolo_"> <img src="./img/Instagram.svg"></a></p>
         <p>E-mail:tecnosolo@gmail.com</p>
       </div>
       <div class="mais-informacoes">
@@ -193,12 +193,66 @@
     }
   }
   function cadastrar() {
-    var cep = iptCep.value
-    var UF = iptUF.value
-    var cidade = iptCidade.value
-    var bairro = iptBairro.value
-    var rua = iptRua.value
-    var complemento = iptComplemento.value
+    var emailVar = iptEmail.value
+    var senhaVar = iptSenha.value
+    var nomeVar = iptNome.value
+    var cnpjVar = iptCnpj.value
+    var telefoneVar = iptTelefone.value
+    var razaoSocialVar = iptRazaoSocial.value
+    var cepVar = iptCep.value
+    var UFVar = iptUF.value
+    var cidadeVar = iptCidade.value
+    var bairroVar = iptBairro.value
+    var ruaVar = iptRua.value
+    var complementoVar = iptComplemento.value
+
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        emailServer: emailVar,
+        senhaServer: senhaVar,
+        nomeServer: nomeVar,
+        cnpjServer: cnpjVar,
+        telefoneServer: telefoneVar,
+        razaoSocialServer: razaoSocialVar,
+        cepServer: cepVar,
+        UFServer: UFVar,
+        cidadeServer: cidadeVar,
+        bairroServer: bairroVar,
+        ruaServer: ruaVar,
+        complementoServer: complementoVar
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          // cardErro.style.display = "block";
+          // cardErro.style.border = 'solid 1px #091227';
+          // mensagem_erro.innerHTML =
+          //   "Cadastro realizado com sucesso! <br> Redirecionando para tela de Login...";
+
+          setTimeout(() => {
+            window.location = "login.html";
+          }, "2000");
+
+          // limparFormulario();
+          // finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        // finalizarAguardar();
+      });
+
+    return false;
 
 
 

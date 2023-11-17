@@ -125,9 +125,7 @@ button:last-child {
     font-weight: 700;
 }
 
-.dados-info {
-    display: none;
-}
+
 .dash-info {
     display: none;
 }
@@ -258,6 +256,10 @@ button:last-child {
 }
 
 .barra .col-2 .btn a{
+    text-decoration: none;
+    color: #fff;
+}
+.barra a{
     text-decoration: none;
     color: #fff;
 }

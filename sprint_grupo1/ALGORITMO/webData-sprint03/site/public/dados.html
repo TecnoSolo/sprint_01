@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/conta.css">
+    <link rel="stylesheet" href="./css/dashGeral.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="icon" href="./img/Design_sem_nome__2_-removebg-preview.png">
+    <link rel="stylesheet" href="./css/dashIndividual.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecnosolo - perfil</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
+    <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+    <style>
+        canvas {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+    </style>
+</head>
+<script>
+    function dash(){
+        geralId.style.display = 'block'
+        indiviId.style.display = 'block'
+    }
+</script>
+<body>
+
+    <main>
+        <header class="barra">
+            <div class="col-1">
+                <div class="header-imagem">
+                    <img src="./img/foto.jpg" alt="" class="img-usuario">
+                </div>
+                <button id="perfilId" class="btn cima" onclick="perfil()"><a href="./conta.html">Perfil</a></button>
+                <button id="dadosId" class="btn meio" onclick="dados()"><a href="./dados.html">Dados</a></button>
+                <button id="dashId" class="btn baixo" onclick="dash()">Dashboards</button>
+                <button id="geralId" class="btnDash" onclick="geral()"><a href="">Visão geral</a></button>
+                <button id="indiviId" class="btnDash" onclick="individual()"><a href="./dashboardIndividual.html">Sensor individual</a></button>
+            </div>
+            <div class="col-2">
+                <button class="btn"><a href="./index.html">Sair</a><i class='bx bx-exit'></i></button>
+            </div>
+        </header>
+
+        <div class="dados-info" id="dadosInfo">
+            <div class="bannerDados">
+                <h3 class="titulo-dados branco">DADOS</h3>
+                <h5 class="titulo-planta branco">DA PLANTAÇÃO</h5>
+            </div>
+            <div class="informacoes-dados">
+                <div class="divDados">
+                    <p class="titulo-info">Selecione a plantação</p>
+                    <div class="selectDados">
+                        <select id="">
+                            <option value="1">Plantação 1</option>
+                            <option value="2">Plantação 2</option>
+                            <option value="3">Plantação 3</option>
+    
+                        </select>
+                    </div>
+                </div>
+                <div class="divDados">
+                    <p class="titulo-info">Hectares</p>
+                    <p class="conteudo-dados">4 ha</p>
+                </div>
+                <div class="divDados">
+                    <p class="titulo-info">Tipo de Solo</p>
+                    <p class="conteudo-dados">Arenoso</p>
+                </div>
+                <div class="divDados">
+                    <p class="titulo-info">Quantidade de Sensores</p>
+                    <p class="conteudo-dados">7</p>
+                </div>
+                <div class="divDados">
+                    <p class="titulo-info">Localidade</p>
+                    <p class="conteudo-dados">Rua Vladimir Campos - MG</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <div class="footer">
+        <div class="container-2">
+            <div class="conheca-nos">
+                <h5>Conheça-nos</h5>
+                <p><a href=".index.html#sobre-nos">Sobre nós</a></p>
+            </div>
+            <div class="deixe-nos">
+                <h5>Deixe-nos ajudar você</h5>
+                <p><a href="./conta.html">Sua Conta</a></p>
+                <p><a href="./index.html#suporte-id">Suporte</a></p>
+            </div>
+            <div class="contatos">
+                <h5>Contatos</h5>
+                <p><a href="http://instagra.com/tecnosolo_"> <img src="../img/Instagram.svg"></a></p>
+                <p>E-mail:tecnosolo@gmail.com</p>
+            </div>
+            <div class="mais-informacoes">
+                <h5>Gostaria de receber mais informações?</h5>
+                <input type="text" id="email" placeholder="Seu e-mail aqui!">
+            </div>
+        </div>
+        <div class="linha">
+            <p>Condições de Uso | Notificação de Privacidade | Cookies | Anúncios baseados em interesses </p>
+            <p>©2023. All Rights Reserved.</p>
+        </div>
+    </div>
+
+</body>
+
+</html>
