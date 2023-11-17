@@ -9,9 +9,10 @@ senha varchar(245) NOT NULL,
 nome varchar(40), 
 razaoSocial varchar(40),
 cnpj char(18),
-telefone char(11),
-constraint chkemail check (email LIKE  ( '%@%.%')),
-constraint chkcnpj check (cnpj LIKE '__.___.___/0001-__'))auto_increment = 1;
+telefone char(11)
+-- constraint chkemail check (email LIKE  ( '%@%.%')),
+-- constraint chkcnpj check (cnpj LIKE '__.___.___/0001-__')
+)auto_increment = 1;
 
 create table sensores (
 idSensor int primary key auto_increment,
@@ -77,6 +78,8 @@ insert into registro values
     (null, current_timestamp(), 80, 3),
     (null, current_timestamp(), 75, 2);
     
+select * from empresa;
+select * from endereco;
 select plantacaoTomate.idPlantacao, empresa.razaoSocial, sensores.idSensor from plantacaoTomate join empresa on fkEmpresa = idEmpresa join sensores on fkPlantacao = idPlantacao;
 
 select registro.registroLeitura, registro.umidadeSoloTomate, sensores.idSensor, sensores.latitude, sensores.longitude from registro join sensores on fkSensor = idSensor;

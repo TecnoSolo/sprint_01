@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecnosolo - login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <link rel="icon" href="./img/Design_sem_nome__2_-removebg-preview.png">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/Login.CSS">
+    <link rel="stylesheet" href="./css/footer.css">
+</head>
+<body>
+    <header class="cabecalho">
+        <div class="container">
+            <div class="div-logo">
+                <a href="./index.html" target="blank" rel="noopener noreferrer"><img width="72px" src="./img/Design_sem_nome__2_-removebg-preview.png" alt="logo da empresa tecnosolo" class="logo"></a>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./index.html#recursos-id">Recursos</a></li>
+                    <li><a href="./index.html#sobre-nos">Sobre nós</a></li>
+                    <li><a href="./index.html#suporte-id">Suporte</a></li>
+                    <li><a class="simulador" href="./calculadora_tecnosolo.html">Simulador</a></li>
+                   
+                </ul>
+            </nav>
+            <div class="col-1">
+                <ul>
+                    <li class="conta"><a class="conta" href="./Login.HTML">Conta</a></li>
+                    <ul>
+            </div>
+        </div>
+    </header>
+
+ <center>
+    <div class="box_forms">
+                <h1>Iniciar Sessão</h1>
+                
+                <div id="seçao" class="info">
+                    <br> <p class="titulo-input">E-mail:
+                    <input type="email" id="input_email" placeholder="Insira o e-mail" required />
+                    <p class="mensagemErro" id="erroEmail" style="display: none; color: red;"> <br>
+                      E-mail inválido <br>
+                    </p>
+
+                <br> <p class="titulo-input">Senha: <input id="input_senha" type="password" placeholder="Senha "> <br> <br>
+                <p id="mensagemErro" style="color: red"></p>
+
+        <br> <a input id="conta" href="./cadastro.html">Não possui uma <strong style="color: black;">conta</strong>?</a> <br>
+        <div class="but_Log"> <br>
+            <button class="log" onclick="entrar()"> <a href="./conta.html">
+                <img src="./img/Vector.png" style = "height: 20px; padding-left: 5px;"alt="Icone"></a></button>
+    
+        </div>
+
+    </div>
+    <style>
+     /* #input_email {
+         margin-top: 60px;
+        border: 1px solid #38703D; }  */
+    
+    /* #input_senha {
+        margin-top: 25px;
+        border: 1px solid #38703D; } */
+    
+    #conta {
+        text-decoration: none;
+        color: #646464; }
+        
+    </style>
+</center>
+
+
+<div class="footer">
+    <div class="container-2">
+        <div class="conheca-nos">
+            <h5>Conheça-nos</h5>
+            <p><a href="./index.html#sobre-nos">Sobre nós</a></p>
+        </div>
+        <div class="deixe-nos">
+            <h5>Deixe-nos ajudar você</h5>
+           <p><a href="./conta.html">Sua Conta</a></p>
+            <p><a href="./index.html#suporte-id">Suporte</a></p>
+        </div>
+        <div class="contatos">
+            <h5>Contatos</h5>
+           <p><a href="http://instagra.com/tecnosolo_"> <img src="./img/Instagram.svg"></a></p>
+            <p>E-mail:tecnosolo@gmail.com</p>
+        </div>
+        <div class="mais-informacoes">
+            <h5>Gostaria de receber mais informações?</h5>
+            <input type="text" id="email" placeholder="seu e-mail aqui!">
+        </div>
+    </div>
+    <div class="linha">
+        <p>Condições de Uso | Notificação de Privacidade | Cookies | Anúncios baseados em interesses </p>
+        <p>©2023. All Rights Reserved.</p>
+    </div>
+</div>
+
+</body>
+</html>
+<script>
+    function entrar() {
+        var email = input_email.value;
+        var senha =input_senha.value;
+
+        //Validando o email de Login//
+        
+        if (email.indexOf('@') >= 0 && (email.endsWith('.com') || email.endsWith('.br') || email.endsWith('.school'))) {
+        erroEmail.style.display = 'none'
+        }
+        else {
+        erroEmail.style.display = 'block';
+        input_email.style.borderColor = 'red';
+        }
+
+
+    if (senha.trim() === '') {
+        document.getElementById("mensagemErro").textContent = "Senha em branco."
+    } else {
+        document.getElementById("mensagemErro").textContent = ""
+    } 
+
+    console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then((json) => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    // sessionStorage.EMAIL_USUARIO = json.email;
+                    // sessionStorage.NOME_USUARIO = json.nome;
+                    // sessionStorage.ID_USUARIO = json.idUsuario;
+                    // sessionStorage.USERNAME_USUARIO = json.username
+                    
+                    window.location = "./conta.html";
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                // resposta.text().then(texto => {
+                //     console.error(texto);
+                //     finalizarAguardar(texto);
+                // });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+
+
+
+
+
+
+
+
+
+</script>
