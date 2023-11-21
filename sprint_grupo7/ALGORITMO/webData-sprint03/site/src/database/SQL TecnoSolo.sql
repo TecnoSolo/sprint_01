@@ -81,7 +81,6 @@ insert into registro values
 select * from empresa;
 select * from endereco;
 select plantacaoTomate.idPlantacao, empresa.razaoSocial, sensores.idSensor from plantacaoTomate join empresa on fkEmpresa = idEmpresa join sensores on fkPlantacao = idPlantacao;
-
 select registro.registroLeitura, registro.umidadeSoloTomate, sensores.idSensor, sensores.latitude, sensores.longitude from registro join sensores on fkSensor = idSensor;
 
 

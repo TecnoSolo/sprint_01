@@ -52,7 +52,7 @@
 
         <br> <a input id="conta" href="./cadastro.html">Não possui uma <strong style="color: black;">conta</strong>?</a> <br>
         <div class="but_Log"> <br>
-            <button class="log" onclick="entrar()"> <a href="./conta.html">
+            <button class="log" onclick="entrar()"> 
                 <img src="./img/Vector.png" style = "height: 20px; padding-left: 5px;"alt="Icone"></a></button>
     
         </div>
@@ -106,12 +106,12 @@
 </html>
 <script>
     function entrar() {
-        var email = input_email.value;
-        var senha =input_senha.value;
+        var emailVar = input_email.value;
+        var senhaVar = input_senha.value;
 
         //Validando o email de Login//
         
-        if (email.indexOf('@') >= 0 && (email.endsWith('.com') || email.endsWith('.br') || email.endsWith('.school'))) {
+        if (emailVar.indexOf('@') >= 0 && (emailVar.endsWith('.com') || emailVar.endsWith('.br') || emailVar.endsWith('.school'))) {
         erroEmail.style.display = 'none'
         }
         else {
@@ -120,7 +120,7 @@
         }
 
 
-    if (senha.trim() === '') {
+    if (senhaVar.trim() === '') {
         document.getElementById("mensagemErro").textContent = "Senha em branco."
     } else {
         document.getElementById("mensagemErro").textContent = ""
