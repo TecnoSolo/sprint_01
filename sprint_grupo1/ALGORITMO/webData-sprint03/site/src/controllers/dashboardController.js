@@ -1,14 +1,14 @@
-var medidaModel = require("../models/medidaModel");
+var dashboardModel = require("../models/dashboardModel");
 
 function buscarUltimasMedidas(req, res) {
 
     const limite_linhas = 7;
 
-    var idAquario = req.params.idAquario;
+    var idSensor = req.params.idSensor;
 
-    console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
+    console.log(`Recuperando as ultimas medidas`);
 
-    medidaModel.buscarUltimasMedidas(idAquario, limite_linhas).then(function (resultado) {
+    dashboardModel.buscarUltimasMedidas(idSensor).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -24,11 +24,11 @@ function buscarUltimasMedidas(req, res) {
 
 function buscarMedidasEmTempoReal(req, res) {
 
-    var idAquario = req.params.idAquario;
+    var idSensor = req.params.idSensor;
 
     console.log(`Recuperando medidas em tempo real`);
 
-    medidaModel.buscarMedidasEmTempoReal(idAquario).then(function (resultado) {
+    dashboardModel.buscarMedidasEmTempoReal(idSensor).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
