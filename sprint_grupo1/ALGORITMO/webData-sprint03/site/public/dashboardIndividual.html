@@ -166,7 +166,7 @@
 </html>
 <script>
 
-window.onload = exibirSensoresUsuario();
+window.onload = obterDadosGrafico();
     // /* -- dht11Umidade -- */
     // var contextoDht11Umidade = document.getElementById('dht11Umidade').getContext('2d');
     // contextoDht11Umidade.canvas.width = 1000;
@@ -368,10 +368,10 @@ window.onload = exibirSensoresUsuario();
     //     }
     // );
 
-    function exibirSensoresUsuario() {
-        // sessionStorage.addItem("idSensor")
-        var sensor = JSON.parse(sessionStorage.SENSORES);
-        sensor.forEach(item => {
+    // function exibirSensoresUsuario() {
+    //     // sessionStorage.addItem("idSensor")
+    //     var sensor = JSON.parse(sessionStorage.SENSORES);
+    //     sensor.forEach(item => {
             // document.getElementById("btnAquario").innerHTML += `
             // <button class="btn-chart" onclick="exibirSensores(${item.id})" id="btnSensor${item.id}">${item.descricao}</button>
             // `
@@ -390,13 +390,13 @@ window.onload = exibirSensoresUsuario();
             //     // </div>
             // `
 
-            obterDadosGrafico(item.id)
-        });
+    //         obterDadosGrafico(item.id)
+    //     });
 
-        if (aquarios.length > 0) {
-            exibirAquario(aquarios[0].id)
-        }
-    }
+    //     if (sensor.length > 0) {
+    //         exibirSensor(sensor[0].id)
+    //     }
+    // }
 
     // function alterarTitulo(idAquario) {
     //     var tituloAquario = document.getElementById(`tituloAquario${idAquario}`)
@@ -404,37 +404,37 @@ window.onload = exibirSensoresUsuario();
     //     tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>" + descricao + "</span>"
     // }
 
-    function exibirSensor(idSensor) {
-        let todosOsGraficos = JSON.parse(sessionStorage.SENSORES);
+    // function exibirSensor(idSensor) {
+    //     let todosOsGraficos = JSON.parse(sessionStorage.SENSORES);
 
-        for (i = 0; i < todosOsGraficos.length; i++) {
-            // exibindo - ou não - o gráfico
-            if (todosOsGraficos[i].id != idAquario) {
-                let elementoAtual = document.getElementById(`grafico${todosOsGraficos[i].id}`)
-                if (elementoAtual.classList.contains("display-block")) {
-                    elementoAtual.classList.remove("display-block")
-                }
-                elementoAtual.classList.add("display-none")
+    //     for (i = 0; i < todosOsGraficos.length; i++) {
+    //         // exibindo - ou não - o gráfico
+    //         if (todosOsGraficos[i].id != idAquario) {
+    //             let elementoAtual = document.getElementById(`grafico${todosOsGraficos[i].id}`)
+    //             if (elementoAtual.classList.contains("display-block")) {
+    //                 elementoAtual.classList.remove("display-block")
+    //             }
+    //             elementoAtual.classList.add("display-none")
 
-                // alterando estilo do botão
-                // let btnAtual = document.getElementById(`btnAquario${todosOsGraficos[i].id}`)
-                // if (btnAtual.classList.contains("btn-pink")) {
-                //     btnAtual.classList.remove("btn-pink")
-                // }
-                // btnAtual.classList.add("btn-white")
-            }
-        }
+    //             // alterando estilo do botão
+    //             // let btnAtual = document.getElementById(`btnAquario${todosOsGraficos[i].id}`)
+    //             // if (btnAtual.classList.contains("btn-pink")) {
+    //             //     btnAtual.classList.remove("btn-pink")
+    //             // }
+    //             // btnAtual.classList.add("btn-white")
+    //         }
+    //     }
 
-        // exibindo - ou não - o gráfico
-        let graficoExibir = document.getElementById(`grafico${idSensor}`)
-        graficoExibir.classList.remove("display-none")
-        graficoExibir.classList.add("display-block")
+    //     // exibindo - ou não - o gráfico
+    //     let graficoExibir = document.getElementById(`grafico${idSensor}`)
+    //     graficoExibir.classList.remove("display-none")
+    //     graficoExibir.classList.add("display-block")
 
-        // alterando estilo do botão
-        // let btnExibir = document.getElementById(`btnAquario${idAquario}`)
-        // btnExibir.classList.remove("btn-white")
-        // btnExibir.classList.add("btn-pink")
-    }
+    //     // alterando estilo do botão
+    //     // let btnExibir = document.getElementById(`btnAquario${idAquario}`)
+    //     // btnExibir.classList.remove("btn-white")
+    //     // btnExibir.classList.add("btn-pink")
+    // }
 
     // O gráfico é construído com três funções:
     // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
@@ -509,7 +509,7 @@ window.onload = exibirSensoresUsuario();
         // Inserindo valores recebidos em estrutura para plotar o gráfico
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
-            labels.push(registro.momento_grafico);
+            labels.push(registro.registroLeitura);
             dados.datasets[0].data.push(registro.umidade);
             dados.datasets[1].data.push(registro.temperatura);
         }

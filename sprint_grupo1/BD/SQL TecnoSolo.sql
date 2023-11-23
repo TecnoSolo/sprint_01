@@ -25,7 +25,7 @@ fkPlantacao int, constraint fkPT foreign key (fkPlantacao) references plantacaoT
 
 CREATE TABLE registro(
 idRegistro int auto_increment,
-registroLeitura timestamp default current_timestamp not null,
+registroLeitura datetime,
 umidadeSoloTomate float not null,
 fkSensor int, 
 constraint fkS foreign key (fkSensor) references sensores (idSensor),
@@ -36,10 +36,10 @@ primary key (idRegistro, fkSensor)
 create table plantacaoTomate(
 idPlantacao int primary key auto_increment,
 hectares float default 0,
-qtdAgua float default 0,
-qtdSensores int default 0,
+/*qtdAgua float default 0, /*tirar*/
+/*qtdSensores int default 0, /*tirar*/
 fkEmpresa int, constraint  foreign key (fkEmpresa) references empresa (idEmpresa),
-qtdPlantas int,
+/*qtdPlantas int, /*tirar*/
 qtdKg float,
 tipoSolo varchar(45));
 
@@ -74,9 +74,9 @@ insert into sensores values
     (null, 'DHT11', '-50.2925', '29.1891', '2023-06-17', 2);
 
 insert into registro values
-	(null, current_timestamp(), 70, 1),
-    (null, current_timestamp(), 80, 3),
-    (null, current_timestamp(), 75, 2);
+	(null, current_timestamp(), 70, 4),
+    (null, current_timestamp(), 80, 5),
+    (null, current_timestamp(), 75, 6);
     
 select * from empresa;
 select * from endereco;
@@ -88,3 +88,10 @@ select registro.registroLeitura, registro.umidadeSoloTomate, sensores.idSensor, 
 
 
     
+select * from sensores;
+select 
+        umidadeSoloTomate as umidade,
+                        FORMAT(registroLeitura, 'HH:mm:ss') as registroLeitura
+                    from registro
+                    where fkSensor = 4
+                    order by idRegistro desc;
