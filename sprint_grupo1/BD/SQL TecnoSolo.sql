@@ -83,14 +83,21 @@ select plantacaoTomate.idPlantacao, empresa.razaoSocial, sensores.idSensor from 
 
 select registro.registroLeitura, registro.umidadeSoloTomate, sensores.idSensor, sensores.latitude, sensores.longitude from registro join sensores on fkSensor = idSensor;
 
+select 
+        umidadeSoloTomate as umidade,
+			registroLeitura
+                    from registro
+						join sensores on fkSensor = idSensor
+							where fkSensor = 1
+                    order by idRegistro desc;
 
-
-
+insert into registro values (null, '2023-11-22 14:00:00', 85, 1);
+select * from empresa;
     
 select * from sensores;
 select 
         umidadeSoloTomate as umidade,
-			registroLeitura,
+			registroLeitura
                     from registro
 						join sensores on fkSensor = idSensor
-							where fkSensor = ${idSensor};
+							where fkSensor = idSensor;

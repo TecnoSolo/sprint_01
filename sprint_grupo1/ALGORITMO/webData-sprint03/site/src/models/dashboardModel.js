@@ -44,28 +44,28 @@ function buscarMedidasEmTempoReal(idSensor) {
 
 /*Analytics */
 
-function analyticsMedidasTempoReal(idSensor) {
+// function analyticsMedidasTempoReal(idSensor) {
 
-    instrucaoSql = ''
+//     instrucaoSql = ''
 
-    if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `select 
-        umidadeSoloTomate as umidade
-                    from registro
-						join sensores on fkSensor = idSensor
-							where fkSensor = ${idSensor}`;
-    } else {
-        console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
-        return
-    }
+//     if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
+//         instrucaoSql = `select 
+//         umidadeSoloTomate as umidade
+//                     from registro
+// 						join sensores on fkSensor = idSensor
+// 							where fkSensor = ${idSensor}`;
+//     } else {
+//         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
+//         return
+//     }
 
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
-}
+//     console.log("Executando a instrução SQL: \n" + instrucaoSql);
+//     return database.executar(instrucaoSql);
+// }
 
 
 module.exports = {
     buscarUltimasMedidas,
-    buscarMedidasEmTempoReal,
-    analyticsMedidasTempoReal
+    buscarMedidasEmTempoReal
+    // analyticsMedidasTempoReal
 }
