@@ -14,6 +14,16 @@ telefone char(11)
 -- constraint chkcnpj check (cnpj LIKE '__.___.___/0001-__')
 )auto_increment = 1;
 
+create table plantacaoTomate(
+idPlantacao int primary key auto_increment,
+hectares float default 0,
+qtdAgua float default 0, /*tirar*/
+qtdSensores int default 0, /*tirar*/
+fkEmpresa int, constraint  foreign key (fkEmpresa) references empresa (idEmpresa),
+qtdPlantas int, /*tirar*/
+qtdKg float,
+tipoSolo varchar(45));
+
 create table sensores (
 idSensor int primary key auto_increment,
 modeloSensor varchar(40),
@@ -31,17 +41,6 @@ fkSensor int,
 constraint fkS foreign key (fkSensor) references sensores (idSensor),
 primary key (idRegistro, fkSensor)
 );
-
-
-create table plantacaoTomate(
-idPlantacao int primary key auto_increment,
-hectares float default 0,
-/*qtdAgua float default 0, /*tirar*/
-/*qtdSensores int default 0, /*tirar*/
-fkEmpresa int, constraint  foreign key (fkEmpresa) references empresa (idEmpresa),
-/*qtdPlantas int, /*tirar*/
-qtdKg float,
-tipoSolo varchar(45));
 
 create table endereco(
 idEndereco int primary key auto_increment,
@@ -74,9 +73,9 @@ insert into sensores values
     (null, 'DHT11', '-50.2925', '29.1891', '2023-06-17', 2);
 
 insert into registro values
-	(null, current_timestamp(), 70, 4),
-    (null, current_timestamp(), 80, 5),
-    (null, current_timestamp(), 75, 6);
+	(null, '2023-11-23 14:00:00', 70, 1),
+    (null, '2023-11-23 14:00:00', 80, 2),
+    (null, '2023-11-23 14:00:00', 75, 3);
     
 select * from empresa;
 select * from endereco;
@@ -91,7 +90,7 @@ select registro.registroLeitura, registro.umidadeSoloTomate, sensores.idSensor, 
 select * from sensores;
 select 
         umidadeSoloTomate as umidade,
-                        FORMAT(registroLeitura, 'HH:mm:ss') as registroLeitura
+			registroLeitura,
                     from registro
-                    where fkSensor = 4
-                    order by idRegistro desc;
+						join sensores on fkSensor = idSensor
+							where fkSensor = ${idSensor};

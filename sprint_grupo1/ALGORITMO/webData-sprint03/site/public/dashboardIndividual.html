@@ -20,7 +20,7 @@
     <title>Tecnosolo - perfil</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
-    <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+    <!-- <script src="http://www.chartjs.org/samples/latest/utils.js"></script> -->
     <style>
         canvas {
             -moz-user-select: none;
@@ -109,7 +109,7 @@
                     <div class="box atual">
                         <i class='bx bxs-megaphone'></i>
                         <p class="marginB">Umidade Atual</p>
-                        <h4 class="marginB tempAtual">54.3%<i class='bx bxs-droplet-half'></i></h4>
+                        <h4 id="umidadeAtual" class="marginB tempAtual"><i class='bx bxs-droplet-half'></i></h4>
                     </div>
                     <div class="table">
                         <img src="./img/Capturar.PNG" alt="">
@@ -120,7 +120,7 @@
                 <div class="grafico">
                     <h1 class="titulo-sensor">Umidade por hora</h1>
                     <section style="width:800px">
-                        <canvas id="dht11Umidade"></canvas>
+                        <canvas id="myChartCanvas"></canvas>
                     </section>
                 </div>
                 <div class="grafico">
@@ -161,280 +161,17 @@
         </div>
     </div>
 
+    <div id="avisoCaptura">
+
+    </div>
+
 </body>
 
 </html>
 <script>
 
 window.onload = obterDadosGrafico();
-    // /* -- dht11Umidade -- */
-    // var contextoDht11Umidade = document.getElementById('dht11Umidade').getContext('2d');
-    // contextoDht11Umidade.canvas.width = 1000;
-    // contextoDht11Umidade.canvas.height = 350;
-    // const labels = [
-    //     '00:00',
-    //     '01:00',
-    //     '02:00',
-    //     '03:00',
-    //     '04:00',
-    //     '05:00',
-    //     '06:00',
-    //     '07:00',
-    //     '08:00',
-    //     '09:00',
-    //     '10:00',
-    //     '11:00',
-    //     '12:00',
-    //     '13:00',
-    //     '14:00',
-    //     '15:00',
-    //     '16:00',
-    //     '17:00',
-    //     '18:00',
-    //     '19:00',
-    //     '20:00',
-    //     '21:00',
-    //     '22:00',
-    //     '23:00',
-    // ];
-    // var dht11Umidade = new Chart(
-    //     contextoDht11Umidade,
-    //     {
-    //         type: 'line',
-    //         data: {
-    //             labels: labels,
-    //             datasets: [{
-    //                 label: 'Umidade (%)',
-    //                 type: 'line',
-    //                 data: [55,
-    //                     53.4,
-    //                     52.8,
-    //                     53.1,
-    //                     53.7,
-    //                     54.6,
-    //                     55.3,
-    //                     55.7,
-    //                     55.8,
-    //                     55.7,
-    //                     55.7,
-    //                     55.5,
-    //                     55.4,
-    //                     55.2,
-    //                     55,
-    //                     54.9,
-    //                     54.7,
-    //                     54.5,
-    //                     54.4,
-    //                     54.2,
-    //                     54,
-    //                     53.9,
-    //                     53.8,
-    //                     53.7,
-    //                     53.6
-    //                 ],
-
-    //                 borderColor: ['#38703D'],
-    //                 fill: 0
-    //             }]
-    //         },
-    //         options: {
-    //             scales: {
-    //                 xAxes: [{
-    //                     distribution: 'series',
-    //                     ticks: {
-    //                         beginAtZero: true
-    //                     }
-    //                 }],
-    //                 yAxes: [{
-    //                     scaleLabel: {
-    //                         display: true,
-    //                         labelString: 'Umidade (%)'
-    //                     },
-    //                     ticks: {
-    //                         beginAtZero: true
-    //                     }
-    //                 }]
-    //             },
-    //             animation: {
-    //                 duration: 0
-    //             }
-    //         }
-    //     }
-    // );
-    // var contextoDht11UmidadeMedia = document.getElementById('dht11UmidadeMedia').getContext('2d');
-    // contextoDht11UmidadeMedia.canvas.width = 1000;
-    // contextoDht11UmidadeMedia.canvas.height = 350;
-
-    // const labelsDia = [
-    //     'Dia 1',
-    //     'Dia 2',
-    //     'Dia 3',
-    //     'Dia 4',
-    //     'Dia 5',
-    //     'Dia 6',
-    //     'Dia 7',
-    //     'Dia 8',
-    //     'Dia 9',
-    //     'Dia 10',
-    //     'Dia 11',
-    //     'Dia 12',
-    //     'Dia 13',
-    //     'Dia 14',
-    //     'Dia 15',
-    //     'Dia 16',
-    //     'Dia 17',
-    //     'Dia 18',
-    //     'Dia 19',
-    //     'Dia 20',
-    //     'Dia 21',
-    //     'Dia 22',
-    //     'Dia 23',
-    //     'Dia 24',
-    //     'Dia 25',
-    //     'Dia 26',
-    //     'Dia 27',
-    //     'Dia 28',
-    //     'Dia 29',
-    //     'Dia 30',
-    // ];
-    // var dht11UmidadeMedia = new Chart(
-    //     contextoDht11UmidadeMedia,
-    //     {
-    //         type: 'line',
-    //         data: {
-    //             labels: labelsDia,
-    //             datasets: [{
-    //                 label: 'Umidade (%)',
-    //                 type: 'line',
-    //                 fill: false,
-    //                 borderColor: ['#38703D'],
-    //                 data: [55,
-    //                     53.4,
-    //                     52.8,
-    //                     53.1,
-    //                     53.7,
-    //                     54.6,
-    //                     55.3,
-    //                     55.7,
-    //                     55.8,
-    //                     55.7,
-    //                     55.7,
-    //                     55.5,
-    //                     55.4,
-    //                     55.2,
-    //                     55,
-    //                     54.9,
-    //                     54.7,
-    //                     54.5,
-    //                     54.4,
-    //                     54.2,
-    //                     54,
-    //                     53.9,
-    //                     53.8,
-    //                     53.7,
-    //                     53.6,
-    //                     53.6,
-    //                     53.6,
-    //                     53.6,
-    //                     53.6,
-    //                     53.6,
-    //                     53.6,
-    //                     53.6,
-    //                 ],
-    //             }]
-    //         },
-    //         options: {
-    //             scales: {
-    //                 xAxes: [{
-    //                     distribution: 'series',
-    //                     ticks: {
-    //                         beginAtZero: true
-    //                     }
-    //                 }],
-    //                 yAxes: [{
-    //                     scaleLabel: {
-    //                         display: true,
-    //                         labelString: 'Umidade (%)'
-    //                     },
-    //                     ticks: {
-    //                         beginAtZero: true
-    //                     }
-    //                 }]
-    //             },
-    //             animation: {
-    //                 duration: 0
-    //             }
-    //         }
-    //     }
-    // );
-
-    // function exibirSensoresUsuario() {
-    //     // sessionStorage.addItem("idSensor")
-    //     var sensor = JSON.parse(sessionStorage.SENSORES);
-    //     sensor.forEach(item => {
-            // document.getElementById("btnAquario").innerHTML += `
-            // <button class="btn-chart" onclick="exibirSensores(${item.id})" id="btnSensor${item.id}">${item.descricao}</button>
-            // `
-
-            // document.getElementById("graficos").innerHTML += `
-            //     // <div id="grafico${item.id}" class="display-none">
-            //     //     <h3 class="tituloGraficos">
-            //     //         <span id="tituloAquario${item.id}">${item.descricao}</span>
-            //     //     </h3>
-            //     //     <div class="graph">
-            //     //         <canvas id="myChartCanvas${item.id}"></canvas>
-            //     //     </div>
-            //     //     <div class="label-captura">
-            //     //         <p id="avisoCaptura${item.id}" style="color: white"></p>
-            //     //     </div>
-            //     // </div>
-            // `
-
-    //         obterDadosGrafico(item.id)
-    //     });
-
-    //     if (sensor.length > 0) {
-    //         exibirSensor(sensor[0].id)
-    //     }
-    // }
-
-    // function alterarTitulo(idAquario) {
-    //     var tituloAquario = document.getElementById(`tituloAquario${idAquario}`)
-    //     var descricao = JSON.parse(sessionStorage.AQUARIOS).find(item => item.id == idAquario).descricao;
-    //     tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>" + descricao + "</span>"
-    // }
-
-    // function exibirSensor(idSensor) {
-    //     let todosOsGraficos = JSON.parse(sessionStorage.SENSORES);
-
-    //     for (i = 0; i < todosOsGraficos.length; i++) {
-    //         // exibindo - ou não - o gráfico
-    //         if (todosOsGraficos[i].id != idAquario) {
-    //             let elementoAtual = document.getElementById(`grafico${todosOsGraficos[i].id}`)
-    //             if (elementoAtual.classList.contains("display-block")) {
-    //                 elementoAtual.classList.remove("display-block")
-    //             }
-    //             elementoAtual.classList.add("display-none")
-
-    //             // alterando estilo do botão
-    //             // let btnAtual = document.getElementById(`btnAquario${todosOsGraficos[i].id}`)
-    //             // if (btnAtual.classList.contains("btn-pink")) {
-    //             //     btnAtual.classList.remove("btn-pink")
-    //             // }
-    //             // btnAtual.classList.add("btn-white")
-    //         }
-    //     }
-
-    //     // exibindo - ou não - o gráfico
-    //     let graficoExibir = document.getElementById(`grafico${idSensor}`)
-    //     graficoExibir.classList.remove("display-none")
-    //     graficoExibir.classList.add("display-block")
-
-    //     // alterando estilo do botão
-    //     // let btnExibir = document.getElementById(`btnAquario${idAquario}`)
-    //     // btnExibir.classList.remove("btn-white")
-    //     // btnExibir.classList.add("btn-pink")
-    // }
+    
 
     // O gráfico é construído com três funções:
     // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
@@ -449,13 +186,13 @@ window.onload = obterDadosGrafico();
     //     Para ajustar o "select", ajuste o comando sql em src/models
     function obterDadosGrafico(idSensor) {
 
-        alterarTitulo(idSensor)
+        // alterarTitulo(idSensor)
 
-        if (proximaAtualizacao != undefined) {
-            clearTimeout(proximaAtualizacao);
-        }
+        // if (proximaAtualizacao != undefined) {
+        //     clearTimeout(proximaAtualizacao);
+        // }
 
-        fetch(`/medidas/buscarUltimasMedidas/${sensor.value}`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/dashboard/buscarUltimasMedidas/${sensor.value}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
@@ -492,14 +229,8 @@ window.onload = obterDadosGrafico();
                 fill: false,
                 borderColor: 'rgb(75, 192, 192)',
                 tension: 0.1
-            },
-            {
-                label: 'Temperatura',
-                data: [],
-                fill: false,
-                borderColor: 'rgb(199, 52, 52)',
-                tension: 0.1
-            }]
+            }
+            ]
         };
 
         console.log('----------------------------------------------')
@@ -511,7 +242,7 @@ window.onload = obterDadosGrafico();
             var registro = resposta[i];
             labels.push(registro.registroLeitura);
             dados.datasets[0].data.push(registro.umidade);
-            dados.datasets[1].data.push(registro.temperatura);
+            
         }
 
         console.log('----------------------------------------------')
@@ -530,7 +261,7 @@ window.onload = obterDadosGrafico();
 
         // Adicionando gráfico criado em div na tela
         let myChart = new Chart(
-            document.getElementById(`myChartCanvas${idSensor}`),
+            document.getElementById(`myChartCanvas`),
             config
         );
 
@@ -547,18 +278,18 @@ window.onload = obterDadosGrafico();
 
 
 
-        fetch(`/medidas/tempo-real/${idSensor}`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/dashboard/buscarMedidasEmTempoReal/${sensor.value}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (novoRegistro) {
 
-                    obterdados(idSensor);
+                    // obterDados(idSensor);
                     // alertar(novoRegistro, idAquario);
                     console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
                     console.log(`Dados atuais do gráfico:`);
                     console.log(dados);
 
-                    let avisoCaptura = document.getElementById(`avisoCaptura${idSensor}`)
-                    avisoCaptura.innerHTML = ""
+                    let avisoCaptura = document.getElementById(`avisoCaptura`)
+                    avisoCaptura.innerHTML = "";
 
 
                     if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
@@ -578,9 +309,7 @@ window.onload = obterDadosGrafico();
                         dados.datasets[0].data.shift();  // apagar o primeiro de umidade
                         dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
 
-                        dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
-                        dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
-
+                      
                         myChart.update();
                     }
 
@@ -598,5 +327,113 @@ window.onload = obterDadosGrafico();
             });
 
     }
+
+    /* Aqui inicia o alert*/
+    // window.onload = obterDadosGrafico();
+  
+    // function obterDadosAnalytics(idSensor) {
+
+       
+    //     fetch(`/dashboard/buscarMedidasEmTempoReal/${sensor.value}`, { cache: 'no-store' }).then(function (response) {
+    //         if (response.ok) {
+    //             response.json().then(function (resposta) {
+    //                 console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+    //                 resposta.reverse();
+
+    //                 plotarGrafico(resposta, idSensor);
+    //                 plotarAnalytics(resposta, idSensor)
+
+    //             });
+    //         } else {
+    //             console.error('Nenhum dado encontrado ou erro na API');
+    //         }
+    //     })
+    //         .catch(function (error) {
+    //             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    //         });
+    // }
+     
+    // function plotarAnalytics(resposta, idSensor) {
+
+    //     console.log('iniciando plotagem do gráfico...');
+
+    //     console.log('----------------------------------------------')
+    //     console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+    //     console.log(resposta)
+
+    //     // Inserindo valores recebidos em estrutur
+
+    //     console.log('----------------------------------------------')
+    //     console.log('O gráfico será plotado com os respectivos valores:')
+    //     // console.log('Labels:')
+    //     // console.log(labels)
+    //     // console.log('Dados:')
+    //     // console.log(dados.datasets)
+    //     console.log('----------------------------------------------')
+
+    //     // Criando estrutura para plotar gráfico - config
+    //     umidadeAtual.innerHTML = "";
+        
+
+    //     setTimeout(() => atualizarAnalytics(idSensor, umidadeAtual), 2000);
+    // }
+
+
+    
+    // function atualizarAnalytics(idSensor, umidadeAtual) {
+
+
+
+    //     fetch(`/dashboard/buscarMedidasEmTempoReal/${sensor.value}`, { cache: 'no-store' }).then(function (response) {
+    //         if (response.ok) {
+    //             response.json().then(function (novoRegistro) {
+
+    //                 // obterDados(idSensor);
+    //                 // alertar(novoRegistro, idAquario);
+    //                 console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+    //                 // console.log(`Dados atuais do gráfico:`);
+    //                 // console.log(dados);
+
+    //                 let avisoCaptura = document.getElementById(`avisoCaptura`)
+    //                 avisoCaptura.innerHTML = "";
+
+
+    //                 // if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
+    //                 //     console.log("---------------------------------------------------------------")
+    //                 //     console.log("Como não há dados novos para captura, o gráfico não atualizará.")
+    //                 //     avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
+    //                 //     console.log("Horário do novo dado capturado:")
+    //                 //     console.log(novoRegistro[0].momento_grafico)
+    //                 //     console.log("Horário do último dado capturado:")
+    //                 //     console.log(dados.labels[dados.labels.length - 1])
+    //                 //     console.log("---------------------------------------------------------------")
+    //                 // } else {
+    //                 //     // tirando e colocando valores no gráfico
+    //                 //     dados.labels.shift(); // apagar o primeiro
+    //                 //     dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
+
+    //                 //     dados.datasets[0].data.shift();  // apagar o primeiro de umidade
+    //                 //     dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
+
+                      
+    //                 //     myChart.update();
+    //                 // }
+
+    //                 // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+    //                 proximaAtualizacao = setTimeout(() => atualizarAnalytics(idSensor,  umidadeAtual), 2000);
+    //             });
+    //         } else {
+    //             console.error('Nenhum dado encontrado ou erro na API');
+    //             // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+    //             proximaAtualizacao = setTimeout(() => atualizarAnalytics(idSensor,  umidadeAtual), 2000);
+    //         }
+    //     })
+    //         .catch(function (error) {
+    //             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    //         });
+
+    // }
+    
+    
 
 </script>
