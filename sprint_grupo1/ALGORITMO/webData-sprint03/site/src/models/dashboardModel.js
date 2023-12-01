@@ -7,11 +7,12 @@ function buscarUltimasMedidas(idSensor) {
     if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql = `select 
         umidadeSoloTomate as umidade,
-			registroLeitura
+            registroLeitura,
+				DATE_FORMAT(registroLeitura,'%H:%i:%s') as momento_grafico
                     from registro
 						join sensores on fkSensor = idSensor
-							where fkSensor = ${idSensor}
-                    order by idRegistro desc`;
+							where fkSensor = 1
+                    order by idRegistro desc;`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
@@ -20,6 +21,22 @@ function buscarUltimasMedidas(idSensor) {
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
+
+function buscarSensorPorEmpresa (idEmpresa) {
+
+    instrucaoSql = `select sensores.idSensor from plantacaoTomate join empresa on fkEmpresa = idEmpresa join sensores on fkPlantacao = idPlantacao where idEmpresa = ${idEmpresa}`;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+    ;
+}
+
+function buscarDadosPorSensor(idSensor) {
+    var query = `select * from sensor where id = '${idSensor}'`;
+  
+    return database.executar(query);
+  }
+
+
 
 function buscarMedidasEmTempoReal(idSensor) {
 
@@ -66,6 +83,8 @@ function buscarMedidasEmTempoReal(idSensor) {
 
 module.exports = {
     buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
+    buscarMedidasEmTempoReal,
+    buscarDadosPorSensor,
+    buscarSensorPorEmpresa
     // analyticsMedidasTempoReal
 }

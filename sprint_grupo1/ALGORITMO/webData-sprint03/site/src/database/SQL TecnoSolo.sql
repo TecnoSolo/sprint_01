@@ -22,10 +22,10 @@ longitude decimal(11, 8) DEFAULT 00.000000,
 dataInstalacao date not null,
 fkPlantacao int, constraint fkPT foreign key (fkPlantacao) references plantacaoTomate (idPlantacao));
 
-
+drop table registro;
 CREATE TABLE registro(
 idRegistro int auto_increment,
-registroLeitura timestamp default current_timestamp not null,
+registroLeitura TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 umidadeSoloTomate float not null,
 fkSensor int, 
 constraint fkS foreign key (fkSensor) references sensores (idSensor),
@@ -69,21 +69,29 @@ insert into plantacaoTomate values
     (null, 13, 1100000, 80, 1, 17550, 135000, 'arenoso');
 
 insert into sensores values
-	(null, 'DHT11', '40.71727401', '-74.00898606', '2023-04-01', 1),
+	(null, 'DHT11', '40.71727401', '-74.00898606', '2023-04-01', 3),
 	(null, 'DHT11', '-71.6741', '36.0204', '2023-03-23', 3),
-    (null, 'DHT11', '-50.2925', '29.1891', '2023-06-17', 2);
+    (null, 'DHT11', '-50.2925', '29.1891', '2023-06-17', 3);
+	
 
 insert into registro values
 	(null, current_timestamp(), 70, 1),
     (null, current_timestamp(), 80, 3),
     (null, current_timestamp(), 75, 2);
     
+insert into registro values
+	(null, default, 68, 1);
+
 select * from empresa;
 select * from endereco;
-select plantacaoTomate.idPlantacao, empresa.razaoSocial, sensores.idSensor from plantacaoTomate join empresa on fkEmpresa = idEmpresa join sensores on fkPlantacao = idPlantacao;
+select * from sensores;
+select sensores.idSensor from plantacaoTomate join empresa on fkEmpresa = idEmpresa join sensores on fkPlantacao = idPlantacao where idEmpresa = 1;
 select registro.registroLeitura, registro.umidadeSoloTomate, sensores.idSensor, sensores.latitude, sensores.longitude from registro join sensores on fkSensor = idSensor;
 
-
-
-
-    
+	select 
+        umidadeSoloTomate as umidade,
+				DATE_FORMAT(registroLeitura,'%H:%i:%s') as momento_grafico
+                    from registro
+						join sensores on fkSensor = idSensor
+							where fkSensor = 1
+                    order by idRegistro desc;

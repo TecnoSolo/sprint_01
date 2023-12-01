@@ -170,9 +170,28 @@
 </html>
 <script>
 
-window.onload = obterDadosGrafico();
+window.onload = obterDadosGrafico(), buscarSensorPorEmpresa();
     
 
+    function buscarSensorPorEmpresa() {
+        var idEmpresa = sessionStorage.ID_EMPRESA
+
+        console.log(idEmpresa)
+        fetch(`/dashboard/buscarSensorPorEmpresa/${idEmpresa}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+    
     // O gráfico é construído com três funções:
     // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
     // 2. plotarGrafico -> Monta o gráfico com os dados trazidos e exibe em tela
@@ -240,7 +259,7 @@ window.onload = obterDadosGrafico();
         // Inserindo valores recebidos em estrutura para plotar o gráfico
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
-            labels.push(registro.registroLeitura);
+            labels.push(registro.momento_grafico);
             dados.datasets[0].data.push(registro.umidade);
             
         }
@@ -264,8 +283,6 @@ window.onload = obterDadosGrafico();
             document.getElementById(`myChartCanvas`),
             config
         );
-
-        setTimeout(() => atualizarGrafico(idSensor, dados, myChart), 2000);
     }
 
 

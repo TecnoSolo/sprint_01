@@ -21,6 +21,30 @@ function buscarUltimasMedidas(req, res) {
     });
 }
 
+function buscarDadosPorSensor(req, res) {
+    var idSensor = req.params.idSensor;
+  
+    dashboardModel.buscarDadosPorSensor(idSensor).then((resultado) => {
+      res.status(200).json(resultado);
+    });
+  }
+
+function buscarSensorPorEmpresa(req, res) {
+var idEmpresa = req.params.idEmpresa;
+
+dashboardModel.buscarSensorPorEmpresa(idEmpresa).then((resultado) => {
+    if (resultado.length > 0) {
+    res.status(200).json(resultado);
+    } else {
+    res.status(204).json([]);
+    }
+}).catch(function (erro) {
+    console.log(erro);
+    console.log("Houve um erro ao buscar os aquarios: ", erro.sqlMessage);
+    res.status(500).json(erro.sqlMessage);
+});
+}
+
 
 function buscarMedidasEmTempoReal(req, res) {
 
@@ -62,7 +86,9 @@ function buscarMedidasEmTempoReal(req, res) {
 
 module.exports = {
     buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
+    buscarMedidasEmTempoReal,
+    buscarSensorPorEmpresa,
+    buscarDadosPorSensor
     // analyticsMedidasTempoReal
 
 }
