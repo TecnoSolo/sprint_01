@@ -138,3 +138,20 @@
     background-color: #fff;
     margin-bottom: 10px;
 }
+
+.emergencia {
+    background-color: orange;
+  }
+  
+  .critico {
+    background-color: red;
+  }
+  
+  .alerta {
+    background-color: yellow;
+  }
+  
+  
+  .ideal {
+    background-color: #9ccc65;
+  }

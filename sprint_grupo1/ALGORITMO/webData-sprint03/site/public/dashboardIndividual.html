@@ -18,6 +18,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tecnosolo - perfil</title>
+    <script src="./js/alertas.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
     <!-- <script src="http://www.chartjs.org/samples/latest/utils.js"></script> -->
@@ -35,7 +36,7 @@
         indiviId.style.display = 'block'
     }
 </script>
-<body>
+<body >
 
     <main>
         <header class="barra">
@@ -58,34 +59,27 @@
             <h3 class="titulo-dash">Dashboard - Sensor individual</h3>
             <div class="dash-cima">
                 <div class="box sele">
-                    <select id="sensor">
-                        <option value="1">Sensor 1</option>
-                        <option value="2">Sensor 2</option>
-                        <option value="3">Sensor 3</option>
-                        <option value="4">Sensor 4</option>
-                        <option value="5">Sensor 5</option>
-                        <option value="6">Sensor 6</option>
-                        <option value="6">Sensor 7</option>
-                        <option value="6">Sensor 8</option>
+                    <select onchange="aoSelecionar()" name="sensores" id="select_sensor">
+                        <option selected>Selecione um sensor</option>
 
                     </select>
                 </div>
                 <div class="box endereco">
                     <h4>Endereço</h4>
-                    <p class="marginB">Rua Vladimir Campos - MG</p>
+                    <p id="endereco" class="marginB"></p>
                     <h4>Plantação</h4>
-                    <p>1</p>
+                    <p id="plantacao"></p>
                 </div>
                 <div class="box ">
                     <h4 class="marginB ">Localização do Sensor </h4>
                     <h5 class="">LATITUDE</h5>
-                    <p class="">40.71727401</p>
+                    <p id="latitude" class=""></p>
                     <h5 class="">LONGITUDE</h5>
-                    <p>-74.00898606</p>
+                    <p id="longitude" ></p>
                 </div>
                 <div class="box data">
-                    <h4>Data</h4>
-                    <h5>27/10/2023 <i class='bx bxs-calendar'></i></h5>
+                    <h4 >Data</h4>
+                    <h5 id="data_instalacao" ><i class='bx bxs-calendar'></i></h5>
                 </div>
                 <div class="box status">
                     <h4>Status sensor</h4>
@@ -94,7 +88,7 @@
 
                 <div class="box tipo">
                     <h4>Tipo de solo</h4>
-                    <p class=" marginB">Arenoso</p>
+                    <p id="tipo_solo" class=" marginB"></p>
                     <h4 lass="marginB">Tipo do tomate</h4>
                     <p class="">Saladete</p>
                 </div>
@@ -106,10 +100,8 @@
             <div class="dash-meio">
                 <h2 class="titulo-analytics">Analytics</h2>
                 <div class="anaFlex">
-                    <div class="box atual">
-                        <i class='bx bxs-megaphone'></i>
-                        <p class="marginB">Umidade Atual</p>
-                        <h4 id="umidadeAtual" class="marginB tempAtual"><i class='bx bxs-droplet-half'></i></h4>
+                    <div id="cardAlerta" class="box atual">
+                        
                     </div>
                     <div class="table">
                         <img src="./img/Capturar.PNG" alt="">
@@ -170,18 +162,56 @@
 </html>
 <script>
 
-window.onload = obterDadosGrafico(), buscarSensorPorEmpresa();
-    
+window.onload = buscarSensorPorEmpresa();
 
-    function buscarSensorPorEmpresa() {
-        var idEmpresa = sessionStorage.ID_EMPRESA
 
-        console.log(idEmpresa)
-        fetch(`/dashboard/buscarSensorPorEmpresa/${idEmpresa}`, { cache: 'no-store' }).then(function (response) {
+    function exibirCard(idSensor) {
+
+        fetch(`/dashboard/buscarMedidasEmTempoReal/${idSensor}`, { cache: 'no-store' }).then(function (response) {
+            response.json().then(function (novoRegistro) {
+                alertar(novoRegistro, idSensor)
+                document.getElementById("cardAlerta").innerHTML = `
+                    <i class='bx bxs-megaphone'></i>
+                    <p id="titulo_alerta" class="marginB">Umidade atual</p>
+                    <div class="umidade">
+                        <p id="umid_sensor_${idSensor}">%</p>
+                    </div>
+                    <div class="cor-alerta" id="card_${idSensor}"></div>
+                `
+
+            });
+
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+    }
+
+function aoSelecionar() {
+    var idSensor = select_sensor.value
+    obterDadosGrafico(idSensor)
+    buscarDadosPorSensor(idSensor)
+    exibirCard(idSensor)
+    // atualizacaoPeriodica()
+}
+
+
+function buscarDadosPorSensor(idSensor){
+
+    fetch(`/dashboard/buscarDadosPorSensor/${idSensor}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    console.log(`SENSOR: ${JSON.stringify(resposta.latitude)}`);
+                    document.getElementById('endereco').innerHTML = `${resposta.rua}`
+                    document.getElementById('plantacao').innerHTML = `${resposta.idPlantacao}`
+                    document.getElementById('latitude').innerHTML = `${resposta.latitude}`
+                    document.getElementById('longitude').innerHTML = `${resposta.longitude}`
+                    document.getElementById('data_instalacao').innerHTML = `${resposta.data_instalacao}`
+                    document.getElementById('tipo_solo').innerHTML = `${resposta.tipoSolo}`
 
+                 
+            
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
@@ -190,6 +220,28 @@ window.onload = obterDadosGrafico(), buscarSensorPorEmpresa();
             .catch(function (error) {
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
+}
+
+
+// Adicionando um ouvinte de evento change ao combobox
+// document.getElementById("select_sensor").addEventListener("change", aoSelecionar);
+
+    function buscarSensorPorEmpresa() {
+        var idEmpresa = sessionStorage.ID_EMPRESA
+        fetch(`/dashboard/buscarSensorPorEmpresa/${idEmpresa}`, {
+      method: "GET",
+    })
+            .then(function (resposta) {
+            resposta.json().then((sensores) => {
+            sensores.forEach((sensor, index) => {
+                select_sensor.innerHTML += `<option value='${sensor.idSensor}'>Sensor ${index + 1}</option>`;
+            });
+            });
+        })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+        
     }
     
     // O gráfico é construído com três funções:
@@ -205,15 +257,14 @@ window.onload = obterDadosGrafico(), buscarSensorPorEmpresa();
     //     Para ajustar o "select", ajuste o comando sql em src/models
     function obterDadosGrafico(idSensor) {
 
-        // alterarTitulo(idSensor)
-
         // if (proximaAtualizacao != undefined) {
         //     clearTimeout(proximaAtualizacao);
         // }
 
-        fetch(`/dashboard/buscarUltimasMedidas/${sensor.value}`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/dashboard/buscarUltimasMedidas/${idSensor}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
+
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     resposta.reverse();
 
@@ -283,6 +334,8 @@ window.onload = obterDadosGrafico(), buscarSensorPorEmpresa();
             document.getElementById(`myChartCanvas`),
             config
         );
+
+        setTimeout(() => atualizarGrafico(idSensor, dados, myChart), 2000);
     }
 
 
@@ -291,59 +344,56 @@ window.onload = obterDadosGrafico(), buscarSensorPorEmpresa();
 
     //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
     //     Para ajustar o "select", ajuste o comando sql em src/models
-    // function atualizarGrafico(idSensor, dados, myChart) {
+    function atualizarGrafico(idSensor, dados, myChart) {
+        fetch(`/dashboard/buscarMedidasEmTempoReal/${idSensor}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (novoRegistro) {
+
+                    obterdados(idSensor);
+                    // alertar(novoRegistro, idAquario);
+                    console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+                    console.log(`Dados atuais do gráfico:`);
+                    console.log(dados);
+
+                    // let avisoCaptura = document.getElementById(`avisoCaptura`)
+                    // avisoCaptura.innerHTML = "";
 
 
+                    if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
+                        console.log("---------------------------------------------------------------")
+                        console.log("Como não há dados novos para captura, o gráfico não atualizará.")
+                        // avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
+                        console.log("Horário do novo dado capturado:")
+                        console.log(novoRegistro[0].momento_grafico)
+                        console.log("Horário do último dado capturado:")
+                        console.log(dados.labels[dados.labels.length - 1])
+                        console.log("---------------------------------------------------------------")
+                    } else {
+                        // tirando e colocando valores no gráfico
+                        dados.labels.shift(); // apagar o primeiro
+                        dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
 
-    //     fetch(`/dashboard/buscarMedidasEmTempoReal/${sensor.value}`, { cache: 'no-store' }).then(function (response) {
-    //         if (response.ok) {
-    //             response.json().then(function (novoRegistro) {
-
-    //                 // obterDados(idSensor);
-    //                 // alertar(novoRegistro, idAquario);
-    //                 console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-    //                 console.log(`Dados atuais do gráfico:`);
-    //                 console.log(dados);
-
-    //                 let avisoCaptura = document.getElementById(`avisoCaptura`)
-    //                 avisoCaptura.innerHTML = "";
-
-
-    //                 if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
-    //                     console.log("---------------------------------------------------------------")
-    //                     console.log("Como não há dados novos para captura, o gráfico não atualizará.")
-    //                     avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
-    //                     console.log("Horário do novo dado capturado:")
-    //                     console.log(novoRegistro[0].momento_grafico)
-    //                     console.log("Horário do último dado capturado:")
-    //                     console.log(dados.labels[dados.labels.length - 1])
-    //                     console.log("---------------------------------------------------------------")
-    //                 } else {
-    //                     // tirando e colocando valores no gráfico
-    //                     dados.labels.shift(); // apagar o primeiro
-    //                     dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
-
-    //                     dados.datasets[0].data.shift();  // apagar o primeiro de umidade
-    //                     dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
+                        dados.datasets[0].data.shift();  // apagar o primeiro de umidade
+                        dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
 
                       
-    //                     myChart.update();
-    //                 }
+                        myChart.update();
+                    }
 
-    //                 // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-    //                 proximaAtualizacao = setTimeout(() => atualizarGrafico(idSensor, dados, myChart), 2000);
-    //             });
-    //         } else {
-    //             console.error('Nenhum dado encontrado ou erro na API');
-    //             // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-    //             proximaAtualizacao = setTimeout(() => atualizarGrafico(idSensor, dados, myChart), 2000);
-    //         }
-    //     })
-    //         .catch(function (error) {
-    //             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-    //         });
+                    // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idSensor, dados, myChart), 2000);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+                // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(idSensor, dados, myChart), 5000);
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
 
-    // }
+    }
 
     /* Aqui inicia o alert*/
     // window.onload = obterDadosGrafico();

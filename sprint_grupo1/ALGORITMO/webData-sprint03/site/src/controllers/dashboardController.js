@@ -12,7 +12,7 @@ function buscarUltimasMedidas(req, res) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
-            res.status(204).send("Nenhum resultado encontrado!")
+            res.status(204).json([]);
         }
     }).catch(function (erro) {
         console.log(erro);
@@ -25,7 +25,9 @@ function buscarDadosPorSensor(req, res) {
     var idSensor = req.params.idSensor;
   
     dashboardModel.buscarDadosPorSensor(idSensor).then((resultado) => {
-      res.status(200).json(resultado);
+      resultado.forEach(objeto => {
+        res.status(200).json(objeto);
+      });  
     });
   }
 

@@ -60,7 +60,7 @@ insert into empresa values
 
 insert into endereco values 
 	(null, '05889-380', 'SP', 'São Paulo', 'Parque Fernanda', 'Rua General Ribamar de Miranda', null, 1),
-    (null, '19872-331', 'RJ', 'Rio de Janeiro', 'Botafogo', 'Rua Uruguaiana', null, 1),
+    (null, '19872-331', 'RJ', 'Rio de Janeiro', 'Botafogo', 'Rua Uruguaiana', null, 2),
     (null, '83312-912', 'SP', 'São Paulo', 'Jardins', 'Rua Canadá', null, 2);
 
 insert into plantacaoTomate values 
@@ -69,24 +69,36 @@ insert into plantacaoTomate values
     (null, 13, 1100000, 80, 1, 17550, 135000, 'arenoso');
 
 insert into sensores values
-	(null, 'DHT11', '40.71727401', '-74.00898606', '2023-04-01', 3),
-	(null, 'DHT11', '-71.6741', '36.0204', '2023-03-23', 3),
-    (null, 'DHT11', '-50.2925', '29.1891', '2023-06-17', 3);
-	
+	(null, 'DHT11', '40.71727401', '-74.00898606', '2023-04-01', 1),
+	(null, 'DHT11', '-71.6741', '36.0204', '2023-03-23', 1),
+    (null, 'DHT11', '-50.2925', '29.1891', '2023-06-17', 1);
 
+
+truncate table sensores;
 insert into registro values
-	(null, current_timestamp(), 70, 1),
-    (null, current_timestamp(), 80, 3),
-    (null, current_timestamp(), 75, 2);
+	(null, current_timestamp(), 62, 2),
+    (null, current_timestamp(), 65, 2),
+    (null, current_timestamp(), 70, 2);
     
 insert into registro values
-	(null, default, 68, 1);
+	(null, current_timestamp(), 40, 2);
+    
+insert into registro values
+	(null, default, 40, 1);
 
 select * from empresa;
 select * from endereco;
 select * from sensores;
-select sensores.idSensor from plantacaoTomate join empresa on fkEmpresa = idEmpresa join sensores on fkPlantacao = idPlantacao where idEmpresa = 1;
+select * from plantacaoTomate;
+SELEct * from registro;
+select sensores.idSensor from plantacaoTomate join empresa on fkEmpresa = idEmpresa join sensores on fkPlantacao = idPlantacao where idEmpresa = 2;
 select registro.registroLeitura, registro.umidadeSoloTomate, sensores.idSensor, sensores.latitude, sensores.longitude from registro join sensores on fkSensor = idSensor;
+
+select en.rua, pl.idPlantacao, pl.tipoSolo, sen.longitude, sen.latitude, 
+	DATE_FORMAT(dataInstalacao,'%d/%m/%Y') as data_instalacao
+  from empresa as emp join endereco as en on en.fkEmpresa = emp.idEmpresa
+	join plantacaoTomate as pl on pl.fkEmpresa = emp.idEmpresa
+		join sensores as sen on sen.fkPlantacao = pl.idPlantacao where idSensor = 1;
 
 	select 
         umidadeSoloTomate as umidade,
@@ -95,3 +107,12 @@ select registro.registroLeitura, registro.umidadeSoloTomate, sensores.idSensor, 
 						join sensores on fkSensor = idSensor
 							where fkSensor = 1
                     order by idRegistro desc;
+
+select 
+        umidadeSoloTomate as umidade,
+            DATE_FORMAT(registroLeitura,'%H:%i:%s') as momento_grafico
+                    from registro
+						join sensores on fkSensor = idSensor
+							where fkSensor = 1;
+                            
+		

@@ -16,9 +16,9 @@ router.get("/buscarDadosPorSensor/:idSensor", function (req, res) {
  });
 
 
-// router.get("/buscarMedidasEmTempoReal/:idSensor", function (req, res) {
-//    dashboardController.buscarMedidasEmTempoReal(req, res);
-// })
+router.get("/buscarMedidasEmTempoReal/:idSensor", function (req, res) {
+   dashboardController.buscarMedidasEmTempoReal(req, res);
+})
 // router.get("/analyticsMedidasTempoReal/:idSensor", function (req, res) {
 //    dashboardController.analyticsMedidasTempoReal(req, res);
 // })
