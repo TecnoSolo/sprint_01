@@ -18,9 +18,10 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tecnosolo - perfil</title>
+    <script src="./js/alertas.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
-    <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+    <!-- <script src="http://www.chartjs.org/samples/latest/utils.js"></script> -->
     <style>
         canvas {
             -moz-user-select: none;
@@ -35,7 +36,7 @@
         indiviId.style.display = 'block'
     }
 </script>
-<body>
+<body >
 
     <main>
         <header class="barra">
@@ -54,40 +55,37 @@
             </div>
         </header>
 
-        <div class="dados-info" id="dadosInfo">
-            <div class="bannerDados">
-                <h3 class="titulo-dados branco">DADOS</h3>
-                <h5 class="titulo-planta branco">DA PLANTAÇÃO</h5>
-            </div>
-            <div class="informacoes-dados">
-                <div class="divDados">
-                    <p class="titulo-info">Selecione a plantação</p>
-                    <div class="selectDados">
-                        <select id="">
-                            <option value="1">Plantação 1</option>
-                            <option value="2">Plantação 2</option>
-                            <option value="3">Plantação 3</option>
-    
-                        </select>
+        <div class="individual-info">
+                <h2 class="titulo-analytics">Analytics</h2>
+                <div class="table">
+                    <img src="./img/Capturar.PNG" alt="">
+                </div>
+                <div class="analyticsBox">
+                    <div id="cardAlerta" class="box atual">
+                        
                     </div>
-                </div>
-                <div class="divDados">
-                    <p class="titulo-info">Hectares</p>
-                    <p class="conteudo-dados">4 ha</p>
-                </div>
-                <div class="divDados">
-                    <p class="titulo-info">Tipo de Solo</p>
-                    <p class="conteudo-dados">Arenoso</p>
-                </div>
-                <div class="divDados">
-                    <p class="titulo-info">Quantidade de Sensores</p>
-                    <p class="conteudo-dados">7</p>
-                </div>
-                <div class="divDados">
-                    <p class="titulo-info">Localidade</p>
-                    <p class="conteudo-dados">Rua Vladimir Campos - MG</p>
+                    <div id="cardAlerta" class="box atual">
+                        
+                    </div>
+                    <div id="cardAlerta" class="box atual">
+                        
+                    </div>
+                    <div id="cardAlerta" class="box atual">
+                        
+                    </div>
+                    <div id="cardAlerta" class="box atual">
+                        
+                    </div>
+                    <div id="cardAlerta" class="box atual">
+                        
+                    </div>
+                    <div id="cardAlerta" class="box atual">
+                        
+                    </div>
+                    <div id="cardAlerta" class="box atual">
                 </div>
             </div>
+            
         </div>
     </main>
 
@@ -96,7 +94,7 @@
         <div class="container-2">
             <div class="conheca-nos">
                 <h5>Conheça-nos</h5>
-                <p><a href=".index.html#sobre-nos">Sobre nós</a></p>
+                <p><a href="./index.html#sobre-nos">Sobre nós</a></p>
             </div>
             <div class="deixe-nos">
                 <h5>Deixe-nos ajudar você</h5>
@@ -105,7 +103,7 @@
             </div>
             <div class="contatos">
                 <h5>Contatos</h5>
-                <p><a href="http://instagra.com/tecnosolo_"> <img src="../img/Instagram.svg"></a></p>
+                <p><a href="http://instagram.com/tecnosolo_"> <img src="./img/Instagram.svg"></a></p>
                 <p>E-mail:tecnosolo@gmail.com</p>
             </div>
             <div class="mais-informacoes">
@@ -118,7 +116,6 @@
             <p>©2023. All Rights Reserved.</p>
         </div>
     </div>
-
 </body>
 
 </html>
