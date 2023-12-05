@@ -11,6 +11,7 @@ function buscarUltimasMedidas(req, res) {
     dashboardModel.buscarUltimasMedidas(idSensor).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
+            
         } else {
             res.status(204).json([]);
         }
@@ -25,9 +26,7 @@ function buscarDadosPorSensor(req, res) {
     var idSensor = req.params.idSensor;
   
     dashboardModel.buscarDadosPorSensor(idSensor).then((resultado) => {
-      resultado.forEach(objeto => {
-        res.status(200).json(objeto);
-      });  
+        res.status(200).json();
     });
   }
 

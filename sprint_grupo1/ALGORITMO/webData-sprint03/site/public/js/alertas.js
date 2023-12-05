@@ -92,17 +92,17 @@ function alertar(resposta, idSensor) {
     }
 }
 
-// function exibirAlerta(umid, idSensor, grauDeAviso, grauDeAvisoCor) {
-//     var indice = alertas.findIndex(item => item.idSensor == idSensor);
+function exibirAlerta(umid, idSensor, grauDeAviso, grauDeAvisoCor) {
+    var indice = alertas.findIndex(item => item.idSensor == idSensor);
 
-//     if (indice >= 0) {
-//         alertas[indice] = { idSensor, umid, grauDeAviso, grauDeAvisoCor }
-//     } else {
-//         alertas.push({ idSensor, umid, grauDeAviso, grauDeAvisoCor });
-//     }
+    if (indice >= 0) {
+        alertas[indice] = { idSensor, umid, grauDeAviso, grauDeAvisoCor }
+    } else {
+        alertas.push({ idSensor, umid, grauDeAviso, grauDeAvisoCor });
+    }
 
-//     exibirCards();
-// }
+    exibirCards();
+}
 
 // function removerAlerta(idSensor) {
 //     alertas = alertas.filter(item => item.idSensor != idSensor);
@@ -118,22 +118,22 @@ function alertar(resposta, idSensor) {
 //     }
 // }
 
-function transformarEmDiv({ idSensor, umid, grauDeAviso, grauDeAvisoCor }) {
+// function transformarEmDiv({ idSensor, umid, grauDeAviso, grauDeAvisoCor }) {
 
-    var descricao = JSON.parse(sessionStorage.AQUARIOS).find(item => item.id == idSensor).descricao;
-    return `
-    <div class="mensagem-alarme">
-        <div class="informacao">
-            <div class="${grauDeAvisoCor}">&#12644;</div> 
-            <h3>${descricao} está em estado de ${grauDeAviso}!</h3>
-            <small>Umidade ${umid}.</small>   
-        </div>
-        <div class="alarme-sino"></div>
-    </div>
-    `;
-}
+//     var descricao = JSON.parse(sessionStorage.AQUARIOS).find(item => item.id == idSensor).descricao;
+//     return `
+//     <div class="mensagem-alarme">
+//         <div class="informacao">
+//             <div class="${grauDeAvisoCor}">&#12644;</div> 
+//             <h3>${descricao} está em estado de ${grauDeAviso}!</h3>
+//             <small>Umidade ${umid}.</small>   
+//         </div>
+//         <div class="alarme-sino"></div>
+//     </div>
+//     `;
+// }
 
 function atualizacaoPeriodica() {
    
-    setTimeout(atualizacaoPeriodica, 10000);
+    setTimeout(atualizacaoPeriodica, 6000);
 }

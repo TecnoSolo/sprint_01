@@ -35,7 +35,7 @@ fkPlantacao int, constraint fkPT foreign key (fkPlantacao) references plantacaoT
 
 CREATE TABLE registro(
 idRegistro int auto_increment,
-registroLeitura datetime,
+registroLeitura datetime default current_timestamp ,
 umidadeSoloTomate float not null,
 fkSensor int, 
 constraint fkS foreign key (fkSensor) references sensores (idSensor),
@@ -91,8 +91,9 @@ select
 							where fkSensor = 1
                     order by idRegistro desc;
 
-insert into registro values (null, '2023-11-22 14:00:00', 85, 1);
+insert into registro values (null, '2023-11-22 14:00:00', 20, 1);
 select * from empresa;
+select * from plantacaoTomate;
     
 select * from sensores;
 select 
@@ -101,3 +102,6 @@ select
                     from registro
 						join sensores on fkSensor = idSensor
 							where fkSensor = idSensor;
+                            
+truncate table registro;
+SELECT * FROM registro;
