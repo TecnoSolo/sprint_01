@@ -16,6 +16,7 @@ main .barra {
     flex-direction: column;
     justify-content: space-between;
     background: #2F3723;
+    height: 100vh;
 }
 
 .barra .col-1 .header-imagem {
