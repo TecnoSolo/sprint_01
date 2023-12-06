@@ -85,7 +85,70 @@ function cadastrar(req, res) {
     }
 }
 
+function buscarDados(req, res) {
+
+    var idUsuario = req.body.idUsuarioServer;
+
+    console.log(`Recuperando medidas em tempo real`);
+
+    usuarioModel.buscarDados(idUsuario).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function buscarDadosSensor(req, res) {
+
+    var idUsuario = req.body.idUsuarioServer;
+
+    console.log(`Recuperando medidas em tempo real`);
+
+    usuarioModel.buscarDadosSersor(idUsuario).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+
+
+function buscarDadosEndereco(req, res) {
+
+    var idUsuario = req.body.idUsuarioServer;
+
+    console.log(`Recuperando medidas em tempo real`);
+
+    usuarioModel.buscarDadosEndereco(idUsuario).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    buscarDados,
+    buscarDadosSensor,
+    buscarDadosEndereco
 }

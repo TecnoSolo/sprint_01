@@ -34,9 +34,41 @@ function cadastrarEndereco(cep, UF, cidade, bairro, rua, complemento) {
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
+function buscarDados(idUsuario) {
+
+    var  instrucaoSql = `select hectares, tipoSolo from plantacaoTomate where fkEmpresa = ${idUsuario};`;
+
+
+console.log("DADOS DADOS: \n" + instrucaoSql);
+return database.executar(instrucaoSql);
+}
+
+function buscarDadosSersor(idUsuario) {
+
+    var  instrucaoSql = `select count(idSensor) as qtdSensores from sensores where fkPlantacao = ${idUsuario}; 
+    `;
+
+
+console.log("DADOS sensores: \n" + instrucaoSql);
+return database.executar(instrucaoSql);
+}
+
+function buscarDadosEndereco(idUsuario) {
+
+    var  instrucaoSql = `select uf, rua from endereco where fkEmpresa = ${idUsuario};; 
+    `;
+
+
+console.log("DADOS sensores: \n" + instrucaoSql);
+return database.executar(instrucaoSql);
+}
+
 
 module.exports = {
     autenticar,
     cadastrar,
-    cadastrarEndereco
+    cadastrarEndereco,
+    buscarDados,
+    buscarDadosSersor,
+    buscarDadosEndereco
 };
