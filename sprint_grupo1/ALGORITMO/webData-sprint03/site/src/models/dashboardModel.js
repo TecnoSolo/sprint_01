@@ -64,6 +64,8 @@ function buscarMedidasEmTempoReal(idSensor) {
 }
 
 
+
+
 /*Analytics */
 
 // function analyticsMedidasTempoReal(idSensor) {
@@ -90,6 +92,5 @@ module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
     buscarDadosPorSensor,
-    buscarSensorPorEmpresa
-    // analyticsMedidasTempoReal
+    buscarSensorPorEmpresa,
 }

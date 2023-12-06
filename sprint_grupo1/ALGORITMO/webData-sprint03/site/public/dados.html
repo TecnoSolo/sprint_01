@@ -35,7 +35,7 @@
         indiviId.style.display = 'block'
     }
 </script>
-<body>
+<body onload="exibirDados(), exibirDadosSensor(), exibirDadosEndereco()">
 
     <main>
         <header class="barra">
@@ -56,36 +56,27 @@
 
         <div class="dados-info" id="dadosInfo">
             <div class="bannerDados">
-                <h3 class="titulo-dados branco">DADOS</h3>
+                <h3 class="titulo-dados branco" >DADOS</h3>
                 <h5 class="titulo-planta branco">DA PLANTAÇÃO</h5>
             </div>
             <div class="informacoes-dados">
                 <div class="divDados">
-                    <p class="titulo-info">Selecione a plantação</p>
-                    <div class="selectDados">
-                        <select id="">
-                            <option value="1">Plantação 1</option>
-                            <option value="2">Plantação 2</option>
-                            <option value="3">Plantação 3</option>
-    
-                        </select>
-                    </div>
                 </div>
                 <div class="divDados">
                     <p class="titulo-info">Hectares</p>
-                    <p class="conteudo-dados">4 ha</p>
+                    <p class="conteudo-dados" id="hec"></p>
                 </div>
                 <div class="divDados">
                     <p class="titulo-info">Tipo de Solo</p>
-                    <p class="conteudo-dados">Arenoso</p>
+                    <p class="conteudo-dados" id="tpS"></p>
                 </div>
                 <div class="divDados">
                     <p class="titulo-info">Quantidade de Sensores</p>
-                    <p class="conteudo-dados">7</p>
+                    <p class="conteudo-dados" id="sen"></p>
                 </div>
                 <div class="divDados">
                     <p class="titulo-info">Localidade</p>
-                    <p class="conteudo-dados">Rua Vladimir Campos - MG</p>
+                    <p class="conteudo-dados" id="loc"></p>
                 </div>
             </div>
         </div>
@@ -119,6 +110,91 @@
         </div>
     </div>
  -->
+    
 </body>
 
 </html>
+<script>
+    async function exibirDados() {
+
+        var idUsuarioVar = sessionStorage.ID_EMPRESA
+
+
+             var resultado = await fetch("/usuarios/pegarDados", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                idUsuarioServer: idUsuarioVar,
+            }),
+        });
+
+        const resposta = await resultado.json();
+
+        hec.innerHTML = resposta[0].hectares
+
+        tpS.innerHTML = resposta[0].tipoSolo
+
+
+        return false;
+
+    }
+
+    async function exibirDadosSensor() {
+
+var idUsuarioVar = sessionStorage.ID_EMPRESA
+
+
+     var resultado = await fetch("/usuarios/pegarDadosSensores", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+        idUsuarioServer: idUsuarioVar,
+    }),
+});
+
+const resposta = await resultado.json();
+
+sen.innerHTML = resposta[0].qtdSensores
+
+
+return false;
+
+}
+
+async function exibirDadosEndereco() {
+
+var idUsuarioVar = sessionStorage.ID_EMPRESA
+
+
+     var resultado = await fetch("/usuarios/pegarDadosEndereco", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+        idUsuarioServer: idUsuarioVar,
+    }),
+});
+
+const resposta = await resultado.json();
+
+loc.innerHTML = `${resposta[0].rua}, ${resposta[0].uf}`
+
+
+return false;
+
+}
+
+
+
+    
+
+
+
+
+
+</script>

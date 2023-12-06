@@ -12,4 +12,19 @@ router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
 });
 
+
+router.post("/pegarDados", function (req, res) {
+    usuarioController.buscarDados(req, res);
+ })
+
+
+
+ router.post("/pegarDadosSensores", function (req, res) {
+    usuarioController.buscarDadosSensor(req, res);
+ })
+
+
+ router.post("/pegarDadosEndereco", function (req, res) {
+    usuarioController.buscarDadosEndereco(req, res);
+ })
 module.exports = router;

@@ -66,6 +66,7 @@ function buscarMedidasEmTempoReal(req, res) {
     });
 }
 
+
 // function analyticsMedidasTempoReal(req, res) {
 
 //     var idSensor = req.params.idSensor;
@@ -90,6 +91,4 @@ module.exports = {
     buscarMedidasEmTempoReal,
     buscarSensorPorEmpresa,
     buscarDadosPorSensor
-    // analyticsMedidasTempoReal
-
 }
