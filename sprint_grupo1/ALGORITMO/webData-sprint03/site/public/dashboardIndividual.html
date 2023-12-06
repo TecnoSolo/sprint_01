@@ -199,20 +199,22 @@ function aoSelecionar() {
 
 function buscarDadosPorSensor(idSensor){
 
-    fetch(`/dashboard/buscarDadosPorSensor/${idSensor}`, { cache: 'no-store' }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (resposta) {
+    fetch(`/dashboard/buscarDadosPorSensor/${idSensor}`, { cache: 'no-store' }).then(async function (response) {
+        if (response.ok) {
+                const resposta = await response.json();
+                    console.log('aquii',  resposta);
+
                     console.log(`SENSOR: ${JSON.stringify(resposta.latitude)}`);
-                    document.getElementById('endereco').innerHTML = `${resposta.rua}`
-                    document.getElementById('plantacao').innerHTML = `${resposta.idPlantacao}`
-                    document.getElementById('latitude').innerHTML = `${resposta.latitude}`
-                    document.getElementById('longitude').innerHTML = `${resposta.longitude}`
-                    document.getElementById('data_instalacao').innerHTML = `${resposta.data_instalacao}`
-                    document.getElementById('tipo_solo').innerHTML = `${resposta.tipoSolo}`
+                    document.getElementById('endereco').innerHTML = `${resposta[0].rua}`
+                    document.getElementById('plantacao').innerHTML = `${resposta[0].idPlantacao}`
+                    document.getElementById('latitude').innerHTML = `${resposta[0].latitude}`
+                    document.getElementById('longitude').innerHTML = `${resposta[0].longitude}`
+                    document.getElementById('data_instalacao').innerHTML = `${resposta[0].data_instalacao}`
+                    document.getElementById('tipo_solo').innerHTML = `${resposta[0].tipoSolo}`
 
                  
             
-                });
+              
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
             }

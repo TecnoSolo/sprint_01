@@ -26,7 +26,8 @@ function buscarDadosPorSensor(req, res) {
     var idSensor = req.params.idSensor;
   
     dashboardModel.buscarDadosPorSensor(idSensor).then((resultado) => {
-        res.status(200).json();
+        console.log('aaaaaaaaaaaaaaa', resultado);
+        res.status(200).json(resultado);
     });
   }
 
