@@ -77,6 +77,9 @@ insert into registro values
     (null, '2023-11-23 14:00:00', 80, 2),
     (null, '2023-11-23 14:00:00', 75, 3);
     
+    insert into registro values
+	(null, '2023-11-23 14:00:00', 63, 1);
+    
 select * from empresa;
 select * from endereco;
 select plantacaoTomate.idPlantacao, empresa.razaoSocial, sensores.idSensor from plantacaoTomate join empresa on fkEmpresa = idEmpresa join sensores on fkPlantacao = idPlantacao;
