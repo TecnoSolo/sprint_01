@@ -97,16 +97,50 @@
             <p class="marginB">Umidade média</p>
         </div> -->
             </div>
+
             <div class="dash-meio">
                 <h2 class="titulo-analytics">Analytics</h2>
                 <div class="anaFlex">
                     <div id="cardAlerta" class="box atual">
                         
                     </div>
-                    <div class="table">
+                    <!-- <div class="table">
                         <img src="./img/Capturar.PNG" alt="">
-                    </div>
+                    </div> -->
                 </div>
+            </div>
+            <div class="metricas">
+                <div class="boxMetricas" id="id_critico">
+                    <p class="textoMetrica">Crítico</p>
+                    <p>0%  -  20%</p>
+                </div>
+                <div class="boxMetricas" id="id_emergencia">
+                    <p class="textoMetrica">Emergência</p>
+                    <p>21%  -  40%</p>
+                </div>
+                <div class="boxMetricas" id="id_alerta">
+                    <p class="textoMetrica">Alerta</p>
+                    <p>41%  -  60%</p>
+                </div>
+                <div class="boxMetricas" id="id_ideal">
+                    <p class="textoMetrica">Ideal</p>
+                    <p>61%  -  80%</p>
+                </div>
+                <div class="boxMetricas" id="id_alerta">
+                    <p class="textoMetrica">Alerta</p>
+                    <p>81%  -  85%</p>
+                </div>
+                <div class="boxMetricas" id="id_emergencia">
+                    <p class="textoMetrica">Emergência</p>
+                    <p>86%  -  95%</p>
+                </div>
+                <div class="boxMetricas" id="id_critico">
+                    <p class="textoMetrica">Crítico</p>
+                    <p>96%  - 100%</p>
+                </div>
+
+
+                
             </div>
             <div class="dash-graficos">
                 <div class="grafico">
@@ -200,20 +234,22 @@ function aoSelecionar() {
 
 function buscarDadosPorSensor(idSensor){
 
-    fetch(`/dashboard/buscarDadosPorSensor/${idSensor}`, { cache: 'no-store' }).then(function (response) {
-            if (response.ok) {
-                    response.json().then(function (resposta) {
+    fetch(`/dashboard/buscarDadosPorSensor/${idSensor}`, { cache: 'no-store' }).then(async function (response) {
+        if (response.ok) {
+                const resposta = await response.json();
+                    console.log('aquii',  resposta);
+
                     console.log(`SENSOR: ${JSON.stringify(resposta.latitude)}`);
-                    document.getElementById('endereco').innerHTML = `${resposta.rua}`
-                    document.getElementById('plantacao').innerHTML = `${resposta.idPlantacao}`
-                    document.getElementById('latitude').innerHTML = `${resposta.latitude}`
-                    document.getElementById('longitude').innerHTML = `${resposta.longitude}`
-                    document.getElementById('data_instalacao').innerHTML = `${resposta.data_instalacao}`
-                    document.getElementById('tipo_solo').innerHTML = `${resposta.tipoSolo}`
+                    document.getElementById('endereco').innerHTML = `${resposta[0].rua}`
+                    document.getElementById('plantacao').innerHTML = `${resposta[0].idPlantacao}`
+                    document.getElementById('latitude').innerHTML = `${resposta[0].latitude}`
+                    document.getElementById('longitude').innerHTML = `${resposta[0].longitude}`
+                    document.getElementById('data_instalacao').innerHTML = `${resposta[0].data_instalacao}`
+                    document.getElementById('tipo_solo').innerHTML = `${resposta[0].tipoSolo}`
 
                  
             
-                });
+              
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
             }

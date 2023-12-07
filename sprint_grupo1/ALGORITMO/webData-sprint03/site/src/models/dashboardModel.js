@@ -37,6 +37,8 @@ function buscarDadosPorSensor(idSensor) {
 	join plantacaoTomate as pl on pl.fkEmpresa = emp.idEmpresa
 		join sensores as sen on sen.fkPlantacao = pl.idPlantacao where idSensor = ${idSensor};`;
   
+
+        console.log('aquiii',  database.executar(query));
     return database.executar(query);
   }
 

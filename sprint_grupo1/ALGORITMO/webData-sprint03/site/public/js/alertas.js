@@ -21,6 +21,8 @@ function obterdados(idSensor) {
 }
 
 function alertar(resposta, idSensor) {
+    console.log('CAIU AQUIIIII')
+    console.log(resposta)
     var umid = resposta[0].umidade;
 
     var grauDeAviso = '';
@@ -35,60 +37,29 @@ function alertar(resposta, idSensor) {
         critico_alto: 100
     };
 
-    var classe_umidade = 'cor-alerta';
+
 
     if (umid >= limites.emergencia_alto) {
-        classe_umidade = 'cor-alerta critico';
-        grauDeAviso = 'critico'
-        grauDeAvisoCor = 'cor-alerta critico'
-        // exibirAlerta(umid, idSensor, grauDeAviso, grauDeAvisoCor)
+        cardAlerta.style.backgroundColor = "red" 
     }
     else if (umid >= limites.alerta_alto && umid < limites.emergencia_alto) {
-        classe_umidade = 'cor-alerta emergencia';
-        grauDeAviso = 'emergencia'
-        grauDeAvisoCor = 'cor-alerta emergencia'
-        // exibirAlerta(umid, idSensor, grauDeAviso, grauDeAvisoCor)
+        cardAlerta.style.backgroundColor = "orange"
     }
 
     else if (umid >= limites.emergencia_baixo && umid < limites.alerta_baixo) {
-        classe_umidade = 'cor-alerta alerta';
-        grauDeAviso = 'alerta'
-        grauDeAvisoCor = 'cor-alerta alerta'
-        // exibirAlerta(umid, idSensor, grauDeAviso, grauDeAvisoCor)
+        cardAlerta.style.backgroundColor = "yellow"
     }
     else if (umid >= limites.alerta_baixo && umid < limites.ideal) {
-        classe_umidade = 'cor-alerta ideal';
-        // removerAlerta(idSensor);
+        cardAlerta.style.backgroundColor = "green"
     }
     else if (umid >= limites.ideal && umid < limites.alerta_alto) {
-        classe_umidade = 'cor-alerta alerta';
-        grauDeAviso = 'alerta'
-        grauDeAvisoCor = 'cor-alerta alerta'
-        // exibirAlerta(umid, idSensor, grauDeAviso, grauDeAvisoCor)
+        cardAlerta.style.backgroundColor = "yellow"
     }
-
     else if (umid < limites.emergencia_baixo && umid >= limites.critico_baixo) {
-        classe_umidade = 'cor-alerta emergencia';
-        grauDeAviso = 'emergencia'
-        grauDeAvisoCor = 'cor-alerta emergencia'
-        // exibirAlerta(umid, idSensor, grauDeAviso, grauDeAvisoCor)
+        cardAlerta.style.backgroundColor = "orange"
     }
     else if (umid < limites.critico_baixo) {
-        classe_umidade = 'cor-alerta critico';
-        grauDeAviso = 'critico'
-        grauDeAvisoCor = 'cor-alerta critico'
-        // exibirAlerta(umid, idSensor, grauDeAviso, grauDeAvisoCor)
-    }
-
-    var card;
-
-    if (document.getElementById(`umid_sensor_${idSensor}`) != null) {
-        document.getElementById(`umid_sensor_${idSensor}`).innerHTML = umid + "%";
-    }
-
-    if (document.getElementById(`card_${idSensor}`)) {
-        card = document.getElementById(`card_${idSensor}`)
-        card.className = classe_umidade;
+        cardAlerta.style.backgroundColor = "red"
     }
 }
 
