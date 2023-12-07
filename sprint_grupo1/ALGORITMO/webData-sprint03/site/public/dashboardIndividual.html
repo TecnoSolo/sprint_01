@@ -191,7 +191,8 @@ window.onload = buscarSensorPorEmpresa();
 function aoSelecionar() {
     var idSensor = select_sensor.value
     obterDadosGrafico(idSensor)
-    buscarDadosPorSensor(idSensor)
+    
+    // buscarDadosPorSensor(idSensor)
     exibirCard(idSensor)
     // atualizacaoPeriodica()
 }
@@ -201,7 +202,7 @@ function buscarDadosPorSensor(idSensor){
 
     fetch(`/dashboard/buscarDadosPorSensor/${idSensor}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
-                response.json().then(function (resposta) {
+                    response.json().then(function (resposta) {
                     console.log(`SENSOR: ${JSON.stringify(resposta.latitude)}`);
                     document.getElementById('endereco').innerHTML = `${resposta.rua}`
                     document.getElementById('plantacao').innerHTML = `${resposta.idPlantacao}`
@@ -279,6 +280,26 @@ function buscarDadosPorSensor(idSensor){
             .catch(function (error) {
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
+
+
+            //Media diaria
+        fetch(`/dashboard/tentativa/${idSensor}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+
+                    plotarGraficoMediaDia(resposta, idSensor);
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
     }
 
     // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
@@ -299,7 +320,10 @@ function buscarDadosPorSensor(idSensor){
                 data: [],
                 fill: false,
                 borderColor: 'rgb(75, 192, 192)',
-                tension: 0.1
+                tension: 0.1,
+                backgroundColor: 'wheat',
+                color: 'green',
+                borderWidth: 3.4
             }
             ]
         };
@@ -338,6 +362,50 @@ function buscarDadosPorSensor(idSensor){
         );
 
         setTimeout(() => atualizarGrafico(idSensor, dados, myChart), 2000);
+    }
+
+
+
+    function plotarGraficoMediaDia(resposta, idSensor) {
+        // Criando estrutura para plotar gráfico - labels
+        let labels = [];
+
+        // Criando estrutura para plotar gráfico - dados
+        let dados = {
+            labels: labels,
+            datasets: [{
+                label: 'Umidade',
+                data: [],
+                fill: false,
+                borderColor: 'rgb(75, 192, 192)',
+                tension: 0.1,
+                backgroundColor: 'wheat',
+                color: 'green',
+                borderWidth: 3.4
+            }
+            ]
+        };
+        // Inserindo valores recebidos em estrutura para plotar o gráfico
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            dados.labels.push(registro.Dia);
+            dados.datasets[0].data.push(registro.Umidade);
+        }
+        // Criando estrutura para plotar gráfico - config
+        const config = {
+            type: 'line',
+            data: dados,
+        };
+''
+        // Adicionando gráfico criado em div na tela
+        let myChart = new Chart(
+            document.getElementById(`dht11UmidadeMedia`),
+            config
+        );
+
+        console.log(myChart)
+
+        // setTimeout(() => atualizarGrafico(idSensor, dados, myChart), 2000);
     }
 
 
@@ -380,6 +448,7 @@ function buscarDadosPorSensor(idSensor){
                         
                       
                         myChart.update();
+                        alertar(novoRegistro, idSensor)
                     }
 
                     // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
@@ -395,10 +464,10 @@ function buscarDadosPorSensor(idSensor){
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
 
-            alertar(resposta, idSensor)
-
     }
 
+
+    
     /* Aqui inicia o alert*/
     // window.onload = obterDadosGrafico();
   

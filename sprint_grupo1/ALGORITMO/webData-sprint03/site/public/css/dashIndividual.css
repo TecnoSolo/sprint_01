@@ -155,3 +155,10 @@
   .ideal {
     background-color: #9ccc65;
   }
+
+  canvas#myChartCanvas {
+    border: solid 1px gray;
+    border-radius: 8px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    padding: 8px;
+  }

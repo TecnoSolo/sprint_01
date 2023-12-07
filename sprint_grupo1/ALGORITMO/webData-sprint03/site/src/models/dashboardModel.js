@@ -64,6 +64,11 @@ function buscarMedidasEmTempoReal(idSensor) {
 }
 
 
+function tentativa(idSensor){
+    instrucaoSql = `SELECT AVG(umidadeSoloTomate) As Umidade, date_format(registroLeitura,'%d/%m/%Y') AS Dia FROM registro where fKSensor = ${idSensor} group by date_format(registroLeitura,'%d/%m/%Y')`;
+
+    return database.executar(instrucaoSql);
+}
 
 
 /*Analytics */
@@ -93,4 +98,5 @@ module.exports = {
     buscarMedidasEmTempoReal,
     buscarDadosPorSensor,
     buscarSensorPorEmpresa,
+    tentativa
 }

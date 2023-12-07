@@ -20,6 +20,10 @@ router.get("/buscarMedidasEmTempoReal/:idSensor", function (req, res) {
    dashboardController.buscarMedidasEmTempoReal(req, res);
 })
 
+router.get("/tentativa/:idSensor", function (req, res) {
+   dashboardController.tentativa(req, res);
+})
+
 // router.get("/analyticsMedidasTempoReal/:idSensor", function (req, res) {
 //    dashboardController.analyticsMedidasTempoReal(req, res);
 // })
