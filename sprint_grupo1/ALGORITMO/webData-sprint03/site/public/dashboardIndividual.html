@@ -38,6 +38,7 @@
 </script>
 <body >
 
+    <div id="boxAlert"></div>
     <main>
         <header class="barra">
             <div class="col-1">
@@ -59,6 +60,7 @@
             <h3 class="titulo-dash">Dashboard - Sensor individual</h3>
             <div class="dash-cima">
                 <div class="box sele">
+                    <h4 class="marginB">Selecione um sensor</h4>
                     <select onchange="aoSelecionar()" name="sensores" id="select_sensor">
                         <option selected>Selecione um sensor</option>
 
@@ -97,7 +99,8 @@
             <p class="marginB">Umidade média</p>
         </div> -->
             </div>
-
+            <div id="globalDash">
+                
             <div class="dash-meio">
                 <h2 class="titulo-analytics">Analytics</h2>
                 <div class="anaFlex">
@@ -145,16 +148,17 @@
             <div class="dash-graficos">
                 <div class="grafico">
                     <h1 class="titulo-sensor">Umidade por hora</h1>
-                    <section style="width:800px">
+                    <section style="width: 500px">
                         <canvas id="myChartCanvas"></canvas>
                     </section>
                 </div>
                 <div class="grafico">
                     <h1 class="titulo-sensor">Umidade média dos dias</h1>
-                    <section style="width:800px">
+                    <section style="width: 500px">
                         <canvas id="dht11UmidadeMedia"></canvas>
                     </section>
                 </div>
+            </div>
             </div>
         </div>
     </main>
@@ -198,18 +202,21 @@
 
 window.onload = buscarSensorPorEmpresa();
 
+var idSensor;
 
     function exibirCard(idSensor) {
-
+        console.log(idSensor);
         fetch(`/dashboard/buscarMedidasEmTempoReal/${idSensor}`, { cache: 'no-store' }).then(function (response) {
             response.json().then(function (novoRegistro) {
+                console.log('aqui, nvo registro aqui');
                 alertar(novoRegistro, idSensor)
                 document.getElementById("cardAlerta").innerHTML = `
                     <i class='bx bxs-megaphone'></i>
                     <p id="titulo_alerta" class="marginB">Umidade atual</p>
                     <div class="umidade">
-                        <p id="umid_sensor_${idSensor}">%</p>
+                        <p id="umid_sensor_${idSensor}">${novoRegistro[0].umidade}%</p>
                     </div>
+
                     <div class="cor-alerta" id="card_${idSensor}"></div>
                 `
 
@@ -223,12 +230,12 @@ window.onload = buscarSensorPorEmpresa();
     }
 
 function aoSelecionar() {
-    var idSensor = select_sensor.value
-    obterDadosGrafico(idSensor)
+    idSensor = select_sensor.value
     
-    // buscarDadosPorSensor(idSensor)
+    obterDadosGrafico(idSensor)
     exibirCard(idSensor)
-    // atualizacaoPeriodica()
+    buscarDadosPorSensor(idSensor)
+    atualizacaoPeriodica()
 }
 
 
@@ -264,7 +271,9 @@ function buscarDadosPorSensor(idSensor){
 // document.getElementById("select_sensor").addEventListener("change", aoSelecionar);
 
     function buscarSensorPorEmpresa() {
+        
         var idEmpresa = sessionStorage.ID_EMPRESA
+
         fetch(`/dashboard/buscarSensorPorEmpresa/${idEmpresa}`, {
       method: "GET",
     })
@@ -415,8 +424,8 @@ function buscarDadosPorSensor(idSensor){
                 fill: false,
                 borderColor: 'rgb(75, 192, 192)',
                 tension: 0.1,
-                backgroundColor: 'wheat',
-                color: 'green',
+                backgroundColor: 'green',
+                color: 'gray',
                 borderWidth: 3.4
             }
             ]
@@ -424,12 +433,12 @@ function buscarDadosPorSensor(idSensor){
         // Inserindo valores recebidos em estrutura para plotar o gráfico
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
-            dados.labels.push(registro.Dia);
-            dados.datasets[0].data.push(registro.Umidade);
+            dados.labels.push(registro.dia);
+            dados.datasets[0].data.push(registro.umidade);
         }
         // Criando estrutura para plotar gráfico - config
         const config = {
-            type: 'line',
+            type: 'bar',
             data: dados,
         };
 ''
@@ -486,6 +495,7 @@ function buscarDadosPorSensor(idSensor){
                         myChart.update();
                         alertar(novoRegistro, idSensor)
                     }
+                    exibirCard(idSensor)
 
                     // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
                     proximaAtualizacao = setTimeout(() => atualizarGrafico(idSensor, dados, myChart), 6000);

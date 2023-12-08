@@ -12,7 +12,7 @@ function buscarUltimasMedidas(idSensor) {
                     from registro
 						join sensores on fkSensor = idSensor
 							where fkSensor = ${idSensor}
-                    order by idRegistro desc;`;
+                    order by idRegistro desc limit 24;`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
@@ -67,7 +67,7 @@ function buscarMedidasEmTempoReal(idSensor) {
 
 
 function tentativa(idSensor){
-    instrucaoSql = `SELECT AVG(umidadeSoloTomate) As Umidade, date_format(registroLeitura,'%d/%m/%Y') AS Dia FROM registro where fKSensor = ${idSensor} group by date_format(registroLeitura,'%d/%m/%Y')`;
+    instrucaoSql = `SELECT AVG(umidadeSoloTomate) as umidade, date_format(registroLeitura,'%d/%m/%Y') as dia FROM registro where fKSensor = ${idSensor} group by date_format(registroLeitura,'%d/%m/%Y')`;
 
     return database.executar(instrucaoSql);
 }

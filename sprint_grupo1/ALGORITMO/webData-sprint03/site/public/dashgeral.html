@@ -37,7 +37,7 @@
     }
 </script>
 <body >
-
+<div id="boxAlert" style="display: none;"></div>
     <main>
         <header class="barra">
             <div class="col-1">
@@ -64,58 +64,149 @@
                     <div id="cardAlerta" class="box atual">
                         
                     </div>
-                    <div id="cardAlerta" class="box atual">
+                    <div class="box atual">
                         
                     </div>
-                    <div id="cardAlerta" class="box atual">
+                    <div class="box atual">
                         
                     </div>
-                    <div id="cardAlerta" class="box atual">
+                    <div class="box atual">
                         
                     </div>
-                    <div id="cardAlerta" class="box atual">
+                    <div class="box atual">
                         
                     </div>
-                    <div id="cardAlerta" class="box atual">
+                    <div class="box atual">
                         
                     </div>
-                    <div id="cardAlerta" class="box atual">
+                    <div class="box atual">
                         
                     </div>
-                    <div id="cardAlerta" class="box atual">
+                    <div class="box atual">
                 </div>
             </div>
             
         </div>
     </main>
 
-
-    <!-- <div class="footer">
-        <div class="container-2">
-            <div class="conheca-nos">
-                <h5>Conheça-nos</h5>
-                <p><a href="./index.html#sobre-nos">Sobre nós</a></p>
-            </div>
-            <div class="deixe-nos">
-                <h5>Deixe-nos ajudar você</h5>
-                <p><a href="./conta.html">Sua Conta</a></p>
-                <p><a href="./index.html#suporte-id">Suporte</a></p>
-            </div>
-            <div class="contatos">
-                <h5>Contatos</h5>
-                <p><a href="http://instagram.com/tecnosolo_"> <img src="./img/Instagram.svg"></a></p>
-                <p>E-mail:tecnosolo@gmail.com</p>
-            </div>
-            <div class="mais-informacoes">
-                <h5>Gostaria de receber mais informações?</h5>
-                <input type="text" id="email" placeholder="Seu e-mail aqui!">
-            </div>
-        </div>
-        <div class="linha">
-            <p>Condições de Uso | Notificação de Privacidade | Cookies | Anúncios baseados em interesses </p>
-            <p>©2023. All Rights Reserved.</p>
-        </div>
-    </div> -->
 </body>
 
 </html>
+
+<script>
+
+    var idSensor = 1
+
+window.onload = buscarSensorPorEmpresa(idSensor), aoSelecionar();
+
+    function obterDadosGrafico(idSensor) {
+
+// if (proximaAtualizacao != undefined) {
+//     clearTimeout(proximaAtualizacao);
+// }
+
+fetch(`/dashboard/buscarUltimasMedidas/${idSensor}`, { cache: 'no-store' }).then(function (response) {
+    if (response.ok) {
+        response.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            resposta.reverse();
+            exibirCard(idSensor)
+        });
+    } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+    }
+})
+    .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    });
+}
+
+function exibirCard(idSensor) {
+    console.log(idSensor);
+    fetch(`/dashboard/buscarMedidasEmTempoReal/${idSensor}`, { cache: 'no-store' }).then(function (response) {
+        response.json().then(function (novoRegistro) {
+            console.log('aqui, nvo registro aqui');
+            alertar(novoRegistro, idSensor)
+            document.getElementById("cardAlerta").innerHTML = `
+                <i class='bx bxs-megaphone'></i>
+                <p id="titulo_alerta" class="marginB">Umidade atual</p>
+                <div class="umidade">
+                    <p id="umid_sensor_1">${novoRegistro[0].umidade}%</p>
+                </div>
+
+                <div class="cor-alerta" id="card_${idSensor}"></div>
+            `
+            setTimeout(()=>{
+                atualizarGrafico(1);
+            }, 6000)
+        });
+
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+
+}
+
+function buscarSensorPorEmpresa(idSensor) {
+        
+        var idEmpresa = sessionStorage.ID_EMPRESA
+        console.log(idSensor)
+
+        fetch(`/dashboard/buscarSensorPorEmpresa/${idEmpresa}`, {
+      method: "GET",
+    })
+            .then(function (resposta) {
+            resposta.json().then((sensores) => {
+            sensores.forEach((sensor, index) => {
+                // select_sensor.innerHTML += `<option value='${sensor.idSensor}'>Sensor ${index + 1}</option>`;
+            });
+            });
+        })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+        
+        
+    }
+
+function aoSelecionar() {
+    buscarSensorPorEmpresa(idSensor)
+// obterDadosGrafico(idSensor)
+exibirCard(idSensor)
+atualizacaoPeriodica()
+}
+
+function atualizarGrafico(idSensor, dados) {
+        fetch(`/dashboard/buscarMedidasEmTempoReal/${idSensor}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (novoRegistro) {
+
+                    // obterdados(idSensor);
+                        // umid_sensor_1.innerHTML=`${novoRegistro[0].umidade} %`
+                      
+                        // myChart.update();
+                        // alertar(novoRegistro, idSensor)
+                    exibirCard(idSensor)
+
+                    // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+                    // proximaAtualizacao = setTimeout(() => atualizarGrafico(idSensor, dados), 6000);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+                // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(idSensor, dados), 5000);
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+    }
+
+    function atualizacaoPeriodica() {
+   
+   setTimeout(atualizacaoPeriodica, 6000);
+}
+
+</script>

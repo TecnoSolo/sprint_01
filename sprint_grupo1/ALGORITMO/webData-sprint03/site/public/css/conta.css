@@ -58,7 +58,9 @@ button:last-child {
 .perfil-info, .dados-info, .dash-info, .individual-info {
     width: 85%;
     background-color: #fff;
-    height: 70%;
+    height: 700px;
+    overflow-x: hidden;
+    overflow-y: scroll;
     padding: 10px;
 }
 .perfil-info .banner {
@@ -125,7 +127,19 @@ button:last-child {
     font-weight: 700;
 }
 
-
+#boxAlert{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: none;
+    padding: 30px;
+    background-color: #f9f9f9;
+    font-size: 20px;
+    color: #1b1b1b;
+    position: fixed;
+    border-radius: 10px;
+    font-weight: bold;
+    top: 0;
+    right: 0;
+}
 .dash-info {
     display: none;
 }

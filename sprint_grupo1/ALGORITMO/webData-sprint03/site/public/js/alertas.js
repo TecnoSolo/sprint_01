@@ -41,25 +41,55 @@ function alertar(resposta, idSensor) {
 
     if (umid >= limites.emergencia_alto) {
         cardAlerta.style.backgroundColor = "red" 
+        boxAlert.innerHTML = 'Sensor em estado de crítico'
+        boxAlert.style.display = 'block'
+        boxAlert.style.backgroundColor = 'red'
+
+
     }
     else if (umid >= limites.alerta_alto && umid < limites.emergencia_alto) {
         cardAlerta.style.backgroundColor = "orange"
+        boxAlert.innerHTML = 'Sensor em estado de emergência'
+        boxAlert.style.display = 'block'
+        boxAlert.style.backgroundColor = 'orange'
+
+
     }
 
     else if (umid >= limites.emergencia_baixo && umid < limites.alerta_baixo) {
         cardAlerta.style.backgroundColor = "yellow"
+        boxAlert.innerHTML = 'Sensor em estado de alerta'
+        boxAlert.style.display = 'block'
+        boxAlert.style.backgroundColor = 'yellow'
+
     }
     else if (umid >= limites.alerta_baixo && umid < limites.ideal) {
         cardAlerta.style.backgroundColor = "green"
+        boxAlert.style.display = 'none'
+
+        
     }
     else if (umid >= limites.ideal && umid < limites.alerta_alto) {
         cardAlerta.style.backgroundColor = "yellow"
+        boxAlert.innerHTML = 'Sensor em estado de alerta'
+        boxAlert.style.display = 'block'
+        boxAlert.style.backgroundColor = 'yellow'
+
+
     }
     else if (umid < limites.emergencia_baixo && umid >= limites.critico_baixo) {
         cardAlerta.style.backgroundColor = "orange"
+        boxAlert.innerHTML = 'Sensor em estado de emergência'
+        boxAlert.style.display = 'block'
+        boxAlert.style.backgroundColor = 'orange'
+        
     }
     else if (umid < limites.critico_baixo) {
         cardAlerta.style.backgroundColor = "red"
+        boxAlert.innerHTML = 'Sensor em estado de crítico'
+        boxAlert.style.display = 'block'
+        boxAlert.style.backgroundColor = 'red'
+
     }
 }
 

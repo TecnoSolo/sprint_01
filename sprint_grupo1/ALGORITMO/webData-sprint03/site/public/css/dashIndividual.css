@@ -71,6 +71,14 @@
     justify-content: center;
     gap: 20px;
 }
+#myChartCanvas, #dht11UmidadeMedia {
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: 0.5px solid black;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+}
 .atual {
     color: #000000;
     font-weight: bold;
@@ -120,18 +128,7 @@
     letter-spacing: 1px;
 
 }
-.endereco {
-    width: 220px;
-}
-.sele, .data {
-    width: 120px;
-}
-.status {
-    width: 180px;
-}
-.tipo {
-    width: 180px;
-}
+
 .grafico {
     padding: 10px;
     background-color: #fff;
@@ -156,9 +153,6 @@
   }
 
   canvas#myChartCanvas {
-    border: solid 1px gray;
-    border-radius: 8px;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     padding: 8px;
   }
 .metricas{

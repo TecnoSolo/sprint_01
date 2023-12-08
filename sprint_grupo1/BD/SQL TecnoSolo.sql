@@ -77,9 +77,6 @@ insert into registro values
     (null, '2023-11-23 14:00:00', 80, 2),
     (null, '2023-11-23 14:00:00', 75, 3);
     
-    insert into registro values
-	(null, '2023-11-23 14:00:00', 63, 1);
-    
 select * from empresa;
 select * from endereco;
 select plantacaoTomate.idPlantacao, empresa.razaoSocial, sensores.idSensor from plantacaoTomate join empresa on fkEmpresa = idEmpresa join sensores on fkPlantacao = idPlantacao;
@@ -94,7 +91,7 @@ select
 							where fkSensor = 1
                     order by idRegistro desc;
 
-insert into registro values (null, '2023-11-22 14:00:00', 20, 1);
+insert into registro values (null, '2023-11-22 14:00:00', 90, 1);
 select * from empresa;
 select * from plantacaoTomate;
     
@@ -105,6 +102,9 @@ select
                     from registro
 						join sensores on fkSensor = idSensor
 							where fkSensor = idSensor;
-                            
 truncate table registro;
 SELECT * FROM registro;
+
+update registro set registroLeitura = '2023-12-05 17:43:56' where idRegistro > 39;
+
+SELECT avg(umidadeSoloTomate) as umidade, date_format(registroLeitura,'%d/%m/%Y') as dia from registro where fk	Sensor = 1 group by date_format(registroLeitura,'%d/%m/%Y') ;
