@@ -75,3 +75,60 @@ h2 {
 .kpis .tipo {
     width: 260px;
 }
+
+#id_box1{
+
+    background-color: yellow;
+    font-family: 'Kanit', sans-serif;
+    letter-spacing: 1px;
+    font-size: 30px;
+    /* color: white; */
+
+}
+
+#id_box2{
+
+    background-color: orange;
+    font-family: 'Kanit', sans-serif;
+    letter-spacing: 1px;
+
+}
+
+#id_box3{
+
+    background-color: yellow;
+    font-family: 'Kanit', sans-serif;
+    letter-spacing: 1px;
+    
+}
+
+#id_box4{
+
+    background-color: green;
+    font-family: 'Kanit', sans-serif;
+    letter-spacing: 1px;
+
+}
+
+#id_box5{
+
+    background-color: red;
+    font-family: 'Kanit', sans-serif;
+    letter-spacing: 1px;
+
+}
+
+#id_box6{
+
+    background-color: yellow;
+    font-family: 'Kanit', sans-serif;
+    letter-spacing: 1px;
+}
+
+#id_box7{
+
+    background-color: green;
+    font-family: 'Kanit', sans-serif;
+    letter-spacing: 1px;
+
+}

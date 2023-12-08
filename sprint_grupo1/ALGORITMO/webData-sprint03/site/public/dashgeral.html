@@ -31,13 +31,14 @@
     </style>
 </head>
 <script>
-    function dash(){
+    function dash() {
         geralId.style.display = 'block'
         indiviId.style.display = 'block'
     }
 </script>
-<body >
-<div id="boxAlert" style="display: none;"></div>
+
+<body>
+    <div id="boxAlert" style="display: none;"></div>
     <main>
         <header class="barra">
             <div class="col-1">
@@ -47,8 +48,10 @@
                 <button id="perfilId" class="btn cima" onclick="perfil()"><a href="./conta.html">Perfil</a></button>
                 <button id="dadosId" class="btn meio" onclick="dados()"><a href="./dados.html">Dados</a></button>
                 <button id="dashId" class="btn baixo" onclick="dash()">Dashboards</button>
-                <button id="geralId" class="btnDash" onclick="geral()"><a href="./dashgeral.html">Visão geral</a></button>
-                <button id="indiviId" class="btnDash" onclick="individual()"><a href="./dashboardIndividual.html">Sensor individual</a></button>
+                <button id="geralId" class="btnDash" onclick="geral()"><a href="./dashgeral.html">Visão
+                        geral</a></button>
+                <button id="indiviId" class="btnDash" onclick="individual()"><a href="./dashboardIndividual.html">Sensor
+                        individual</a></button>
             </div>
             <div class="col-2">
                 <button class="btn"><a href="./index.html">Sair</a><i class='bx bx-exit'></i></button>
@@ -56,36 +59,118 @@
         </header>
 
         <div class="individual-info">
-                <h2 class="titulo-analytics">Analytics</h2>
-                <div class="table">
+            <h2 class="titulo-analytics">Analytics</h2>
+            <!-- <div class="table">
                     <img src="./img/Capturar.PNG" alt="">
+                </div> -->
+            <div class="metricas">
+                <div class="boxMetricas" id="id_critico">
+                    <p class="textoMetrica">Crítico</p>
+                    <p>0% - 20%</p>
                 </div>
-                <div class="analyticsBox">
-                    <div id="cardAlerta" class="box atual">
-                        
-                    </div>
-                    <div class="box atual">
-                        
-                    </div>
-                    <div class="box atual">
-                        
-                    </div>
-                    <div class="box atual">
-                        
-                    </div>
-                    <div class="box atual">
-                        
-                    </div>
-                    <div class="box atual">
-                        
-                    </div>
-                    <div class="box atual">
-                        
-                    </div>
-                    <div class="box atual">
+                <div class="boxMetricas" id="id_emergencia">
+                    <p class="textoMetrica">Emergência</p>
+                    <p>21% - 40%</p>
+                </div>
+                <div class="boxMetricas" id="id_alerta">
+                    <p class="textoMetrica">Alerta</p>
+                    <p>41% - 60%</p>
+                </div>
+                <div class="boxMetricas" id="id_ideal">
+                    <p class="textoMetrica">Ideal</p>
+                    <p>61% - 80%</p>
+                </div>
+                <div class="boxMetricas" id="id_alerta">
+                    <p class="textoMetrica">Alerta</p>
+                    <p>81% - 85%</p>
+                </div>
+                <div class="boxMetricas" id="id_emergencia">
+                    <p class="textoMetrica">Emergência</p>
+                    <p>86% - 95%</p>
+                </div>
+                <div class="boxMetricas" id="id_critico">
+                    <p class="textoMetrica">Crítico</p>
+                    <p>96% - 100%</p>
+                </div>
+
+
+
+            </div>
+
+            <br><br><br>
+            <hr>
+
+
+            <div class="analyticsBox">
+                <div id="cardAlerta" class="box atual">
+
+                </div>
+                <div class="box atual" id="id_box1">
+
+                    <p>ID SENSOR 2</p>
+
+                    <p>
+
+                        Umidade atual:
+                    </p>
+                    <p>45% </p>
+                </div>
+                <div class="box atual" id="id_box2">
+                    <p>ID SENSOR 3</p>
+                    <p>
+
+                        Umidade atual:
+                    <p>23%</p>
+                    </p>
+                </div>
+                <div class="box atual" id="id_box3">
+                    <P>ID SENSOR 4</P>
+
+                    <p>
+                        Umidade atual:
+                    </p>
+
+                    <p>49%
+                    </p>
+                </div>
+                <div class="box atual" id="id_box4">
+                    <p>ID SENSOR 5</p>
+                    <p>
+                        Umidade atual:
+                    </p>
+                    <p>65%</p>
+                </div>
+                <div class="box atual" id="id_box5">
+                    <p>ID SENSOR 6</p>
+                    <p>
+
+                        Umidade atual:
+                    </p>
+                    <p>
+                        19%
+                    </p>
+
+                </div>
+                <div class="box atual" id="id_box6">
+                    <p>ID SENSOR 7</p>
+
+                    <p>
+                        Umidade atual:
+
+                    </p>
+                    <p>55%</p>
+                </div>
+                <div class="box atual" id="id_box7">
+                    <P>ID SENSOR 8</P>
+
+                    <p>
+                        Umidade atual:
+                    </p>
+                    <p>71%</p>
+
                 </div>
             </div>
-            
+
         </div>
     </main>
 
@@ -97,37 +182,37 @@
 
     var idSensor = 1
 
-window.onload = buscarSensorPorEmpresa(idSensor), aoSelecionar();
+    window.onload = buscarSensorPorEmpresa(idSensor), aoSelecionar();
 
     function obterDadosGrafico(idSensor) {
 
-// if (proximaAtualizacao != undefined) {
-//     clearTimeout(proximaAtualizacao);
-// }
+        // if (proximaAtualizacao != undefined) {
+        //     clearTimeout(proximaAtualizacao);
+        // }
 
-fetch(`/dashboard/buscarUltimasMedidas/${idSensor}`, { cache: 'no-store' }).then(function (response) {
-    if (response.ok) {
-        response.json().then(function (resposta) {
-            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-            resposta.reverse();
-            exibirCard(idSensor)
-        });
-    } else {
-        console.error('Nenhum dado encontrado ou erro na API');
+        fetch(`/dashboard/buscarUltimasMedidas/${idSensor}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+                    exibirCard(idSensor)
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
     }
-})
-    .catch(function (error) {
-        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-    });
-}
 
-function exibirCard(idSensor) {
-    console.log(idSensor);
-    fetch(`/dashboard/buscarMedidasEmTempoReal/${idSensor}`, { cache: 'no-store' }).then(function (response) {
-        response.json().then(function (novoRegistro) {
-            console.log('aqui, nvo registro aqui');
-            alertar(novoRegistro, idSensor)
-            document.getElementById("cardAlerta").innerHTML = `
+    function exibirCard(idSensor) {
+        console.log(idSensor);
+        fetch(`/dashboard/buscarMedidasEmTempoReal/${idSensor}`, { cache: 'no-store' }).then(function (response) {
+            response.json().then(function (novoRegistro) {
+                console.log('aqui, nvo registro aqui');
+                alertar(novoRegistro, idSensor)
+                document.getElementById("cardAlerta").innerHTML = `
                 <i class='bx bxs-megaphone'></i>
                 <p id="titulo_alerta" class="marginB">Umidade atual</p>
                 <div class="umidade">
@@ -136,57 +221,57 @@ function exibirCard(idSensor) {
 
                 <div class="cor-alerta" id="card_${idSensor}"></div>
             `
-            setTimeout(()=>{
-                atualizarGrafico(1);
-            }, 6000)
-        });
+                setTimeout(() => {
+                    atualizarGrafico(1);
+                }, 6000)
+            });
 
-    })
-        .catch(function (error) {
-            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-        });
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
 
-}
+    }
 
-function buscarSensorPorEmpresa(idSensor) {
-        
+    function buscarSensorPorEmpresa(idSensor) {
+
         var idEmpresa = sessionStorage.ID_EMPRESA
         console.log(idSensor)
 
         fetch(`/dashboard/buscarSensorPorEmpresa/${idEmpresa}`, {
-      method: "GET",
-    })
-            .then(function (resposta) {
-            resposta.json().then((sensores) => {
-            sensores.forEach((sensor, index) => {
-                // select_sensor.innerHTML += `<option value='${sensor.idSensor}'>Sensor ${index + 1}</option>`;
-            });
-            });
+            method: "GET",
         })
-        .catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-        });
-        
-        
+            .then(function (resposta) {
+                resposta.json().then((sensores) => {
+                    sensores.forEach((sensor, index) => {
+                        // select_sensor.innerHTML += `<option value='${sensor.idSensor}'>Sensor ${index + 1}</option>`;
+                    });
+                });
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+
+
     }
 
-function aoSelecionar() {
-    buscarSensorPorEmpresa(idSensor)
-// obterDadosGrafico(idSensor)
-exibirCard(idSensor)
-atualizacaoPeriodica()
-}
+    function aoSelecionar() {
+        buscarSensorPorEmpresa(idSensor)
+        // obterDadosGrafico(idSensor)
+        exibirCard(idSensor)
+        atualizacaoPeriodica()
+    }
 
-function atualizarGrafico(idSensor, dados) {
+    function atualizarGrafico(idSensor, dados) {
         fetch(`/dashboard/buscarMedidasEmTempoReal/${idSensor}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (novoRegistro) {
 
                     // obterdados(idSensor);
-                        // umid_sensor_1.innerHTML=`${novoRegistro[0].umidade} %`
-                      
-                        // myChart.update();
-                        // alertar(novoRegistro, idSensor)
+                    // umid_sensor_1.innerHTML=`${novoRegistro[0].umidade} %`
+
+                    // myChart.update();
+                    // alertar(novoRegistro, idSensor)
                     exibirCard(idSensor)
 
                     // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
@@ -205,8 +290,8 @@ function atualizarGrafico(idSensor, dados) {
     }
 
     function atualizacaoPeriodica() {
-   
-   setTimeout(atualizacaoPeriodica, 6000);
-}
+
+        setTimeout(atualizacaoPeriodica, 6000);
+    }
 
 </script>
